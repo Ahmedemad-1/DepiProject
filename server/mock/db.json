@@ -1,0 +1,769 @@
+{
+  "settings": {
+    "restaurantName": "TBD",
+    "currency": "EGP",
+    "openingHours": {
+      "open": "12:00",
+      "close": "23:59"
+    },
+    "sizeMultipliers": {
+      "small": 0.8,
+      "medium": 1.0,
+      "large": 1.3
+    },
+    "reservation": {
+      "minPartySize": 1,
+      "maxPartySize": 10
+    },
+    "orderStatuses": [
+      "received",
+      "preparing",
+      "ready",
+      "picked_up",
+      "cancelled"
+    ],
+    "reservationStatuses": [
+      "pending",
+      "confirmed",
+      "cancelled"
+    ]
+  },
+  "categories": [
+    {
+      "id": 1,
+      "name": "Appetizers",
+      "nameAr": "مقبلات"
+    },
+    {
+      "id": 2,
+      "name": "Main Dishes",
+      "nameAr": "أطباق رئيسية"
+    },
+    {
+      "id": 3,
+      "name": "Grills",
+      "nameAr": "مشويات"
+    },
+    {
+      "id": 4,
+      "name": "Pasta & Pizza",
+      "nameAr": "مكرونة وبيتزا"
+    },
+    {
+      "id": 5,
+      "name": "Desserts",
+      "nameAr": "حلويات"
+    },
+    {
+      "id": 6,
+      "name": "Hot Drinks",
+      "nameAr": "مشروبات ساخنة"
+    },
+    {
+      "id": 7,
+      "name": "Cold Drinks",
+      "nameAr": "مشروبات باردة"
+    },
+    {
+      "id": 8,
+      "name": "Juices",
+      "nameAr": "عصائر"
+    }
+  ],
+  "menuItems": [
+    {
+      "id": 1,
+      "name": "Hummus with Pita",
+      "nameAr": "حمص مع عيش بلدي",
+      "description": "Creamy chickpea dip with olive oil, served with warm pita.",
+      "basePrice": 45,
+      "image": "/images/hummus-pita.jpg",
+      "categoryId": 1,
+      "isVegetarian": true,
+      "isAvailable": true,
+      "extras": []
+    },
+    {
+      "id": 2,
+      "name": "Mozzarella Sticks",
+      "nameAr": "أصابع موزاريلا",
+      "description": "Crispy breaded mozzarella with marinara dip.",
+      "basePrice": 75,
+      "image": "/images/mozzarella-sticks.jpg",
+      "categoryId": 1,
+      "isVegetarian": true,
+      "isAvailable": true,
+      "extras": [
+        {
+          "name": "Extra Sauce",
+          "nameAr": "صوص زيادة",
+          "price": 8
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Crispy Chicken Wings",
+      "nameAr": "أجنحة دجاج مقرمشة",
+      "description": "Fried wings tossed in your choice of sauce.",
+      "basePrice": 95,
+      "image": "/images/chicken-wings.jpg",
+      "categoryId": 1,
+      "isVegetarian": false,
+      "isAvailable": true,
+      "extras": [
+        {
+          "name": "Extra Sauce",
+          "nameAr": "صوص زيادة",
+          "price": 8
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Caesar Salad",
+      "nameAr": "سلطة سيزر",
+      "description": "Romaine lettuce, parmesan, croutons and Caesar dressing.",
+      "basePrice": 85,
+      "image": "/images/caesar-salad.jpg",
+      "categoryId": 1,
+      "isVegetarian": false,
+      "isAvailable": true,
+      "extras": [
+        {
+          "name": "Grilled Chicken",
+          "nameAr": "دجاج مشوي",
+          "price": 30
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Grilled Chicken Breast",
+      "nameAr": "صدر دجاج مشوي",
+      "description": "Marinated chicken breast with rice and grilled vegetables.",
+      "basePrice": 140,
+      "image": "/images/grilled-chicken.jpg",
+      "categoryId": 2,
+      "isVegetarian": false,
+      "isAvailable": true,
+      "extras": [
+        {
+          "name": "Extra Sauce",
+          "nameAr": "صوص زيادة",
+          "price": 8
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Classic Beef Burger",
+      "nameAr": "برجر لحم كلاسيك",
+      "description": "Beef patty, lettuce, tomato and house sauce with fries.",
+      "basePrice": 130,
+      "image": "/images/beef-burger.jpg",
+      "categoryId": 2,
+      "isVegetarian": false,
+      "isAvailable": true,
+      "extras": [
+        {
+          "name": "Extra Patty",
+          "nameAr": "قطعة لحم زيادة",
+          "price": 40
+        },
+        {
+          "name": "Extra Cheese",
+          "nameAr": "جبنة زيادة",
+          "price": 15
+        },
+        {
+          "name": "Bacon",
+          "nameAr": "بيكون",
+          "price": 25
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Chicken Shawarma Plate",
+      "nameAr": "طبق شاورما دجاج",
+      "description": "Sliced shawarma with garlic sauce, pickles and fries.",
+      "basePrice": 120,
+      "image": "/images/shawarma-plate.jpg",
+      "categoryId": 2,
+      "isVegetarian": false,
+      "isAvailable": true,
+      "extras": [
+        {
+          "name": "Extra Sauce",
+          "nameAr": "صوص زيادة",
+          "price": 8
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Fish & Chips",
+      "nameAr": "فيش اند تشيبس",
+      "description": "Crispy fish fillet with fries and tartar sauce.",
+      "basePrice": 150,
+      "image": "/images/fish-and-chips.jpg",
+      "categoryId": 2,
+      "isVegetarian": false,
+      "isAvailable": true,
+      "extras": [
+        {
+          "name": "Extra Sauce",
+          "nameAr": "صوص زيادة",
+          "price": 8
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Mixed Grill",
+      "nameAr": "مشويات مشكلة",
+      "description": "Kofta, chicken tikka and lamb with rice and salad.",
+      "basePrice": 260,
+      "image": "/images/mixed-grill.jpg",
+      "categoryId": 3,
+      "isVegetarian": false,
+      "isAvailable": true,
+      "extras": []
+    },
+    {
+      "id": 10,
+      "name": "Kofta Skewers",
+      "nameAr": "أسياخ كفتة",
+      "description": "Grilled minced beef skewers with tahini and bread.",
+      "basePrice": 150,
+      "image": "/images/kofta-skewers.jpg",
+      "categoryId": 3,
+      "isVegetarian": false,
+      "isAvailable": true,
+      "extras": []
+    },
+    {
+      "id": 11,
+      "name": "Chicken Tikka",
+      "nameAr": "طاووق دجاج",
+      "description": "Spiced grilled chicken cubes with garlic dip.",
+      "basePrice": 135,
+      "image": "/images/chicken-tikka.jpg",
+      "categoryId": 3,
+      "isVegetarian": false,
+      "isAvailable": true,
+      "extras": [
+        {
+          "name": "Extra Sauce",
+          "nameAr": "صوص زيادة",
+          "price": 8
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Lamb Chops",
+      "nameAr": "ريش ضأن",
+      "description": "Grilled lamb chops with roasted potatoes.",
+      "basePrice": 320,
+      "image": "/images/lamb-chops.jpg",
+      "categoryId": 3,
+      "isVegetarian": false,
+      "isAvailable": false,
+      "extras": []
+    },
+    {
+      "id": 13,
+      "name": "Margherita Pizza",
+      "nameAr": "بيتزا مارجريتا",
+      "description": "Tomato sauce, mozzarella and fresh basil.",
+      "basePrice": 120,
+      "image": "/images/margherita-pizza.jpg",
+      "categoryId": 4,
+      "isVegetarian": true,
+      "isAvailable": true,
+      "extras": [
+        {
+          "name": "Extra Cheese",
+          "nameAr": "جبنة زيادة",
+          "price": 15
+        },
+        {
+          "name": "Mushrooms",
+          "nameAr": "مشروم",
+          "price": 10
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Pepperoni Pizza",
+      "nameAr": "بيتزا ببروني",
+      "description": "Mozzarella and spicy pepperoni slices.",
+      "basePrice": 150,
+      "image": "/images/pepperoni-pizza.jpg",
+      "categoryId": 4,
+      "isVegetarian": false,
+      "isAvailable": true,
+      "extras": [
+        {
+          "name": "Extra Cheese",
+          "nameAr": "جبنة زيادة",
+          "price": 15
+        },
+        {
+          "name": "Mushrooms",
+          "nameAr": "مشروم",
+          "price": 10
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Chicken Alfredo Pasta",
+      "nameAr": "مكرونة ألفريدو بالدجاج",
+      "description": "Fettuccine in creamy parmesan sauce with chicken.",
+      "basePrice": 135,
+      "image": "/images/chicken-alfredo.jpg",
+      "categoryId": 4,
+      "isVegetarian": false,
+      "isAvailable": true,
+      "extras": [
+        {
+          "name": "Extra Cheese",
+          "nameAr": "جبنة زيادة",
+          "price": 15
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "name": "Spaghetti Bolognese",
+      "nameAr": "سباجيتي بولونيز",
+      "description": "Spaghetti with slow-cooked beef tomato sauce.",
+      "basePrice": 125,
+      "image": "/images/spaghetti-bolognese.jpg",
+      "categoryId": 4,
+      "isVegetarian": false,
+      "isAvailable": true,
+      "extras": [
+        {
+          "name": "Extra Cheese",
+          "nameAr": "جبنة زيادة",
+          "price": 15
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "name": "Penne Arrabbiata",
+      "nameAr": "بيني أرابياتا",
+      "description": "Penne in spicy tomato and garlic sauce.",
+      "basePrice": 110,
+      "image": "/images/penne-arrabbiata.jpg",
+      "categoryId": 4,
+      "isVegetarian": true,
+      "isAvailable": true,
+      "extras": [
+        {
+          "name": "Extra Cheese",
+          "nameAr": "جبنة زيادة",
+          "price": 15
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "name": "Chocolate Lava Cake",
+      "nameAr": "كيكة الشوكولاتة الذائبة",
+      "description": "Warm chocolate cake with a molten center.",
+      "basePrice": 70,
+      "image": "/images/lava-cake.jpg",
+      "categoryId": 5,
+      "isVegetarian": true,
+      "isAvailable": true,
+      "extras": [
+        {
+          "name": "Ice Cream Scoop",
+          "nameAr": "كرة آيس كريم",
+          "price": 15
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "name": "Cheesecake",
+      "nameAr": "تشيز كيك",
+      "description": "Classic baked cheesecake with berry sauce.",
+      "basePrice": 65,
+      "image": "/images/cheesecake.jpg",
+      "categoryId": 5,
+      "isVegetarian": true,
+      "isAvailable": true,
+      "extras": []
+    },
+    {
+      "id": 20,
+      "name": "Om Ali",
+      "nameAr": "أم علي",
+      "description": "Traditional Egyptian pastry pudding with nuts and cream.",
+      "basePrice": 55,
+      "image": "/images/om-ali.jpg",
+      "categoryId": 5,
+      "isVegetarian": true,
+      "isAvailable": true,
+      "extras": []
+    },
+    {
+      "id": 21,
+      "name": "Basbousa",
+      "nameAr": "بسبوسة",
+      "description": "Semolina cake soaked in syrup with coconut.",
+      "basePrice": 40,
+      "image": "/images/basbousa.jpg",
+      "categoryId": 5,
+      "isVegetarian": true,
+      "isAvailable": true,
+      "extras": []
+    },
+    {
+      "id": 22,
+      "name": "Espresso",
+      "nameAr": "إسبريسو",
+      "description": "Rich single-origin espresso shot.",
+      "basePrice": 35,
+      "image": "/images/espresso.jpg",
+      "categoryId": 6,
+      "isVegetarian": true,
+      "isAvailable": true,
+      "extras": [
+        {
+          "name": "Extra Shot",
+          "nameAr": "شوت زيادة",
+          "price": 10
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "name": "Cappuccino",
+      "nameAr": "كابتشينو",
+      "description": "Espresso with steamed milk and thick foam.",
+      "basePrice": 50,
+      "image": "/images/cappuccino.jpg",
+      "categoryId": 6,
+      "isVegetarian": true,
+      "isAvailable": true,
+      "extras": [
+        {
+          "name": "Extra Shot",
+          "nameAr": "شوت زيادة",
+          "price": 10
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "name": "Turkish Coffee",
+      "nameAr": "قهوة تركي",
+      "description": "Traditional coffee brewed in a cezve.",
+      "basePrice": 40,
+      "image": "/images/turkish-coffee.jpg",
+      "categoryId": 6,
+      "isVegetarian": true,
+      "isAvailable": true,
+      "extras": []
+    },
+    {
+      "id": 25,
+      "name": "Hot Chocolate",
+      "nameAr": "هوت شوكليت",
+      "description": "Creamy hot chocolate topped with whipped cream.",
+      "basePrice": 55,
+      "image": "/images/hot-chocolate.jpg",
+      "categoryId": 6,
+      "isVegetarian": true,
+      "isAvailable": true,
+      "extras": []
+    },
+    {
+      "id": 26,
+      "name": "Iced Latte",
+      "nameAr": "آيس لاتيه",
+      "description": "Espresso over cold milk and ice.",
+      "basePrice": 60,
+      "image": "/images/iced-latte.jpg",
+      "categoryId": 7,
+      "isVegetarian": true,
+      "isAvailable": true,
+      "extras": [
+        {
+          "name": "Extra Shot",
+          "nameAr": "شوت زيادة",
+          "price": 10
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "name": "Soft Drink",
+      "nameAr": "مشروب غازي",
+      "description": "Choice of cola, lemon-lime or orange soda.",
+      "basePrice": 25,
+      "image": "/images/soft-drink.jpg",
+      "categoryId": 7,
+      "isVegetarian": true,
+      "isAvailable": true,
+      "extras": []
+    },
+    {
+      "id": 28,
+      "name": "Iced Tea",
+      "nameAr": "آيس تي",
+      "description": "Chilled black tea with lemon and peach.",
+      "basePrice": 35,
+      "image": "/images/iced-tea.jpg",
+      "categoryId": 7,
+      "isVegetarian": true,
+      "isAvailable": true,
+      "extras": []
+    },
+    {
+      "id": 29,
+      "name": "Fresh Orange Juice",
+      "nameAr": "عصير برتقال طازج",
+      "description": "Freshly squeezed orange juice.",
+      "basePrice": 45,
+      "image": "/images/orange-juice.jpg",
+      "categoryId": 8,
+      "isVegetarian": true,
+      "isAvailable": true,
+      "extras": []
+    },
+    {
+      "id": 30,
+      "name": "Mango Juice",
+      "nameAr": "عصير مانجو",
+      "description": "Thick fresh mango juice.",
+      "basePrice": 50,
+      "image": "/images/mango-juice.jpg",
+      "categoryId": 8,
+      "isVegetarian": true,
+      "isAvailable": true,
+      "extras": []
+    },
+    {
+      "id": 31,
+      "name": "Strawberry Juice",
+      "nameAr": "عصير فراولة",
+      "description": "Fresh strawberry juice.",
+      "basePrice": 50,
+      "image": "/images/strawberry-juice.jpg",
+      "categoryId": 8,
+      "isVegetarian": true,
+      "isAvailable": true,
+      "extras": []
+    },
+    {
+      "id": 32,
+      "name": "Lemon Mint",
+      "nameAr": "ليمون بالنعناع",
+      "description": "Fresh lemon juice blended with mint.",
+      "basePrice": 40,
+      "image": "/images/lemon-mint.jpg",
+      "categoryId": 8,
+      "isVegetarian": true,
+      "isAvailable": true,
+      "extras": []
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Admin Demo",
+      "email": "admin@restaurant.test",
+      "password": "Admin@123",
+      "phone": "01000000001",
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "name": "Customer One",
+      "email": "customer1@example.test",
+      "password": "Test@123",
+      "phone": "01000000002",
+      "role": "customer"
+    },
+    {
+      "id": 3,
+      "name": "Customer Two",
+      "email": "customer2@example.test",
+      "password": "Test@123",
+      "phone": "01000000003",
+      "role": "customer"
+    },
+    {
+      "id": 4,
+      "name": "Customer Three",
+      "email": "customer3@example.test",
+      "password": "Test@123",
+      "phone": "01000000004",
+      "role": "customer"
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "userId": 2,
+      "pickupTime": "2026-11-10T19:30",
+      "paymentMethod": "cash",
+      "subtotal": 390,
+      "total": 390,
+      "status": "picked_up",
+      "createdAt": "2026-11-10T18:50:00"
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "pickupTime": "2026-11-12T20:15",
+      "paymentMethod": "card_demo",
+      "subtotal": 207,
+      "total": 207,
+      "status": "preparing",
+      "createdAt": "2026-11-12T19:40:00"
+    },
+    {
+      "id": 3,
+      "userId": 3,
+      "pickupTime": "2026-11-12T21:00",
+      "paymentMethod": "cash",
+      "subtotal": 260,
+      "total": 260,
+      "status": "received",
+      "createdAt": "2026-11-12T20:10:00"
+    },
+    {
+      "id": 4,
+      "userId": 4,
+      "pickupTime": "2026-11-13T14:00",
+      "paymentMethod": "cash",
+      "subtotal": 338,
+      "total": 338,
+      "status": "ready",
+      "createdAt": "2026-11-13T13:20:00"
+    }
+  ],
+  "orderItems": [
+    {
+      "id": 1,
+      "orderId": 1,
+      "menuItemId": 6,
+      "quantity": 2,
+      "size": "medium",
+      "extras": [
+        "Extra Patty"
+      ],
+      "price": 170
+    },
+    {
+      "id": 2,
+      "orderId": 1,
+      "menuItemId": 27,
+      "quantity": 2,
+      "size": "medium",
+      "extras": [],
+      "price": 25
+    },
+    {
+      "id": 3,
+      "orderId": 2,
+      "menuItemId": 13,
+      "quantity": 1,
+      "size": "large",
+      "extras": [
+        "Extra Cheese"
+      ],
+      "price": 171
+    },
+    {
+      "id": 4,
+      "orderId": 2,
+      "menuItemId": 29,
+      "quantity": 1,
+      "size": "small",
+      "extras": [],
+      "price": 36
+    },
+    {
+      "id": 5,
+      "orderId": 3,
+      "menuItemId": 15,
+      "quantity": 1,
+      "size": "medium",
+      "extras": [],
+      "price": 135
+    },
+    {
+      "id": 6,
+      "orderId": 3,
+      "menuItemId": 19,
+      "quantity": 1,
+      "size": "medium",
+      "extras": [],
+      "price": 65
+    },
+    {
+      "id": 7,
+      "orderId": 3,
+      "menuItemId": 23,
+      "quantity": 1,
+      "size": "medium",
+      "extras": [
+        "Extra Shot"
+      ],
+      "price": 60
+    },
+    {
+      "id": 8,
+      "orderId": 4,
+      "menuItemId": 9,
+      "quantity": 1,
+      "size": "large",
+      "extras": [],
+      "price": 338
+    }
+  ],
+  "reservations": [
+    {
+      "id": 1,
+      "userId": 2,
+      "date": "2026-11-20",
+      "time": "20:00",
+      "partySize": 4,
+      "phone": "01000000002",
+      "note": "Birthday dinner",
+      "status": "confirmed"
+    },
+    {
+      "id": 2,
+      "userId": 3,
+      "date": "2026-11-21",
+      "time": "19:00",
+      "partySize": 2,
+      "phone": "01000000003",
+      "note": "",
+      "status": "pending"
+    },
+    {
+      "id": 3,
+      "userId": 4,
+      "date": "2026-11-22",
+      "time": "21:30",
+      "partySize": 6,
+      "phone": "01000000004",
+      "note": "Near the window if possible",
+      "status": "cancelled"
+    }
+  ]
+}
