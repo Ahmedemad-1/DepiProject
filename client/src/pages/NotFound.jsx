@@ -18,10 +18,19 @@
  *  2. Keep the default export and the file name (App.jsx already imports it).
  *  3. Run the project, test it on a phone-sized screen, then open a Pull Request.
  */
-import PagePlaceholder from "../components/PagePlaceholder.jsx";
+import { Link } from "react-router-dom";
 
-// ---- PLACEHOLDER (delete from here) -----------------------------------
 export default function NotFound() {
-  return <PagePlaceholder title="NotFound" route="*" />;
+  return (
+    <div className="text-center py-5">
+      <h1>404</h1>
+      <p>This page does not exist.</p>
+      <Link to="/" className="btn btn-dark me-2">
+        Home
+      </Link>
+      <Link to="/menu" className="btn btn-outline-dark">
+        Menu
+      </Link>
+    </div>
+  );
 }
-// ---- PLACEHOLDER (to here) ---------------------------------------------
