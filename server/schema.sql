@@ -46,8 +46,7 @@ CREATE TABLE orders (
   payment_method TEXT    NOT NULL CHECK (payment_method IN ('cash', 'card_demo')),
   subtotal       REAL    NOT NULL,
   total          REAL    NOT NULL,
-  status         TEXT    NOT NULL DEFAULT 'received'
-                 CHECK (status IN ('received', 'preparing', 'ready', 'picked_up', 'cancelled')),
+  status         TEXT    NOT NULL DEFAULT 'received' CHECK (status IN ('received', 'preparing', 'ready', 'picked_up', 'cancelled')),
   created_at     TEXT    NOT NULL DEFAULT (datetime('now'))
 );
 

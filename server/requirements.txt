@@ -1,0 +1,14 @@
+# FILE  : server/requirements.txt
+# OWNER : Ahmed Emad
+# PROPOSED Python packages for the FastAPI backend. Pin the versions you actually test with
+# (run `pip freeze` or `pip list` once it works) and delete this note.
+fastapi
+uvicorn[standard]
+sqlalchemy
+pydantic[email]
+pydantic-settings
+bcrypt
+pyjwt
+python-dotenv
+pytest
+httpx

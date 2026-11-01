@@ -22,7 +22,7 @@ Restaurant name and branding: **TBD** (to be decided by the team).
 ## Tech stack
 - Frontend: React (Vite), Bootstrap, React Router
 - API for development: json-server (fake API from `server/mock/db.json`)
-- Real backend + database: in progress in `server/`
+- Real backend + database: in progress in `server/` (proposed: Python + FastAPI + SQLite)
 - Design: Figma
 - Deployment: Netlify / Vercel (frontend)
 
@@ -56,9 +56,12 @@ npm run dev                 # terminal 2 – site on http://localhost:5173
 - Project plan: `docs/planning/`
 - Design (wireframes, ERD, diagrams): `docs/design/`
 - Testing: `docs/testing/`
+- Every deliverable, owner, and due date: `docs/DELIVERABLES.md`
+- Pages, files, and owners: `docs/pages.md`
 - API contract: `docs/api.md`
 - User manual: `docs/user-manual.md`
 - How we work on GitHub: `CONTRIBUTING.md`
+- AI assistant instructions (for Claude): `CLAUDE.md`
 
 ## Live demo
 Link: _to be added after deployment_

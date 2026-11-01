@@ -39,7 +39,7 @@ Base URL (dev): `http://localhost:3001` (set with `VITE_API_URL` in `client/.env
 Differences from the mock (menu path, nested order items, JWT) will be listed here when the backend is built.
 
 ## Data rules
-- Size multipliers: small = 0.8, medium = 1, large = 1.3 (`settings.sizeMultipliers`)
+- Size multipliers: small = 0.7, medium = 1, large = 1.2 (`settings.sizeMultipliers`)
 - Unit price = `basePrice × size multiplier + selected extras`
 - Order statuses: `received → preparing → ready → picked_up` (cancel only before `preparing`)
 - Reservation: party size 1–10, no past dates, within opening hours

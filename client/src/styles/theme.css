@@ -1,0 +1,30 @@
+/*
+ * FILE   : src/styles/theme.css
+ * OWNER  : Ahmed Taher (suggested - the person who owns the wireframes and UI guidelines)
+ * PURPOSE: ONE place for the restaurant brand: colors, fonts, rounded corners.
+ *
+ * TODO (after the team decides the name, logo, and colors):
+ *   1. Replace the color values below with the brand colors.
+ *   2. Use the variables everywhere: color: var(--brand-primary);
+ *   3. Optionally override Bootstrap's look with them (for example for .btn-primary).
+ *   4. Write the same colors and fonts in docs/design/ui-guidelines.md.
+ *
+ * This file is already imported in src/main.jsx.
+ */
+:root {
+  /* PLACEHOLDER VALUES - replace with the brand colors */
+  --brand-primary: #b23a2e;
+  --brand-secondary: #2b2b2b;
+  --brand-accent: #f2b134;
+  --brand-background: #fffaf5;
+  --brand-text: #212529;
+
+  --brand-radius: 0.5rem;
+  --brand-font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  font-family: var(--brand-font);
+  background: var(--brand-background);
+  color: var(--brand-text);
+}

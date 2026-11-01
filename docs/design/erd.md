@@ -1,3 +1,14 @@
+<!--
+FILE      : docs/design/erd.md
+DEPI ITEM : System Analysis & Design - ER Diagram
+OWNER     : Ahmed Emad (suggested)
+DUE       : 6 Nov 2026
+WHAT TO DO:
+  1. Review the draft below against server/schema.sql and the real backend models.
+  2. Export it as an image too (PNG) if the instructor wants a picture: docs/design/erd.png.
+Delete this comment block when the file is done.
+-->
+
 # ERD
 
 GitHub renders this diagram automatically. Keep it in sync with `server/schema.sql`.

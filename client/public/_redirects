@@ -1,0 +1,3 @@
+# Netlify: send every URL to index.html so React Router can handle it.
+# (Without this, refreshing /menu on the deployed site shows "Page not found".)
+/*    /index.html   200
