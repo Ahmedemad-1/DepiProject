@@ -42,26 +42,31 @@
     },
     {
       "id": 4,
-      "name": "Pasta & Pizza",
-      "nameAr": "مكرونة وبيتزا"
+      "name": "Pizza",
+      "nameAr": "بيتزا"
     },
     {
       "id": 5,
+      "name": "Pasta",
+      "nameAr": "مكرونة"
+    },
+    {
+      "id": 6,
       "name": "Desserts",
       "nameAr": "حلويات"
     },
     {
-      "id": 6,
+      "id": 7,
       "name": "Hot Drinks",
       "nameAr": "مشروبات ساخنة"
     },
     {
-      "id": 7,
+      "id": 8,
       "name": "Cold Drinks",
       "nameAr": "مشروبات باردة"
     },
     {
-      "id": 8,
+      "id": 9,
       "name": "Juices",
       "nameAr": "عصائر"
     }
