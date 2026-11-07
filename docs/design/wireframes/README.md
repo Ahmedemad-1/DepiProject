@@ -30,4 +30,6 @@ Delete this comment block when the file is done.
 | Admin orders | `admin-orders.png` | Heba Talaat | |
 | Admin reservations | `admin-reservations.png` | Heba Talaat | |
 
+Look and feel: follow `docs/design/ui-guidelines.md`. The team's reference design is `docs/design/reference/nocturne-concept.html` (open it in a browser).
+
 Figma link: TODO

@@ -13,8 +13,8 @@ All paths are inside `client/src/`.
 ## Public pages
 | Route | File | Suggested owner |
 |---|---|---|
-| `/` | `pages/Home.jsx` | Ahmed Taher |
-| `/menu` | `pages/Menu.jsx` | Ahmed Taher |
+| `/` | `pages/Home.jsx` (**built**: hero, facts band, featured dishes, reservation band) | Ahmed Taher |
+| `/menu` | `pages/Menu.jsx` (starter: grid of DishCard; add tabs, search, filters) | Ahmed Taher |
 | `/menu/:id` | `pages/DishDetails.jsx` | Ahmed Taher |
 | `/cart` | `pages/Cart.jsx` | Shorouk |
 | `/about` | `pages/About.jsx` | Ahmed Taher |
@@ -42,9 +42,9 @@ All paths are inside `client/src/`.
 ## Components (`components/`)
 | File | Used by | Suggested owner |
 |---|---|---|
-| `Layout.jsx`, `Navbar.jsx`, `Footer.jsx` | every page (working shells) | Shared (Ahmed Taher) |
+| `Layout.jsx`, `Navbar.jsx`, `Footer.jsx`, `Logo.jsx` | every page (**built**: Nocturne look, mobile menu) | Shared (Ahmed Taher) |
 | `ProtectedRoute.jsx` | route guard (**`BYPASS_AUTH = true` for now**) | Heba Talaat |
-| `DishCard.jsx` | Home, Menu | Ahmed Taher |
+| `DishCard.jsx` | Home, Menu (**built**) | Ahmed Taher |
 | `CategoryTabs.jsx`, `SearchBar.jsx`, `FilterBar.jsx` | Menu | Ahmed Taher |
 | `SizeSelector.jsx`, `ExtrasSelector.jsx` | DishDetails | Ahmed Taher |
 | `QuantitySelector.jsx` | DishDetails, CartItem | Shared |
@@ -53,7 +53,7 @@ All paths are inside `client/src/`.
 | `StatusBadge.jsx` | Orders, Profile, admin pages | Shared |
 | `FormInput.jsx` | Login, Register, Reservation, Checkout | Heba Talaat |
 | `DishForm.jsx`, `ConfirmModal.jsx` | ManageMenu, Profile | Heba Talaat |
-| `Loader.jsx`, `ErrorMessage.jsx` | any page that loads data | Shared |
+| `Loader.jsx`, `ErrorMessage.jsx` | any page that loads data (**built**) | Shared |
 | `PagePlaceholder.jsx` | placeholders only (delete when everything is built) | – |
 
 ## Context, services, utils
@@ -67,7 +67,8 @@ All paths are inside `client/src/`.
 | `utils/constants.js` | order and reservation statuses, labels, `NEXT_ORDER_STATUS` |
 | `utils/storage.js` | safe `loadJSON` / `saveJSON` / `removeKey` for localStorage |
 | `utils/translations.js` | all UI text (English now, Arabic later) |
-| `styles/theme.css` | brand colors and fonts (CSS variables). Owner: Ahmed Taher |
+| `config/brand.js` | restaurant name, tagline, address, phone (one place). Owner: Ahmed Taher |
+| `styles/theme.css`, `layout.css`, `components.css`, `home.css` | the Nocturne design system (rules: `docs/design/ui-guidelines.md`). Owner: Ahmed Taher |
 | `../public/images/*` and `../public/logo.svg` | placeholder pictures and logo: replace with real files using the same names |
 
 Every document the project needs is listed in `docs/DELIVERABLES.md`.

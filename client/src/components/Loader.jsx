@@ -1,17 +1,17 @@
 /**
  * COMPONENT : Loader
- * OWNER     : Shared (first version: Ahmed Taher) (suggested - change if the team reassigns)
- * PURPOSE   : Loading spinner.
- * PROPS     : text?
- * NOTES     : Use a Bootstrap spinner.
- *
- * HOW TO FINISH: paste your code below and delete the PLACEHOLDER lines.
- * Keep the default export and the file name.
+ * OWNER     : Shared
+ * PURPOSE   : Loading indicator for any page that fetches data.
+ * PROPS     : text? (default "Loading...")
  */
-import { ComponentPlaceholder } from "./PagePlaceholder.jsx";
-
-// ---- PLACEHOLDER (delete from here) -----------------------------------
-export default function Loader(props) {
-  return <ComponentPlaceholder name="Loader" props={props} />;
+export default function Loader({ text = "Loading..." }) {
+  return (
+    <div className="state-loading" role="status">
+      <span
+        className="spinner-border spinner-border-sm text-primary"
+        aria-hidden="true"
+      />
+      <span>{text}</span>
+    </div>
+  );
 }
-// ---- PLACEHOLDER (to here) ---------------------------------------------

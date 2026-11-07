@@ -17,6 +17,8 @@ Open http://localhost:5173/menu to check that the menu loads from the mock API.
 - `src/context` – AuthContext, CartContext
 - `src/services/api.js` – ALL API calls (single place to change)
 - `src/utils` – validators, price helpers, translations
+- `src/config/brand.js` – restaurant name, tagline, address, phone (change the name here)
+- `src/styles` – the Nocturne design system (`theme.css`), plus layout, component, and home styles. Rules: `../docs/design/ui-guidelines.md`
 - `public/images` – dish photos (file names match the `image` field in `server/mock/db.json`)
 
 ## Formatting

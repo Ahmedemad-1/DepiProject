@@ -5,6 +5,9 @@
  * PROPS     : categories (array), activeId, onSelect(id)
  * NOTES     : Highlight the active tab; make it horizontally scrollable on phones.
  *
+ * STYLE     : dark Nocturne theme. Bootstrap classes + src/styles/theme.css helpers; add component
+ *             styles to src/styles/components.css. Rules: docs/design/ui-guidelines.md
+ *
  * HOW TO FINISH: paste your code below and delete the PLACEHOLDER lines.
  * Keep the default export and the file name.
  */

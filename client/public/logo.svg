@@ -1,11 +1,13 @@
 <!--
   FILE   : public/logo.svg
-  OWNER  : whoever designs the logo (decide with the team)
-  TODO   : replace this placeholder with the real restaurant logo (SVG or PNG).
-           If you use a PNG, name it logo.png and update the Navbar and the footer.
+  PURPOSE: stand-alone logo mark (gold monogram in a square, on the dark background).
+           The website itself builds the logo with HTML/CSS (components/Logo.jsx) from the
+           name in src/config/brand.js. Use this file for the favicon source, social
+           images, slides, and the presentation.
+  TODO   : if the team changes the restaurant name, redraw the letter (keep the square).
 -->
-<svg xmlns="http://www.w3.org/2000/svg" width="240" height="80" viewBox="0 0 240 80" role="img" aria-label="Restaurant logo placeholder">
-  <rect width="240" height="80" rx="12" fill="#2b2b2b"/>
-  <text x="120" y="38" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#f2b134" text-anchor="middle">LOGO</text>
-  <text x="120" y="58" font-family="Arial, sans-serif" font-size="11" fill="#ffffff" text-anchor="middle">placeholder - replace me</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="320" viewBox="0 0 64 64" role="img" aria-label="Nocturne logo">
+  <rect width="64" height="64" fill="#0b0b0a"/>
+  <rect x="7" y="7" width="50" height="50" fill="none" stroke="#c2a46f" stroke-width="1.5"/>
+  <path d="M21 45V19l22 26V19" fill="none" stroke="#c2a46f" stroke-width="2.5" stroke-linejoin="miter"/>
 </svg>

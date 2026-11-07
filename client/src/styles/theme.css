@@ -1,30 +1,299 @@
 /*
  * FILE   : src/styles/theme.css
- * OWNER  : Ahmed Taher (suggested - the person who owns the wireframes and UI guidelines)
- * PURPOSE: ONE place for the restaurant brand: colors, fonts, rounded corners.
+ * OWNER  : Ahmed Taher (suggested)
+ * PURPOSE: the "Nocturne" design system: colors, fonts, buttons, forms, tables.
+ *          Pages should use Bootstrap classes + the helpers below. Never hard-code colors.
+ *          Full rules: docs/design/ui-guidelines.md
  *
- * TODO (after the team decides the name, logo, and colors):
- *   1. Replace the color values below with the brand colors.
- *   2. Use the variables everywhere: color: var(--brand-primary);
- *   3. Optionally override Bootstrap's look with them (for example for .btn-primary).
- *   4. Write the same colors and fonts in docs/design/ui-guidelines.md.
- *
- * This file is already imported in src/main.jsx.
+ * Loaded after Bootstrap in src/main.jsx, so it overrides Bootstrap's defaults.
+ * Fonts (Italiana, Manrope) come from the @fontsource packages imported in main.jsx.
  */
-:root {
-  /* PLACEHOLDER VALUES - replace with the brand colors */
-  --brand-primary: #b23a2e;
-  --brand-secondary: #2b2b2b;
-  --brand-accent: #f2b134;
-  --brand-background: #fffaf5;
-  --brand-text: #212529;
 
-  --brand-radius: 0.5rem;
-  --brand-font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+:root {
+  /* ---- palette (contrast ratios are in docs/design/ui-guidelines.md) ---- */
+  --noir-black: #0b0b0a; /* page background */
+  --noir-surface: #14120f; /* inputs, tiles, tables */
+  --noir-surface-2: #1c1a16; /* raised surfaces */
+  --noir-gold: #c2a46f; /* accent: buttons, links, prices */
+  --noir-gold-bright: #d6bb86; /* hover for gold */
+  --noir-gold-ink: #7a6137; /* gold text on the cream band */
+  --noir-cream: #eee7db; /* main text, cream band */
+  --noir-cream-ink: #5f5a51; /* secondary text on the cream band */
+  --noir-muted: #a9a195; /* secondary text on dark */
+  --noir-line: rgba(238, 231, 219, 0.18); /* hairlines */
+  --noir-line-gold: rgba(194, 164, 111, 0.6);
+
+  /* ---- type ---- */
+  --font-display: "Italiana", Georgia, "Times New Roman", serif;
+  --font-body: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* ---- layout ---- */
+  --gutter: clamp(1.25rem, 5vw, 5.25rem);
+  --space-section: clamp(4.5rem, 9vw, 8.5rem);
+  --nav-height: 5.5rem;
+
+  /* ---- aliases for older code ---- */
+  --brand-primary: var(--noir-gold);
+  --brand-secondary: var(--noir-surface);
+  --brand-accent: var(--noir-gold-bright);
+  --brand-background: var(--noir-black);
+  --brand-text: var(--noir-cream);
+  --brand-font: var(--font-body);
+}
+
+/* ---------- Bootstrap dark theme, re-colored ---------- */
+[data-bs-theme="dark"] {
+  --bs-body-bg: var(--noir-black);
+  --bs-body-color: var(--noir-cream);
+  --bs-body-font-family: var(--font-body);
+  --bs-body-line-height: 1.65;
+  --bs-heading-color: var(--noir-cream);
+  --bs-emphasis-color: var(--noir-cream);
+  --bs-secondary-color: var(--noir-muted);
+  --bs-secondary-bg: var(--noir-surface);
+  --bs-tertiary-bg: var(--noir-surface);
+  --bs-border-color: var(--noir-line);
+  --bs-link-color: var(--noir-gold);
+  --bs-link-hover-color: var(--noir-gold-bright);
+  --bs-link-color-rgb: 194, 164, 111;
+  --bs-link-hover-color-rgb: 214, 187, 134;
+  --bs-primary: var(--noir-gold);
+  --bs-primary-rgb: 194, 164, 111;
+  --bs-border-radius: 0;
+  --bs-border-radius-sm: 0;
+  --bs-border-radius-lg: 0;
+  --bs-border-radius-xl: 0;
+  --bs-border-radius-xxl: 0;
+  --bs-focus-ring-color: rgba(194, 164, 111, 0.35);
+  --bs-code-color: var(--noir-gold-bright);
 }
 
 body {
-  font-family: var(--brand-font);
-  background: var(--brand-background);
-  color: var(--brand-text);
+  font-family: var(--font-body);
+  background: var(--noir-black);
+  color: var(--noir-cream);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--noir-gold);
+  color: var(--noir-black);
+}
+
+:focus-visible {
+  outline: 2px solid var(--noir-gold);
+  outline-offset: 3px;
+}
+
+/* ---------- typography ---------- */
+h1,
+h2,
+h3,
+.h1,
+.h2,
+.h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+}
+
+/* Italiana has one weight only, so never use .fw-bold on display headings. */
+.t-display {
+  font-size: clamp(3.4rem, 8vw, 7.5rem);
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+}
+
+.t-title {
+  font-size: clamp(2.4rem, 5vw, 4.4rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+
+.t-gold {
+  color: var(--noir-gold);
+  font-style: normal;
+}
+
+.measure {
+  max-width: 62ch;
+}
+
+.text-secondary,
+.text-body-secondary {
+  color: var(--noir-muted) !important;
+}
+
+/* Underlined action link (the style of the concept's "Discover" link). */
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--noir-gold);
+  color: var(--noir-cream);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.text-link:hover {
+  color: var(--noir-gold);
+}
+
+.text-link svg {
+  width: 1.1em;
+  height: 1.1em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+}
+
+.hairline {
+  border-top: 1px solid var(--noir-line);
+}
+
+/* Page title used at the top of every normal page (inside <main class="container">) */
+.page-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  line-height: 1.02;
+  margin-bottom: 2rem;
+}
+
+/* ---------- buttons ---------- */
+.btn {
+  --bs-btn-border-radius: 0;
+  --bs-btn-font-weight: 600;
+  padding: 0.85rem 1.6rem;
+  font-size: 0.8125rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.btn-sm {
+  padding: 0.55rem 1rem;
+  font-size: 0.75rem;
+}
+
+.btn-primary {
+  --bs-btn-color: var(--noir-black);
+  --bs-btn-bg: var(--noir-gold);
+  --bs-btn-border-color: var(--noir-gold);
+  --bs-btn-hover-color: var(--noir-black);
+  --bs-btn-hover-bg: var(--noir-gold-bright);
+  --bs-btn-hover-border-color: var(--noir-gold-bright);
+  --bs-btn-active-color: var(--noir-black);
+  --bs-btn-active-bg: var(--noir-gold-bright);
+  --bs-btn-active-border-color: var(--noir-gold-bright);
+  --bs-btn-disabled-color: var(--noir-black);
+  --bs-btn-disabled-bg: var(--noir-gold);
+  --bs-btn-disabled-border-color: var(--noir-gold);
+  --bs-btn-focus-shadow-rgb: 194, 164, 111;
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--noir-cream);
+  --bs-btn-border-color: var(--noir-gold);
+  --bs-btn-hover-color: var(--noir-black);
+  --bs-btn-hover-bg: var(--noir-gold);
+  --bs-btn-hover-border-color: var(--noir-gold);
+  --bs-btn-active-color: var(--noir-black);
+  --bs-btn-active-bg: var(--noir-gold);
+  --bs-btn-active-border-color: var(--noir-gold);
+  --bs-btn-disabled-color: var(--noir-muted);
+  --bs-btn-disabled-border-color: var(--noir-line);
+  --bs-btn-focus-shadow-rgb: 194, 164, 111;
+}
+
+/* ---------- forms ---------- */
+.form-label {
+  color: var(--noir-muted);
+  font-size: 0.875rem;
+}
+
+.form-control,
+.form-select {
+  background-color: var(--noir-surface);
+  border-color: var(--noir-line);
+  color: var(--noir-cream);
+  padding: 0.75rem 0.9rem;
+}
+
+.form-control:focus,
+.form-select:focus {
+  background-color: var(--noir-surface);
+  border-color: var(--noir-gold);
+  box-shadow: 0 0 0 0.2rem rgba(194, 164, 111, 0.25);
+  color: var(--noir-cream);
+}
+
+.form-control::placeholder {
+  color: #7d766b;
+}
+
+.form-check-input:checked {
+  background-color: var(--noir-gold);
+  border-color: var(--noir-gold);
+}
+
+.invalid-feedback,
+.text-danger {
+  font-size: 0.875rem;
+}
+
+/* ---------- tables, cards, lists, modals, badges (admin pages) ---------- */
+.table {
+  --bs-table-bg: transparent;
+  --bs-table-color: var(--noir-cream);
+  --bs-table-border-color: var(--noir-line);
+  --bs-table-striped-bg: rgba(238, 231, 219, 0.03);
+  --bs-table-hover-bg: rgba(194, 164, 111, 0.08);
+}
+
+.table > thead th {
+  color: var(--noir-muted);
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.card {
+  --bs-card-bg: var(--noir-surface);
+  --bs-card-border-color: var(--noir-line);
+  --bs-card-cap-bg: var(--noir-surface-2);
+}
+
+.list-group {
+  --bs-list-group-bg: var(--noir-surface);
+  --bs-list-group-border-color: var(--noir-line);
+}
+
+.modal-content {
+  --bs-modal-bg: var(--noir-surface);
+  --bs-modal-border-color: var(--noir-line-gold);
+}
+
+.badge {
+  border-radius: 0;
+  font-weight: 600;
+}
+
+.alert {
+  border-radius: 0;
+}
+
+/* ---------- motion preference ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

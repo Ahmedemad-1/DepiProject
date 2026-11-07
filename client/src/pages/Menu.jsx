@@ -20,44 +20,40 @@
  * NOTE: the code below is a tiny working starter. Replace it with the real page.
  */
 import { useEffect, useState } from "react";
+import DishCard from "../components/DishCard.jsx";
+import Loader from "../components/Loader.jsx";
+import ErrorMessage from "../components/ErrorMessage.jsx";
 import { getMenuItems } from "../services/api.js";
-import { formatPrice } from "../utils/formatPrice.js";
 
-// Starter example: loads menu items from the API (json-server for now)
-// and shows them as a simple list. Replace with DishCard components.
+// Starter example: loads the menu from the API and shows it as a grid of DishCard.
+// Add CategoryTabs, SearchBar, and FilterBar here (see the header comment above).
 export default function Menu() {
   const [items, setItems] = useState([]);
-  const [error, setError] = useState("");
+  const [status, setStatus] = useState("loading");
 
   useEffect(() => {
     getMenuItems()
-      .then(setItems)
-      .catch(() =>
-        setError(
-          "Could not load the menu. Is the mock API running? (npm run mock)",
-        ),
-      );
+      .then((data) => {
+        setItems(data);
+        setStatus("ready");
+      })
+      .catch(() => setStatus("error"));
   }, []);
-
-  if (error) return <div className="alert alert-danger">{error}</div>;
 
   return (
     <div>
-      <h1>Menu</h1>
-      <ul className="list-group">
-        {items.map((item) => (
-          <li
-            key={item.id}
-            className="list-group-item d-flex justify-content-between"
-          >
-            <span>
-              {item.name}
-              {!item.isAvailable && " (Unavailable)"}
-            </span>
-            <span>{formatPrice(item.basePrice)}</span>
-          </li>
-        ))}
-      </ul>
+      <h1 className="page-title">Menu</h1>
+      {status === "loading" && <Loader text="Loading the menu..." />}
+      {status === "error" && (
+        <ErrorMessage message="We could not load the menu. Check that the mock API is running (npm run mock)." />
+      )}
+      {status === "ready" && (
+        <div className="dish-grid">
+          {items.map((item) => (
+            <DishCard key={item.id} item={item} />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

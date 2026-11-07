@@ -5,6 +5,9 @@
  * PROPS     : maxPrice, onMaxPriceChange, vegOnly, onVegOnlyChange
  * NOTES     : Keep it compact on mobile (a collapsible panel works well).
  *
+ * STYLE     : dark Nocturne theme. Bootstrap classes + src/styles/theme.css helpers; add component
+ *             styles to src/styles/components.css. Rules: docs/design/ui-guidelines.md
+ *
  * HOW TO FINISH: paste your code below and delete the PLACEHOLDER lines.
  * Keep the default export and the file name.
  */

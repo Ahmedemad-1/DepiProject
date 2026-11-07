@@ -18,6 +18,9 @@
  *  - Mock login is for demo only (plain-text passwords in db.json)
  *  - Demo accounts: admin@restaurant.test / Admin@123, customer1@example.test / Test@123
  *
+ * STYLE  : dark Nocturne theme. Use Bootstrap classes and the helpers in src/styles/theme.css
+ *           (page-title, t-title, text-link, btn btn-primary). Rules: docs/design/ui-guidelines.md
+ *
  * HOW TO FINISH
  *  1. Paste your code below and delete the PLACEHOLDER lines.
  *  2. Keep the default export and the file name (App.jsx already imports it).

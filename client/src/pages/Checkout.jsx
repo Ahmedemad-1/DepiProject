@@ -22,6 +22,9 @@
  *  - Show the label: Demo mode - no real payment is processed
  *  - Order starts with status 'received'; order lines store the unit price (size + extras)
  *
+ * STYLE  : dark Nocturne theme. Use Bootstrap classes and the helpers in src/styles/theme.css
+ *           (page-title, t-title, text-link, btn btn-primary). Rules: docs/design/ui-guidelines.md
+ *
  * HOW TO FINISH
  *  1. Paste your code below and delete the PLACEHOLDER lines.
  *  2. Keep the default export and the file name (App.jsx already imports it).

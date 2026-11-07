@@ -28,4 +28,5 @@ The others are listed by DEPI: ask the instructor which are required.
 | Deployment diagram | `deployment-diagram.md` | Ahmed Emad | starter |
 | Component diagram | `component-diagram.md` | Ahmed Emad | starter |
 | Wireframes and mockups | `wireframes/` | each member | todo |
-| UI/UX guidelines | `ui-guidelines.md` | Ahmed Taher | todo |
+| UI/UX guidelines | `ui-guidelines.md` | Ahmed Taher | written (Nocturne) |
+| Reference design (the team's chosen look) | `reference/nocturne-concept.html` | - | reference |

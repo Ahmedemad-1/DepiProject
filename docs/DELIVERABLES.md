@@ -27,7 +27,7 @@ See the full table in `docs/design/README.md` (minimum: wireframes, ERD, use cas
 |---|---|---|
 | Frontend source code | `client/` (every page and component: see `docs/pages.md`) | Ahmed Taher, Shorouk, Heba Talaat |
 | Backend + database | `server/` | Ahmed Emad |
-| Dish photos, logo, brand colors | `client/public/images/`, `client/public/logo.svg`, `client/src/styles/theme.css` | Ahmed Taher |
+| Dish photos (replace the placeholders), logo, brand and design system | `client/public/images/`, `client/public/logo.svg`, `client/src/config/brand.js`, `client/src/styles/` | Ahmed Taher |
 | README (install, requirements, configuration, run, API docs link, deployed link) | `README.md` | Ahmed Emad |
 | Git workflow | `CONTRIBUTING.md`, pull requests, commit history | everyone |
 | Deployment | `docs/deployment.md` | Ahmed Emad |

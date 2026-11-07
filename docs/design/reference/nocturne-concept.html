@@ -1,0 +1,1280 @@
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Nocturne — Fine Dining Website Design (Concept)</title>
+<style>
+*,::before,::after{box-sizing:border-box;margin:0;padding:0;border:0 solid}
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}
+img,svg{display:block}
+img{max-width:100%;height:auto}
+button{font:inherit;color:inherit;background:transparent;border:0;cursor:pointer}
+ul,ol{list-style:none}
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Italiana&family=Manrope:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;1,500&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  body {
+    margin: 0;
+    background: #171512;
+    color: #1c1916;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button {
+    cursor: pointer;
+  }
+}
+
+main {
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+svg {
+  width: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.concept-stage {
+  animation: reveal 500ms ease both;
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.design {
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* CONCEPT 01 — OXBLOOD */
+.ember-design {
+  --ember-wine: #721f2a;
+  --ember-wine-dark: #54151e;
+  --ember-ivory: #f4ecdf;
+  --ember-gold: #c49a50;
+  background: var(--ember-ivory);
+  color: var(--ember-wine-dark);
+}
+
+.ember-nav {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  display: grid;
+  width: 100%;
+  height: 96px;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  border-bottom: 1px solid rgba(244, 236, 223, 0.3);
+  color: var(--ember-ivory);
+  padding: 0 clamp(24px, 5vw, 80px);
+}
+
+.ember-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.flame {
+  width: 33px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.2;
+}
+
+.ember-logo > span {
+  display: flex;
+  flex-direction: column;
+}
+
+.ember-logo strong {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+.ember-logo small {
+  margin-top: 2px;
+  font-size: 11px;
+  letter-spacing: 0.32em;
+}
+
+.ember-nav nav {
+  display: flex;
+  gap: 38px;
+  font-size: 12px;
+  letter-spacing: 0.07em;
+}
+
+.ember-nav > button {
+  justify-self: end;
+  border: 1px solid currentColor;
+  border-radius: 100px;
+  background: transparent;
+  color: inherit;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  padding: 13px 20px;
+  text-transform: uppercase;
+}
+
+.ember-hero {
+  position: relative;
+  display: grid;
+  min-height: 850px;
+  grid-template-columns: 44% 56%;
+  background: var(--ember-wine-dark);
+  color: var(--ember-ivory);
+}
+
+.ember-copy {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 130px 5vw 110px 7vw;
+}
+
+.concept-kicker {
+  margin-bottom: 26px;
+  color: var(--ember-gold);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+.ember-copy h1,
+.ember-story h2,
+.ember-menu > div:first-child h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  letter-spacing: -0.045em;
+}
+
+.ember-copy h1 {
+  font-size: clamp(56px, 6.7vw, 102px);
+  line-height: 0.94;
+}
+
+.ember-design em {
+  color: var(--ember-gold);
+  font-style: italic;
+}
+
+.ember-intro {
+  max-width: 440px;
+  margin-top: 30px;
+  color: rgba(244, 236, 223, 0.68);
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.ember-button {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+  margin-top: 38px;
+  border-radius: 100px;
+  background: var(--ember-gold);
+  color: var(--ember-wine-dark);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  padding: 17px 24px;
+  text-transform: uppercase;
+}
+
+.ember-visual {
+  position: relative;
+  overflow: hidden;
+}
+
+.ember-visual::after {
+  position: absolute;
+  inset: 0;
+  background: rgba(84, 21, 30, 0.15);
+  content: '';
+}
+
+.ember-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ember-stamp {
+  position: absolute;
+  z-index: 2;
+  right: 38px;
+  bottom: 38px;
+  display: flex;
+  width: 112px;
+  height: 112px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid rgba(244, 236, 223, 0.7);
+  border-radius: 50%;
+  color: var(--ember-ivory);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.ember-stamp .flame {
+  width: 22px;
+}
+
+.ember-scroll {
+  position: absolute;
+  z-index: 3;
+  bottom: 28px;
+  left: 7vw;
+  color: rgba(244, 236, 223, 0.4);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.ember-story {
+  display: grid;
+  max-width: 1360px;
+  grid-template-columns: 1.4fr 0.6fr;
+  gap: 10vw;
+  align-items: end;
+  margin: auto;
+  padding: 140px 7vw;
+}
+
+.ember-story-title > span,
+.ember-menu > div:first-child > span {
+  color: var(--ember-wine);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.ember-story h2 {
+  margin-top: 20px;
+  font-size: clamp(44px, 5vw, 74px);
+  line-height: 1.06;
+}
+
+.ember-story-copy p {
+  color: rgba(84, 21, 30, 0.7);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.ember-story-copy a {
+  display: inline-flex;
+  align-items: center;
+  gap: 26px;
+  margin-top: 28px;
+  border-bottom: 1px solid var(--ember-wine-dark);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  padding-bottom: 7px;
+  text-transform: uppercase;
+}
+
+.ember-menu {
+  background: var(--ember-wine);
+  color: var(--ember-ivory);
+  padding: 100px 7vw 120px;
+}
+
+.ember-menu > div:first-child {
+  max-width: 1180px;
+  margin: 0 auto 46px;
+}
+
+.ember-menu > div:first-child > span {
+  color: var(--ember-gold);
+}
+
+.ember-menu > div:first-child h2 {
+  margin-top: 14px;
+  font-size: 48px;
+}
+
+.ember-menu article {
+  display: grid;
+  max-width: 1180px;
+  grid-template-columns: 60px 1fr auto;
+  align-items: center;
+  margin: auto;
+  border-top: 1px solid rgba(244, 236, 223, 0.24);
+  padding: 26px 0;
+}
+
+.ember-menu article > span {
+  color: var(--ember-gold);
+  font-size: 12px;
+}
+
+.ember-menu h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.ember-menu article p {
+  margin-top: 5px;
+  color: rgba(244, 236, 223, 0.55);
+  font-size: 12px;
+}
+
+.ember-menu article strong {
+  color: var(--ember-gold);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.ember-menu footer {
+  max-width: 1180px;
+  margin: 34px auto 0;
+  color: rgba(244, 236, 223, 0.5);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* CONCEPT 02 — NOIR */
+.noir-design {
+  --noir-black: #0b0b0a;
+  --noir-gold: #c2a46f;
+  --noir-cream: #eee7db;
+  background: var(--noir-black);
+  color: var(--noir-cream);
+  font-family: 'Manrope', sans-serif;
+}
+
+.noir-hero {
+  position: relative;
+  min-height: 100svh;
+}
+
+.noir-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 65% center;
+  filter: saturate(0.65) contrast(1.08);
+}
+
+.noir-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(7, 7, 7, 0.94) 0%, rgba(7, 7, 7, 0.54) 50%, rgba(7, 7, 7, 0.14) 100%);
+}
+
+.noir-nav {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  height: 98px;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 0 clamp(24px, 5vw, 84px);
+}
+
+.noir-logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.noir-logo > span {
+  display: grid;
+  width: 39px;
+  height: 39px;
+  place-items: center;
+  border: 1px solid var(--noir-gold);
+  color: var(--noir-gold);
+  font-family: 'Italiana', serif;
+  font-size: 23px;
+}
+
+.noir-logo strong {
+  font-family: 'Italiana', serif;
+  font-size: 19px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+}
+
+.noir-nav nav {
+  display: flex;
+  gap: 42px;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.noir-nav > button {
+  justify-self: end;
+  border: 1px solid var(--noir-gold);
+  background: transparent;
+  color: var(--noir-cream);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  padding: 14px 21px;
+  text-transform: uppercase;
+}
+
+.noir-copy {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  min-height: calc(100svh - 98px);
+  flex-direction: column;
+  justify-content: center;
+  padding: 70px clamp(24px, 8vw, 130px) 110px;
+}
+
+.noir-copy > p {
+  margin-bottom: 26px;
+  color: var(--noir-gold);
+  font-size: 12px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+}
+
+.noir-copy h1,
+.noir-statement p,
+.noir-menu h2 {
+  font-family: 'Italiana', serif;
+  font-weight: 400;
+}
+
+.noir-copy h1 {
+  font-size: clamp(62px, 8vw, 120px);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+}
+
+.noir-design em {
+  color: var(--noir-gold);
+  font-style: normal;
+}
+
+.noir-action-row {
+  display: flex;
+  max-width: 680px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+.noir-action-row a,
+.noir-menu-copy > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 40px;
+  border-bottom: 1px solid var(--noir-gold);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  padding-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.noir-action-row span {
+  color: rgba(238, 231, 219, 0.44);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.noir-side {
+  position: absolute;
+  z-index: 2;
+  right: 28px;
+  bottom: 46px;
+  color: rgba(238, 231, 219, 0.5);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+}
+
+.noir-statement {
+  display: grid;
+  min-height: 500px;
+  grid-template-columns: 0.35fr 1.65fr;
+  gap: 5vw;
+  align-items: start;
+  background: var(--noir-cream);
+  color: var(--noir-black);
+  padding: 130px 8vw;
+}
+
+.noir-statement > span {
+  color: #6e685e;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.noir-statement p {
+  max-width: 1000px;
+  font-size: clamp(42px, 5vw, 72px);
+  line-height: 1.12;
+}
+
+.noir-statement em {
+  color: #8c7042;
+}
+
+.noir-menu {
+  display: grid;
+  max-width: 1450px;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 10vw;
+  align-items: center;
+  margin: auto;
+  padding: 140px 8vw 190px;
+}
+
+.noir-menu-copy > p:first-child {
+  margin-bottom: 24px;
+  color: var(--noir-gold);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.noir-menu h2 {
+  font-size: clamp(44px, 5vw, 70px);
+  line-height: 1;
+}
+
+.noir-description {
+  max-width: 370px;
+  margin: 32px 0;
+  color: rgba(238, 231, 219, 0.52);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.noir-menu-image img {
+  width: 100%;
+  aspect-ratio: 1.2;
+  object-fit: cover;
+  filter: saturate(0.55);
+}
+
+.noir-menu-image span {
+  display: block;
+  margin-top: 12px;
+  color: rgba(238, 231, 219, 0.4);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.noir-footer {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 50px;
+  align-items: center;
+  border-top: 1px solid rgba(238, 231, 219, 0.16);
+  padding: 50px 8vw 130px;
+}
+
+.noir-footer span {
+  font-family: 'Italiana', serif;
+  font-size: 28px;
+  letter-spacing: 0.22em;
+}
+
+.noir-footer p {
+  color: rgba(238, 231, 219, 0.5);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* CONCEPT 03 — TERRA */
+.terra-design {
+  --terra-espresso: #35231c;
+  --terra-clay: #be5d3d;
+  --terra-sand: #e8d6bd;
+  background: var(--terra-sand);
+  color: var(--terra-espresso);
+  font-family: 'Manrope', sans-serif;
+}
+
+.terra-nav {
+  display: grid;
+  height: 100px;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 0 clamp(24px, 5vw, 80px);
+}
+
+.terra-logo {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.06em;
+}
+
+.terra-logo span {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.terra-nav nav {
+  display: flex;
+  gap: 36px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.terra-nav button {
+  display: flex;
+  align-items: center;
+  justify-self: end;
+  gap: 24px;
+  border: 0;
+  border-radius: 100px;
+  background: var(--terra-espresso);
+  color: var(--terra-sand);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  padding: 15px 20px;
+  text-transform: uppercase;
+}
+
+.terra-hero {
+  position: relative;
+  display: grid;
+  min-height: 720px;
+  grid-template-columns: 47% 53%;
+  align-items: center;
+  overflow: hidden;
+  padding: 40px 5vw 90px 7vw;
+}
+
+.terra-copy {
+  position: relative;
+  z-index: 2;
+  padding-right: 6vw;
+}
+
+.terra-tag {
+  display: inline-block;
+  border: 1px solid var(--terra-espresso);
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  margin-bottom: 28px;
+  padding: 9px 14px;
+  text-transform: uppercase;
+}
+
+.terra-copy h1,
+.terra-story h2,
+.terra-menu-heading h2 {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.07em;
+}
+
+.terra-copy h1 {
+  font-size: clamp(62px, 7.5vw, 116px);
+  line-height: 0.88;
+}
+
+.terra-design em {
+  color: var(--terra-clay);
+  font-style: normal;
+}
+
+.terra-copy > p {
+  max-width: 430px;
+  margin-top: 30px;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.terra-copy > div {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-top: 38px;
+}
+
+.terra-copy > div a {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  border-radius: 100px;
+  background: var(--terra-clay);
+  color: var(--terra-sand);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  padding: 17px 22px;
+  text-transform: uppercase;
+}
+
+.terra-copy > div > span {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.terra-image-wrap {
+  position: relative;
+  z-index: 2;
+}
+
+.terra-image-wrap > img {
+  width: 100%;
+  aspect-ratio: 0.98;
+  border-radius: 50% 50% 12px 12px;
+  object-fit: cover;
+}
+
+.terra-badge {
+  position: absolute;
+  right: -10px;
+  bottom: 45px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  background: var(--terra-espresso);
+  color: var(--terra-sand);
+  padding: 18px 22px;
+  transform: rotate(-3deg);
+}
+
+.terra-badge span {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.terra-badge strong {
+  margin-top: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.terra-sun {
+  position: absolute;
+  top: 70px;
+  right: -100px;
+  width: 460px;
+  height: 460px;
+  border: 1px solid rgba(53, 35, 28, 0.25);
+  border-radius: 50%;
+}
+
+.terra-story {
+  display: grid;
+  grid-template-columns: 0.75fr 1.25fr;
+  gap: 10vw;
+  align-items: center;
+  background: var(--terra-espresso);
+  color: var(--terra-sand);
+  padding: 120px 8vw;
+}
+
+.terra-photo-small {
+  position: relative;
+}
+
+.terra-photo-small img {
+  width: 100%;
+  aspect-ratio: 0.82;
+  border-radius: 200px 200px 8px 8px;
+  object-fit: cover;
+  filter: saturate(0.72);
+}
+
+.terra-photo-small span {
+  position: absolute;
+  right: -26px;
+  bottom: 40px;
+  border-radius: 100px;
+  background: var(--terra-clay);
+  color: var(--terra-sand);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  padding: 14px 18px;
+  text-transform: uppercase;
+  transform: rotate(-7deg);
+}
+
+.terra-story-copy > span,
+.terra-menu-heading > span {
+  color: var(--terra-clay);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.terra-story h2 {
+  margin-top: 20px;
+  font-size: clamp(46px, 5.5vw, 78px);
+  line-height: 0.98;
+}
+
+.terra-story-copy p {
+  max-width: 510px;
+  margin-top: 32px;
+  color: rgba(232, 214, 189, 0.68);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.terra-menu {
+  padding: 120px 7vw 170px;
+}
+
+.terra-menu-heading {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 0.6fr;
+  gap: 40px;
+  align-items: end;
+  margin-bottom: 52px;
+}
+
+.terra-menu-heading h2 {
+  font-size: clamp(46px, 5vw, 72px);
+  line-height: 0.95;
+}
+
+.terra-menu-heading p {
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.terra-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.terra-cards article {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.terra-cards img {
+  width: 100%;
+  aspect-ratio: 1.38;
+  object-fit: cover;
+}
+
+.terra-cards article > div {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  left: 14px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  border-radius: 8px;
+  background: var(--terra-sand);
+  padding: 18px 20px;
+}
+
+.terra-cards h3 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.terra-cards p {
+  margin-top: 4px;
+  font-size: 12px;
+}
+
+.terra-cards svg {
+  grid-row: 1 / 3;
+  grid-column: 2;
+}
+
+.terra-footer {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  background: var(--terra-clay);
+  color: var(--terra-sand);
+  padding: 60px 7vw 140px;
+}
+
+.terra-footer strong {
+  font-size: 30px;
+  letter-spacing: -0.05em;
+}
+
+.terra-footer p {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.terra-footer button {
+  justify-self: end;
+  border: 1px solid var(--terra-sand);
+  border-radius: 100px;
+  background: transparent;
+  color: inherit;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  padding: 14px 18px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+
+
+
+
+  .ember-nav,
+  .noir-nav,
+  .terra-nav {
+    grid-template-columns: 1fr auto;
+  }
+
+  .ember-nav nav,
+  .noir-nav nav,
+  .terra-nav nav {
+    display: none;
+  }
+
+  .ember-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .ember-visual {
+    position: absolute;
+    inset: 0;
+  }
+
+  .ember-visual::after {
+    background: rgba(84, 21, 30, 0.66);
+  }
+
+  .ember-copy {
+    max-width: 720px;
+  }
+
+  .ember-story {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .noir-statement {
+    grid-template-columns: 1fr;
+  }
+
+  .terra-hero {
+    grid-template-columns: 1fr 1fr;
+    padding-left: 5vw;
+  }
+
+  .terra-menu-heading {
+    grid-template-columns: 1fr 1.4fr;
+  }
+
+  .terra-menu-heading p {
+    grid-column: 2;
+  }
+}
+
+@media (max-width: 640px) {
+
+
+
+  .ember-nav,
+  .noir-nav,
+  .terra-nav {
+    height: 78px;
+    padding: 0 20px;
+  }
+
+  .ember-nav > button,
+  .noir-nav > button,
+  .terra-nav > button {
+    font-size: 11px;
+    padding: 11px 13px;
+  }
+
+  .ember-hero {
+    min-height: 760px;
+  }
+
+  .ember-copy {
+    justify-content: flex-end;
+    padding: 120px 24px 110px;
+  }
+
+  .ember-copy h1 {
+    font-size: 54px;
+  }
+
+  .ember-stamp {
+    display: none;
+  }
+
+  .ember-story,
+  .ember-menu {
+    padding: 90px 24px 130px;
+  }
+
+  .ember-story h2 {
+    font-size: 42px;
+  }
+
+  .ember-menu article {
+    grid-template-columns: 36px 1fr auto;
+  }
+
+  .ember-menu h3 {
+    font-size: 17px;
+  }
+
+  .noir-logo strong {
+    font-size: 15px;
+  }
+
+  .noir-copy {
+    justify-content: flex-end;
+    padding: 120px 24px 120px;
+  }
+
+  .noir-copy h1 {
+    font-size: 57px;
+  }
+
+  .noir-action-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .noir-statement {
+    min-height: auto;
+    padding: 90px 24px;
+  }
+
+  .noir-statement p {
+    font-size: 39px;
+  }
+
+  .noir-menu {
+    grid-template-columns: 1fr;
+    padding: 90px 24px 140px;
+  }
+
+  .noir-menu-image {
+    margin-top: 40px;
+  }
+
+  .noir-footer {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 50px 24px 130px;
+  }
+
+  .terra-logo {
+    font-size: 23px;
+  }
+
+  .terra-logo span {
+    display: none;
+  }
+
+  .terra-nav button svg {
+    display: none;
+  }
+
+  .terra-hero {
+    display: flex;
+    min-height: 760px;
+    flex-direction: column;
+    padding: 60px 24px 110px;
+  }
+
+  .terra-copy {
+    order: 2;
+    margin-top: -70px;
+    padding: 0 10px;
+  }
+
+  .terra-copy h1 {
+    color: var(--terra-sand);
+    font-size: 57px;
+  }
+
+  .terra-copy h1 em {
+    color: var(--terra-espresso);
+  }
+
+  .terra-copy > p,
+  .terra-copy > div > span {
+    color: var(--terra-sand);
+  }
+
+  .terra-tag {
+    border-color: var(--terra-sand);
+    color: var(--terra-sand);
+  }
+
+  .terra-image-wrap > img {
+    min-height: 560px;
+  }
+
+  .terra-badge,
+  .terra-sun {
+    display: none;
+  }
+
+  .terra-story {
+    grid-template-columns: 1fr;
+    gap: 70px;
+    padding: 90px 24px 130px;
+  }
+
+  .terra-story h2 {
+    font-size: 46px;
+  }
+
+  .terra-menu {
+    padding: 90px 24px 140px;
+  }
+
+  .terra-menu-heading {
+    display: block;
+  }
+
+  .terra-menu-heading h2 {
+    margin: 14px 0 20px;
+    font-size: 49px;
+  }
+
+  .terra-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .terra-footer {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 50px 24px 130px;
+  }
+
+  .terra-footer button {
+    justify-self: start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .concept-stage {
+    animation: none;
+  }
+}
+
+/* ---- Polish layer ---- */
+html { -webkit-text-size-adjust: 100%; }
+body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+h1, h2, h3 { text-wrap: balance; }
+p { text-wrap: pretty; }
+a, button { transition: opacity .2s ease, transform .2s ease, background-color .2s ease, color .2s ease, border-color .2s ease; }
+button:hover, .noir-button:hover { opacity: .88; }
+button:active { transform: translateY(1px); }
+a:focus-visible, button:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; border-radius: 4px; }
+img { max-width: 100%; }
+::selection { background: #d8c3a0; color: #0d0c0b; }
+body { background: #0b0b0a; }
+@media (max-width: 640px) {
+  .terra-copy { margin-top: 28px; }
+  .terra-copy h1 { color: var(--terra-espresso); font-size: 48px; }
+  .terra-copy h1 em { color: var(--terra-clay); }
+  .terra-copy > p, .terra-copy > div > span { color: var(--terra-espresso); }
+  .terra-tag { border-color: var(--terra-espresso); color: var(--terra-espresso); }
+}
+.ember-stamp { width: 134px; height: 134px; padding: 0 14px; text-align: center; letter-spacing: 0.1em; line-height: 1.35; }
+
+</style></head><body><main><div class="concept-stage"><div class="design noir-design">
+<section class="noir-hero" id="noir-top"><img class="noir-image" src="https://images.unsplash.com/photo-1671522636018-485ef1f7cd8f?auto=format&fit=crop&w=2000&q=92" alt="Elegant plate in a dark fine dining room"><div class="noir-overlay"></div>
+<header class="noir-nav"><a class="noir-logo" href="#noir-top"><span>N</span><strong>NOCTURNE</strong></a><nav><a href="#noir-menu">Menu</a><a href="#noir-story">The room</a><a href="#noir-contact">Contact</a></nav><button>Book your evening</button></header>
+<div class="noir-copy"><p>Fine dining after dark</p><h1>Where the night<br><em>comes alive.</em></h1>
+<div class="noir-action-row"><a href="#noir-menu">Discover Nocturne <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M14 7l5 5-5 5"/></svg></a><span>New York · 40.7243° N</span></div></div>
+<span class="noir-side">An intimate evening in seven courses</span></section>
+<section class="noir-statement" id="noir-story"><span>01 · The experience</span><p>Nocturne is a study in contrast—<em> quiet luxury, expressive cooking,</em> and hospitality that anticipates every detail.</p></section>
+<section class="noir-menu" id="noir-menu"><div class="noir-menu-copy"><p>Tonight at Nocturne</p><h2>Seven moments.<br><em>One story.</em></h2>
+<p class="noir-description">A tasting menu guided by the season, with optional pairings selected from our cellar.</p><a href="#noir-contact">View the tasting menu <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M14 7l5 5-5 5"/></svg></a></div>
+<div class="noir-menu-image"><img src="https://images.unsplash.com/photo-1621494268492-d01b98eba7e4?auto=format&fit=crop&w=1200&q=90" alt="Chef precisely plating a tasting menu course"><span>Chef’s counter · 14 seats</span></div></section>
+<footer class="noir-footer" id="noir-contact"><span>NOCTURNE</span><p>41 Mercer Street · New York</p><p>Reservations · (212) 555-0141</p></footer>
+</div></div></main></body></html>

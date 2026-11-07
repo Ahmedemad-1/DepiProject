@@ -2,109 +2,106 @@
  * COMPONENT : Navbar
  * OWNER     : Shared (first version: Ahmed Taher)
  * PURPOSE   : Top navigation. Links change with the user: visitor, customer, admin.
- * NOTE      : Working shell so every page can be reached. Improve the design freely
- *             (restaurant name/logo, mobile menu, cart badge style).
+ * NOTES     : - On the home page the bar floats over the hero photo (overlay mode).
+ *             - On phones the links fold into a menu opened by the Menu button.
+ *             - Active page gets a gold underline (NavLink sets aria-current).
  */
-import { Link, NavLink } from "react-router-dom";
+import { useState } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { useAuth } from "../context/AuthContext.jsx";
 import { useCart } from "../context/CartContext.jsx";
+import Logo from "./Logo.jsx";
 
 export default function Navbar() {
   const { user, logout } = useAuth();
   const { itemCount } = useCart();
+  const { pathname } = useLocation();
+  const [open, setOpen] = useState(false);
+
+  const overlay = pathname === "/";
+  const close = () => setOpen(false);
+  const cartLabel = itemCount > 0 ? `Cart, ${itemCount} items` : "Cart";
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-3">
-      <Link className="navbar-brand" to="/">
-        Restaurant
-      </Link>
+    <header
+      className={`site-nav${overlay ? " site-nav--overlay" : ""}${open ? " is-open" : ""}`}
+    >
+      <div className="site-nav__inner">
+        <Logo />
 
-      <button
-        className="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#mainNav"
-        aria-controls="mainNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span className="navbar-toggler-icon" />
-      </button>
+        <button
+          type="button"
+          className="site-nav__toggle"
+          aria-expanded={open}
+          aria-controls="site-menu"
+          onClick={() => setOpen(!open)}
+        >
+          {open ? "Close" : "Menu"}
+        </button>
 
-      <div className="collapse navbar-collapse" id="mainNav">
-        <ul className="navbar-nav me-auto">
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/menu">
+        <div
+          id="site-menu"
+          className={`site-nav__panel${open ? " is-open" : ""}`}
+        >
+          <nav className="site-nav__links" aria-label="Main">
+            <NavLink to="/menu" onClick={close}>
               Menu
             </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/reservation">
-              Reservation
-            </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/about">
+            <NavLink to="/about" onClick={close}>
               About
             </NavLink>
-          </li>
-          {user && (
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/orders">
+            {user && (
+              <NavLink to="/orders" onClick={close}>
                 My orders
               </NavLink>
-            </li>
-          )}
-          {user?.role === "admin" && (
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/admin">
+            )}
+            {user?.role === "admin" && (
+              <NavLink to="/admin" onClick={close}>
                 Admin
               </NavLink>
-            </li>
-          )}
-        </ul>
+            )}
+          </nav>
 
-        <ul className="navbar-nav align-items-lg-center">
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/cart">
-              Cart{" "}
+          <div className="site-nav__actions">
+            <NavLink to="/cart" aria-label={cartLabel} onClick={close}>
+              Cart
               {itemCount > 0 && (
-                <span className="badge bg-warning text-dark">{itemCount}</span>
+                <span className="site-nav__count" aria-hidden="true">
+                  {itemCount}
+                </span>
               )}
             </NavLink>
-          </li>
-          {user ? (
-            <>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/profile">
+            {user ? (
+              <>
+                <NavLink to="/profile" onClick={close}>
                   {user.name}
                 </NavLink>
-              </li>
-              <li className="nav-item">
                 <button
-                  className="btn btn-outline-light btn-sm ms-lg-2"
-                  onClick={logout}
+                  type="button"
+                  className="site-nav__link-btn"
+                  onClick={() => {
+                    logout();
+                    close();
+                  }}
                 >
-                  Logout
+                  Log out
                 </button>
-              </li>
-            </>
-          ) : (
-            <>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/login">
-                  Login
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/register">
-                  Register
-                </NavLink>
-              </li>
-            </>
-          )}
-        </ul>
+              </>
+            ) : (
+              <NavLink to="/login" onClick={close}>
+                Log in
+              </NavLink>
+            )}
+            <Link
+              className="btn btn-outline-primary btn-sm"
+              to="/reservation"
+              onClick={close}
+            >
+              Reserve a table
+            </Link>
+          </div>
+        </div>
       </div>
-    </nav>
+    </header>
   );
 }

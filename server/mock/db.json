@@ -1,6 +1,6 @@
 {
   "settings": {
-    "restaurantName": "TBD",
+    "restaurantName": "Nocturne",
     "currency": "EGP",
     "openingHours": {
       "open": "08:00",
@@ -42,31 +42,26 @@
     },
     {
       "id": 4,
-      "name": "Pizza",
-      "nameAr": "بيتزا"
+      "name": "Pasta & Pizza",
+      "nameAr": "مكرونة وبيتزا"
     },
     {
       "id": 5,
-      "name": "Pasta",
-      "nameAr": "مكرونة"
-    },
-    {
-      "id": 6,
       "name": "Desserts",
       "nameAr": "حلويات"
     },
     {
-      "id": 7,
+      "id": 6,
       "name": "Hot Drinks",
       "nameAr": "مشروبات ساخنة"
     },
     {
-      "id": 8,
+      "id": 7,
       "name": "Cold Drinks",
       "nameAr": "مشروبات باردة"
     },
     {
-      "id": 9,
+      "id": 8,
       "name": "Juices",
       "nameAr": "عصائر"
     }

@@ -5,6 +5,9 @@
  * PROPS     : value, onChange(n), min = 1, max = 20
  * NOTES     : Never allow values below min.
  *
+ * STYLE     : dark Nocturne theme. Bootstrap classes + src/styles/theme.css helpers; add component
+ *             styles to src/styles/components.css. Rules: docs/design/ui-guidelines.md
+ *
  * HOW TO FINISH: paste your code below and delete the PLACEHOLDER lines.
  * Keep the default export and the file name.
  */

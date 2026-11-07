@@ -1,17 +1,25 @@
 /**
  * COMPONENT : ErrorMessage
- * OWNER     : Shared (first version: Ahmed Taher) (suggested - change if the team reassigns)
- * PURPOSE   : Error alert box.
- * PROPS     : message, onRetry? (optional)
- * NOTES     : Use a Bootstrap alert-danger.
- *
- * HOW TO FINISH: paste your code below and delete the PLACEHOLDER lines.
- * Keep the default export and the file name.
+ * OWNER     : Shared
+ * PURPOSE   : Error box for failed requests. Say what failed and what to do next.
+ * PROPS     : message, onRetry? (shows a "Try again" button when given)
  */
-import { ComponentPlaceholder } from "./PagePlaceholder.jsx";
-
-// ---- PLACEHOLDER (delete from here) -----------------------------------
-export default function ErrorMessage(props) {
-  return <ComponentPlaceholder name="ErrorMessage" props={props} />;
+export default function ErrorMessage({ message, onRetry }) {
+  return (
+    <div
+      className="alert alert-danger d-flex flex-wrap align-items-center justify-content-between gap-3"
+      role="alert"
+    >
+      <span>{message}</span>
+      {onRetry && (
+        <button
+          type="button"
+          className="btn btn-outline-primary btn-sm"
+          onClick={onRetry}
+        >
+          Try again
+        </button>
+      )}
+    </div>
+  );
 }
-// ---- PLACEHOLDER (to here) ---------------------------------------------
