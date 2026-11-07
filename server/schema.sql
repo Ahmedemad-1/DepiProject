@@ -50,14 +50,17 @@ CREATE TABLE orders (
   created_at     TEXT    NOT NULL DEFAULT (datetime('now'))
 );
 
+-- Each line keeps a copy of the dish name and the unit price at order time,
+-- so old orders still read correctly after a dish is renamed or removed.
 CREATE TABLE order_items (
   id           INTEGER PRIMARY KEY AUTOINCREMENT,
   order_id     INTEGER NOT NULL REFERENCES orders(id) ON DELETE CASCADE,
-  menu_item_id INTEGER NOT NULL REFERENCES menu_items(id),
+  menu_item_id INTEGER REFERENCES menu_items(id) ON DELETE SET NULL,
+  name         TEXT    NOT NULL, -- dish name copied at order time
   quantity     INTEGER NOT NULL CHECK (quantity > 0),
   size         TEXT    NOT NULL DEFAULT 'medium' CHECK (size IN ('small', 'medium', 'large')),
-  extras       TEXT,            -- JSON list of selected extra names, e.g. ["Extra Cheese"]
-  price        REAL    NOT NULL -- unit price after size and extras
+  extras       TEXT,             -- JSON list of selected extra names, e.g. ["Extra Cheese"]
+  price        REAL    NOT NULL  -- unit price after size and extras
 );
 
 CREATE TABLE reservations (
