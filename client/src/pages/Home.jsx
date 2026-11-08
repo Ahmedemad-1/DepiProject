@@ -177,7 +177,7 @@ export default function Home() {
             </address>
           )}
         </div>
-        <img className="visit__image" src="/images/about.jpg" alt="" />
+        <img className="visit__image" src="/images/2nd.jpg" alt="" />
       </section>
     </>
   );
