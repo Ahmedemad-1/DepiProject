@@ -13,7 +13,7 @@ Delete this comment block when the file is done.
 # Technical Documentation
 
 ## Architecture
-TODO
+TODO. Frontend facts to include: React 19 + Vite, React Router (lazy pages), Context for auth and cart, one API file (`client/src/services/api.js`), the Velora design system (`docs/design/ui-guidelines.md`), PurgeCSS on Bootstrap in production builds (`client/vite.config.js`).
 
 ## Database
 TODO

@@ -1,42 +1,55 @@
 /**
  * COMPONENT : Layout
- * PURPOSE   : Wraps every page with the Navbar on top and the Footer at the bottom.
- * NOTES     : - The home page is full-width (it has its own sections); every other page
- *               is placed inside a Bootstrap container with vertical padding.
- *             - Scrolls to the top on every page change and sets the browser tab title.
+ * OWNER     : Ahmed Taher (suggested - change if the team reassigns)
+ * PURPOSE   : Wraps every page: skip link, scroll handling, Navbar, the page, Footer.
+ * NOTES     : - Each page renders its own <main id="main"> (Velora convention, the CSS
+ *               `#root > main` depends on it), so Layout adds NO wrapper around <Outlet />.
+ *             - Pages are loaded lazily (Suspense + Velora Loader).
+ *             - The browser tab title comes from BRAND.fullName.
  */
-import { useEffect } from "react";
+import { Suspense, useEffect, useRef } from "react";
 import { Outlet, useLocation } from "react-router-dom";
-import { BRAND } from "../config/brand.js";
 import Navbar from "./Navbar.jsx";
 import Footer from "./Footer.jsx";
+import Loader from "./Loader.jsx";
+import { BRAND } from "../config/brand.js";
+
+// Scroll to the #anchor if the URL has one, otherwise to the top on a new page.
+function ScrollManager() {
+  const { pathname, hash, key } = useLocation();
+  const lastPath = useRef(pathname);
+  useEffect(() => {
+    const el = hash && document.getElementById(hash.slice(1));
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+    else if (lastPath.current !== pathname)
+      window.scrollTo({ top: 0, behavior: "instant" });
+    lastPath.current = pathname;
+  }, [pathname, hash, key]);
+  return null;
+}
 
 export default function Layout() {
-  const { pathname } = useLocation();
-  const isHome = pathname === "/";
-
   useEffect(() => {
-    document.title = BRAND.name;
+    document.title = BRAND.fullName;
   }, []);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
   return (
-    <div className="d-flex flex-column min-vh-100">
-      <a className="skip-link" href="#main">
+    <>
+      <a className="skip" href="#main">
         Skip to content
       </a>
+      <ScrollManager />
       <Navbar />
-      <main
-        id="main"
-        tabIndex={-1}
-        className={isHome ? "flex-grow-1" : "container flex-grow-1 py-5"}
+      <Suspense
+        fallback={
+          <main id="main">
+            <Loader className="tall" />
+          </main>
+        }
       >
         <Outlet />
-      </main>
+      </Suspense>
       <Footer />
-    </div>
+    </>
   );
 }

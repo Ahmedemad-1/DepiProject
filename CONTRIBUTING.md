@@ -25,5 +25,10 @@
 - `Fix cart total when size changes`
 - `Add reservation validation rules`
 
+## Before you open a Pull Request
+- Run `npm run format`, `npm run lint` and `npm run build` in `client/` (all must pass).
+- New CSS goes only in `client/src/styles/app.css` with new class names. Do not edit Velora's CSS files.
+- Never type the restaurant name or contact details inside a page: use `BRAND` from `src/config/brand.js`.
+
 ## Weekly meeting (20 min)
 What is done, what is blocked, what is next.

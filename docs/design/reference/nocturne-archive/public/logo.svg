@@ -1,0 +1,13 @@
+<!--
+  FILE   : public/logo.svg
+  PURPOSE: stand-alone logo mark (gold monogram in a square, on the dark background).
+           The website itself builds the logo with HTML/CSS (components/Logo.jsx) from the
+           name in src/config/brand.js. Use this file for the favicon source, social
+           images, slides, and the presentation.
+  TODO   : if the team changes the restaurant name, redraw the letter (keep the square).
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="320" viewBox="0 0 64 64" role="img" aria-label="Nocturne logo">
+  <rect width="64" height="64" fill="#0b0b0a"/>
+  <rect x="7" y="7" width="50" height="50" fill="none" stroke="#c2a46f" stroke-width="1.5"/>
+  <path d="M21 45V19l22 26V19" fill="none" stroke="#c2a46f" stroke-width="2.5" stroke-linejoin="miter"/>
+</svg>

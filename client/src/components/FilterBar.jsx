@@ -5,8 +5,10 @@
  * PROPS     : maxPrice, onMaxPriceChange, vegOnly, onVegOnlyChange
  * NOTES     : Keep it compact on mobile (a collapsible panel works well).
  *
- * STYLE     : dark Nocturne theme. Bootstrap classes + src/styles/theme.css helpers; add component
- *             styles to src/styles/components.css. Rules: docs/design/ui-guidelines.md
+ * VELORA    : Velora already implements this inline in pages/Menu.jsx (the `.tools` row: price Dropdown + vegetarian switch).
+ *             Optional: extract it into this component; otherwise leave the placeholder.
+ * STYLE     : Velora design (rules: docs/design/ui-guidelines.md). Reuse Velora's classes from
+ *             src/styles; new CSS goes in src/styles/app.css with NEW class names.
  *
  * HOW TO FINISH: paste your code below and delete the PLACEHOLDER lines.
  * Keep the default export and the file name.

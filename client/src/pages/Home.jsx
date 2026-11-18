@@ -1,184 +1,91 @@
 /**
- * PAGE   : Home
- * ROUTE  : /
- * ACCESS : Public
- * OWNER  : Ahmed Taher (suggested - change if the team reassigns)
- *
- * WHAT IT SHOWS (the Nocturne design, adapted to a pickup + reservation restaurant)
- *  - Hero: full-bleed photo, headline, "Order for pickup" button, "Reserve a table" link
- *  - Cream band: opening hours, pickup and table facts, and the promise in one sentence
- *  - From the kitchen: four dishes from the menu (one from each of four categories)
- *  - Reservation band: photo, short invitation, contact details (shown when filled in)
- *
- * DATA / API  (functions live in src/services/api.js)
- *  - getMenuItems(), getSettings()
- *
- * TODO
- *  - Replace client/public/images/hero.jpg and about.jpg with real photos.
- *  - Fill in the address and phone in src/config/brand.js.
- *  - Optional: a "featured" flag in db.json instead of picking by category.
+ * PAGE    : Home
+ * ROUTE   : /
+ * OWNER   : Ahmed Taher (suggested - change if the team reassigns)
+ * PURPOSE : Landing page: hero, rotating dish showcase, categories, about teaser, booking call-to-action.
+ * ORIGIN  : Velora design by [FRIEND'S NAME]; data and rules from the Nocturne system.
+ * DATA    : categories and dishes from useMenu() (services/api.js). Copy is Velora's.
+ * TODO    : the hero/about text still describes a wood-fired, pasta-led Italian menu while the
+ *           database menu is Egyptian. The team must align the copy with the real menu.
  */
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import DishCard from "../components/DishCard.jsx";
-import Loader from "../components/Loader.jsx";
-import ErrorMessage from "../components/ErrorMessage.jsx";
-import { BRAND } from "../config/brand.js";
-import { getMenuItems, getSettings } from "../services/api.js";
-import "../styles/home.css";
-
-// Category ids in db.json: 2 Main Dishes, 3 Grills, 4 Pasta & Pizza, 5 Desserts.
-const FEATURED_CATEGORIES = [2, 3, 4, 5];
-
-function pickFeatured(items) {
-  const available = items.filter((item) => item.isAvailable);
-  const picks = [];
-  for (const categoryId of FEATURED_CATEGORIES) {
-    const found = available.find((item) => item.categoryId === categoryId);
-    if (found) picks.push(found);
-  }
-  return picks.length > 0 ? picks : available.slice(0, 4);
-}
-
-function ArrowIcon() {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M5 12h13M14 7l5 5-5 5" />
-    </svg>
-  );
-}
+import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
+import MenuShowcase from '../components/MenuShowcase.jsx';
+import Img from '../components/Img.jsx';
+import HeroBackdrop from '../components/HeroBackdrop.jsx';
+import WaitingTable from '../components/WaitingTable.jsx';
+import Loader from '../components/Loader.jsx';
+import ErrorMessage from '../components/ErrorMessage.jsx';
+import { useMenu } from '../hooks/useMenu.js';
+import { sitePhoto } from '../config/photos.js';
+import { BRAND } from '../config/brand.js';
 
 export default function Home() {
-  const [picks, setPicks] = useState([]);
-  const [settings, setSettings] = useState(null);
-  const [status, setStatus] = useState("loading"); // loading | ready | error
-
-  const [attempt, setAttempt] = useState(0);
-
-  useEffect(() => {
-    let cancelled = false;
-    Promise.all([getMenuItems(), getSettings()])
-      .then(([items, config]) => {
-        if (cancelled) return;
-        setPicks(pickFeatured(items));
-        setSettings(config);
-        setStatus("ready");
-      })
-      .catch(() => {
-        if (!cancelled) setStatus("error");
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, [attempt]);
-
-  function retry() {
-    setStatus("loading");
-    setAttempt((n) => n + 1);
-  }
-
-  const hours = settings
-    ? `${settings.openingHours.open} \u2013 ${settings.openingHours.close}`
-    : null;
-  const maxParty = settings?.reservation?.maxPartySize;
+  const { items, categories, loading, error, reload } = useMenu();
+  // Category card photo = the category's own `image` (Velora's categories have one),
+  // otherwise the photo of its first dish.
+  const cardImage = (c) => c.image || items.find((i) => i.categoryId === c.id)?.image;
 
   return (
-    <>
-      <section className="hero" aria-labelledby="hero-title">
-        <img className="hero__image" src="/images/hero.jpg" alt="" />
-        <div className="hero__overlay" />
-
-        <div className="hero__copy">
-          <h1 className="t-display hero__title" id="hero-title">
-            <span>A table for tonight,</span>
-            <span className="t-gold">or dinner to go.</span>
-          </h1>
-          <p className="hero__lead">
-            Browse the full menu, order for pickup, or reserve a table.
-          </p>
-          <div className="hero__actions">
-            <Link className="btn btn-primary" to="/menu">
-              Order for pickup
-            </Link>
-            <Link className="text-link" to="/reservation">
-              Reserve a table <ArrowIcon />
-            </Link>
+    <main id="main">
+      <section id="hero" className="hero">
+        <HeroBackdrop />
+        <div className="container hero-in">
+          <p className="tag">{BRAND.tagline}</p>
+          <h1>A Taste Worth Remembering</h1>
+          <p className="lead">{BRAND.name} brings seasonal ingredients, wood fired heat and unhurried service to one warm table. Come hungry, stay for the evening.</p>
+          <div className="d-grid d-sm-flex flex-wrap gap-3">
+            <Link to="/menu" className="btn-solid">Explore Our Menu</Link>
+            <Link to="/reservation" className="btn-ghost">Book a Table</Link>
           </div>
         </div>
-
-        {hours && <span className="hero__hours">Open daily {hours}</span>}
       </section>
 
-      <section className="band-cream" aria-label="How it works">
-        <div className="band-cream__grid">
-          <dl className="facts">
-            <dt>Opening hours</dt>
-            <dd>{hours ? `Every day, ${hours}` : "Every day"}</dd>
-            <dt>Pickup</dt>
-            <dd>Order online, collect at the restaurant</dd>
-            <dt>Tables</dt>
-            <dd>
-              {maxParty
-                ? `Reservations for 1 to ${maxParty} guests`
-                : "Reservations for small and large groups"}
-            </dd>
-          </dl>
-          <p className="statement">
-            Order ahead and your food is ready when you arrive.{" "}
-            <em>Reserve ahead and your table is waiting.</em>
-          </p>
-        </div>
+      <section className="sec feature" aria-label="From our kitchen">
+        <div className="container"><MenuShowcase /></div>
       </section>
 
-      <section className="picks" aria-labelledby="picks-title">
-        <div className="section-head">
-          <h2 className="t-title" id="picks-title">
-            From the kitchen
-          </h2>
-          <Link className="text-link" to="/menu">
-            See the full menu <ArrowIcon />
-          </Link>
-        </div>
-
-        {status === "loading" && <Loader text="Loading the menu..." />}
-        {status === "error" && (
-          <ErrorMessage
-            message="We could not load the menu. Check that the mock API is running (npm run mock), then try again."
-            onRetry={retry}
-          />
-        )}
-        {status === "ready" && (
-          <div className="dish-grid">
-            {picks.map((item) => (
-              <DishCard key={item.id} item={item} />
+      <section className="sec light" aria-labelledby="courses">
+        <div className="container">
+          <div className="head"><h2 id="courses">Find your course</h2><p className="muted">Start with what you’re craving and we’ll show you the matching dishes.</p></div>
+          <div className="row g-3 g-lg-4">
+            {loading && <Loader />}
+            {error && <ErrorMessage message={`We couldn’t load the menu. ${error}`} onRetry={reload} />}
+            {categories.map(c => (
+              <div key={c.id} className="col-6 col-lg-3">
+                <Link to={`/menu?category=${c.id}`} className="cat-card">
+                  <Img src={cardImage(c)} alt="" className="cat-img" />
+                  <h3>{c.name}</h3><p>{c.description}</p><span className="cat-go">View dishes</span>
+                </Link>
+              </div>
             ))}
           </div>
-        )}
+        </div>
       </section>
 
-      <section className="visit" aria-labelledby="visit-title">
-        <div>
-          <h2 className="t-title" id="visit-title">
-            Dinner with company?
-          </h2>
-          <p className="visit__text">
-            Choose a date, a time, and how many of you are coming. We confirm
-            your table as soon as we see the request.
-          </p>
-          <Link className="btn btn-outline-primary" to="/reservation">
-            Reserve a table
-          </Link>
-          {(BRAND.address || BRAND.phone) && (
-            <address className="visit__contact">
-              {BRAND.address && (
-                <span className="d-block">{BRAND.address}</span>
-              )}
-              {BRAND.phone && <span className="d-block">{BRAND.phone}</span>}
-            </address>
-          )}
-        </div>
-        <img className="visit__image" src="/images/2nd.jpg" alt="" />
+      <section id="about" className="sec" aria-labelledby="about-h">
+        <div className="container"><div className="row align-items-center gy-5 gx-lg-5">
+          <div className="col-md-5"><div className="about-frame"><div className="about-clip"><Img src={sitePhoto.about} alt={`A warm lamp glowing over a set table in the ${BRAND.name} dining room`} className="about-img" /></div></div></div>
+          <div className="col-md-7 col-lg-6 about-offset">
+            <h2 id="about-h">Cooked slowly, served warmly</h2>
+            <p>{BRAND.name} began with a simple idea: a restaurant should feel like the best table at a friend’s house. Our kitchen cooks with seasonal produce from nearby growers, pasta rolled every morning and a wood-fired oven that never rests.</p>
+            <p className="muted">Every plate starts with ingredients we’d happily serve at home: this year’s olive oil, aged beef from trusted farms, herbs cut the same day. The room is candlelit, the pace is relaxed, and the team knows the menu by heart.</p>
+            <Link to="/about" className="btn-solid mt-4">Discover our story <ArrowRight className="arrow" size={16} aria-hidden="true" /></Link>
+          </div>
+        </div></div>
       </section>
-    </>
+
+      <section className="sec promo text-center" aria-labelledby="reserve">
+        <Img src={sitePhoto.bookTable} alt="" className="promo-img" />
+        <div className="container">
+          <h2 id="reserve">Make your evening special</h2>
+          <p className="mx-auto mb-4" style={{ maxWidth: 520 }}>Book a table for dinner or a celebration. We’ll keep the candle lit.</p>
+          <Link to="/reservation" className="btn-solid">Book a Table</Link>
+        </div>
+      </section>
+
+      <WaitingTable />
+
+    </main>
   );
 }

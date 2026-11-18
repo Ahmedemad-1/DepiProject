@@ -15,8 +15,11 @@
  * RULES  (full list: CLAUDE.md section 10)
  *  - Only 'pending' reservations can be confirmed; admins may cancel pending or confirmed ones
  *
- * STYLE  : dark Nocturne theme. Use Bootstrap classes and the helpers in src/styles/theme.css
- *           (page-title, t-title, text-link, btn btn-primary). Rules: docs/design/ui-guidelines.md
+ * VELORA  : Velora has no page for this route, so this is a Velora-styled placeholder.
+ * STYLE  : Velora design (rules: docs/design/ui-guidelines.md). Reuse Velora's classes from
+ *           src/styles (theme.css tokens, .page-head, .sec, .btn-solid / .btn-ghost,
+ *           .form-control, .state). New CSS goes in src/styles/app.css with NEW class names.
+ *           Every page renders its own <main id="main">.
  *
  * HOW TO FINISH
  *  1. Paste your code below and delete the PLACEHOLDER lines.

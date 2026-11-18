@@ -1,17 +1,23 @@
 /**
  * COMPONENT : Loader
- * OWNER     : Shared
- * PURPOSE   : Loading indicator for any page that fetches data.
- * PROPS     : text? (default "Loading...")
+ * OWNER     : Ahmed Taher (suggested - change if the team reassigns)
+ * PURPOSE   : Loading indicator (the Velora logo inside a spinning ring) for any page that fetches data.
+ * ORIGIN    : Velora design by [FRIEND'S NAME], wired to the Nocturne data layer.
+ * PROPS     : full?, className?, label? (screen-reader text), text? (alias of label, kept from the old Nocturne Loader)
  */
-export default function Loader({ text = "Loading..." }) {
+import { LogoMark } from './Logo.jsx';
+
+export default function Loader({ full = false, className = '', label = 'Loading', text }) {
   return (
-    <div className="state-loading" role="status">
-      <span
-        className="spinner-border spinner-border-sm text-primary"
-        aria-hidden="true"
-      />
-      <span>{text}</span>
+    <div className={`loader ${full ? 'full' : ''} ${className}`} role="status">
+      <div className="loader-mark">
+        <svg className="loader-ring" viewBox="0 0 100 100" aria-hidden="true">
+          <circle className="loader-track" cx="50" cy="50" r="47" />
+          <circle className="loader-arc" cx="50" cy="50" r="47" pathLength="100" />
+        </svg>
+        <LogoMark size={54} />
+      </div>
+      <span className="visually-hidden">{text || label}</span>
     </div>
   );
 }

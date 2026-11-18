@@ -1,31 +1,35 @@
+import { lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
 
 // Public pages
 import Home from "./pages/Home.jsx";
-import Menu from "./pages/Menu.jsx";
-import DishDetails from "./pages/DishDetails.jsx";
-import Cart from "./pages/Cart.jsx";
-import About from "./pages/About.jsx";
-import Login from "./pages/Login.jsx";
-import Register from "./pages/Register.jsx";
-import NotFound from "./pages/NotFound.jsx";
+const Menu = lazy(() => import("./pages/Menu.jsx"));
+const DishDetails = lazy(() => import("./pages/DishDetails.jsx"));
+const Cart = lazy(() => import("./pages/Cart.jsx"));
+const About = lazy(() => import("./pages/About.jsx"));
+const Contact = lazy(() => import("./pages/Contact.jsx"));
+const Login = lazy(() => import("./pages/Login.jsx"));
+const Register = lazy(() => import("./pages/Register.jsx"));
+const NotFound = lazy(() => import("./pages/NotFound.jsx"));
 
 // Customer pages (login required)
-import Reservation from "./pages/Reservation.jsx";
-import Checkout from "./pages/Checkout.jsx";
-import Orders from "./pages/Orders.jsx";
-import OrderTracking from "./pages/OrderTracking.jsx";
-import Profile from "./pages/Profile.jsx";
+const Reservation = lazy(() => import("./pages/Reservation.jsx"));
+const Checkout = lazy(() => import("./pages/Checkout.jsx"));
+const Orders = lazy(() => import("./pages/Orders.jsx"));
+const OrderTracking = lazy(() => import("./pages/OrderTracking.jsx"));
+const Profile = lazy(() => import("./pages/Profile.jsx"));
 
 // Admin pages (admin role required)
-import Dashboard from "./pages/admin/Dashboard.jsx";
-import ManageMenu from "./pages/admin/ManageMenu.jsx";
-import ManageOrders from "./pages/admin/ManageOrders.jsx";
-import ManageReservations from "./pages/admin/ManageReservations.jsx";
+const Dashboard = lazy(() => import("./pages/admin/Dashboard.jsx"));
+const ManageMenu = lazy(() => import("./pages/admin/ManageMenu.jsx"));
+const ManageOrders = lazy(() => import("./pages/admin/ManageOrders.jsx"));
+const ManageReservations = lazy(() => import("./pages/admin/ManageReservations.jsx"));
 
 // Every route of the website is registered here (see docs/pages.md).
+// Pages (except Home) load lazily; <Layout /> shows the Velora loader while they load.
+// /contact exists only in the Velora design (extra route, no Nocturne equivalent).
 export default function App() {
   return (
     <Routes>
@@ -36,6 +40,7 @@ export default function App() {
         <Route path="/menu/:id" element={<DishDetails />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 

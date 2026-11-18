@@ -2,17 +2,32 @@
 <html lang="en" data-bs-theme="dark">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="VELORA RESTAURANT. Good Food. Great Mood." />
     <meta name="theme-color" content="#0b0b0a" />
-    <meta
-      name="description"
-      content="Browse the full menu, order for pickup, or reserve a table."
-    />
-    <!-- Keep this title equal to BRAND.name in src/config/brand.js -->
-    <title>Nocturne</title>
+    <meta name="color-scheme" content="dark" />
+    <title>VELORA RESTAURANT</title> <!-- keep equal to BRAND.fullName (src/config/brand.js) -->
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="stylesheet" href="/src/styles/loader.css" />
+    <link rel="stylesheet" href="/src/styles/fonts.css" />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/lora-latin-wght-normal.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/lora-latin-wght-italic.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/sora-latin-wght-normal.woff2" crossorigin />
+    <link rel="preload" as="image" href="/images/hero-1.jpg" fetchpriority="high" />
+    <link rel="preconnect" href="https://images.unsplash.com" />
   </head>
   <body>
+    <div id="splash" class="loader full" role="status" aria-label="Loading">
+      <div class="loader-mark">
+        <svg class="loader-ring" viewBox="0 0 100 100" aria-hidden="true">
+          <circle class="loader-track" cx="50" cy="50" r="47" />
+          <circle class="loader-arc" cx="50" cy="50" r="47" pathLength="100" />
+        </svg>
+        <svg height="54" width="47" viewBox="30 30 498 570" fill="currentColor" aria-hidden="true"><path d="M327.5 406.7L328 401.1C331.3 394.7,337.6 389.7,342.3 384.5C352 373.6,357 360.2,362.3 347C348.7 323.9,337.8 298.6,320.2 278.1C303.3 258.3,278.3 243.3,267.4 218.7L258.7 200.7C255.2 190.1,253.6 167.8,263.3 159.7L268.7 158.2C269.8 159.4,272.2 159.4,273.4 161.3C277.9 168.4,275.1 179,275.7 186.9C276.6 198.7,280.9 210.6,287.1 220.6C298.5 239,319.6 250.9,334.2 266.5C351.3 284.8,355.3 299,365.9 320.2C366.9 313.2,368.2 306.3,367.8 299.2C365.8 258.5,325.1 231.4,305.9 201.5C283.8 166.9,288.3 122.5,310.1 89.4C322.1 71.1,337 56.8,355.9 46.1C361.4 43,365.7 39.6,372.4 40C375.8 40.2,376.6 42.6,378.9 43.4L377.9 46.8L368.8 52.8C356.3 61.9,342.8 74.3,335.9 88.4C319.6 121.6,331.3 156.2,354.1 183C363.7 194.3,375.7 204,384 216.4C400.7 241.1,407.3 268.1,402.9 297.8C399.2 322.8,389.1 349.8,375.7 371.3L362.8 387.8C356.2 396.6,345.1 416.6,331.6 410.7L327.5 406.7ZM260.6 593.5L79.9 234.7C79.9 234.6,80.6 230.2,79.5 228.2C73.6 216.9,50.2 207.2,40 199L210.4 200.4L174.9 226.9L301.3 484.4L339.3 415.5L354.2 423.7L260.6 593.5ZM433.7 287.3C433.4 285.8,431.2 284.7,431 282.4C430.5 271.7,446.6 249.4,440.6 229.1C437 217.4,423.1 212.2,414.6 205.1L405.2 197.3L404.4 197.9L517.9 200.9L516.9 202.9C515.5 204.8,504.5 210.3,501.8 211.5C492.3 215.9,479.8 217.6,472.7 226.2C461.4 240.2,451.4 278.8,440.1 286.3C437.7 287.9,435.6 286.6,433.7 287.3Z" /></svg>
+      </div>
+    </div>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

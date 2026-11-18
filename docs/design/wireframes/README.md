@@ -30,6 +30,6 @@ Delete this comment block when the file is done.
 | Admin orders | `admin-orders.png` | Heba Talaat | |
 | Admin reservations | `admin-reservations.png` | Heba Talaat | |
 
-Look and feel: follow `docs/design/ui-guidelines.md`. The team's reference design is `docs/design/reference/nocturne-concept.html` (open it in a browser).
+Look and feel: follow `docs/design/ui-guidelines.md`. The team's design is the Velora site (run the project and use real screenshots of Home, Menu, Dish details, About and Contact as the mockups for those pages). The retired Nocturne concept is in `docs/design/reference/nocturne-concept.html`.
 
 Figma link: TODO

@@ -1,30 +1,17 @@
 /**
- * PAGE   : NotFound
- * ROUTE  : *
- * ACCESS : Public
- * OWNER  : Ahmed Taher (suggested - change if the team reassigns)
- *
- * WHAT TO BUILD
- *  - Friendly 404 message with a link back to / and /menu
- *
- * DATA / API  (functions live in src/services/api.js)
- *  - none
- *
- * RULES  (full list: CLAUDE.md section 10)
- *  - none
- *
- * STYLE  : dark Nocturne theme. Use Bootstrap classes and the helpers in src/styles/theme.css
- *           (page-title, t-title, text-link, btn btn-primary). Rules: docs/design/ui-guidelines.md
- *
- * HOW TO FINISH
- *  1. Paste your code below and delete the PLACEHOLDER lines.
- *  2. Keep the default export and the file name (App.jsx already imports it).
- *  3. Run the project, test it on a phone-sized screen, then open a Pull Request.
+ * PAGE    : NotFound
+ * ROUTE   : * (any unknown URL)
+ * PURPOSE : 404 page. Markup taken from Velora's inline 404 route.
  */
-import PagePlaceholder from "../components/PagePlaceholder.jsx";
+import { Link } from "react-router-dom";
 
-// ---- PLACEHOLDER (delete from here) -----------------------------------
 export default function NotFound() {
-  return <PagePlaceholder title="NotFound" route="*" />;
+  return (
+    <main id="main" className="page-head text-center">
+      <h1>Page not found</h1>
+      <Link className="btn-solid mt-3" to="/">
+        Back to home
+      </Link>
+    </main>
+  );
 }
-// ---- PLACEHOLDER (to here) ---------------------------------------------

@@ -1,0 +1,152 @@
+/*
+ * FILE   : src/styles/components.css
+ * PURPOSE: styles for shared components: DishCard grid, Loader, ErrorMessage, placeholders.
+ */
+
+/* ---------- dish tiles ---------- */
+.dish-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr));
+  gap: clamp(1.25rem, 2.5vw, 2.25rem);
+}
+
+.dish {
+  position: relative;
+}
+
+.dish__link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.dish__link:hover {
+  color: inherit;
+}
+
+.dish__media {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border: 1px solid var(--noir-line);
+  background: var(--noir-surface);
+}
+
+.dish__link:hover .dish__media,
+.dish__link:focus-visible .dish__media {
+  border-color: var(--noir-gold);
+}
+
+.dish__link:focus-visible {
+  outline-offset: 6px;
+}
+
+.dish__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dish__top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.dish__name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  line-height: 1.15;
+}
+
+.dish__price {
+  margin: 0;
+  color: var(--noir-gold);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.dish__desc {
+  display: -webkit-box;
+  margin: 0.4rem 0 0;
+  overflow: hidden;
+  color: var(--noir-muted);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.dish--off .dish__media img {
+  filter: grayscale(1);
+  opacity: 0.45;
+}
+
+.dish__flag,
+.dish__veg {
+  position: absolute;
+  top: 0.75rem;
+  background: var(--noir-black);
+  border: 1px solid var(--noir-line-gold);
+  color: var(--noir-cream);
+  font-size: 0.8125rem;
+  line-height: 1;
+  padding: 0.35rem 0.6rem;
+}
+
+.dish__flag {
+  inset-inline-start: 0.75rem;
+}
+
+.dish__veg {
+  inset-inline-end: 0.75rem;
+  color: var(--noir-gold);
+  font-weight: 700;
+}
+
+@media (max-width: 575.98px) {
+  .dish-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem 0.9rem;
+  }
+
+  .dish__top {
+    flex-direction: column;
+    gap: 0.15rem;
+    margin-top: 0.75rem;
+  }
+
+  .dish__name {
+    font-size: 1.2rem;
+  }
+
+  .dish__desc {
+    display: none;
+  }
+}
+
+/* ---------- states ---------- */
+.state-loading {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding-block: 2rem;
+  color: var(--noir-muted);
+}
+
+/* ---------- temporary placeholders (delete with PagePlaceholder.jsx) ---------- */
+.placeholder-box {
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border: 1px dashed var(--noir-line-gold);
+  background: var(--noir-surface);
+}
+
+.placeholder-chip {
+  margin-block: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px dashed var(--noir-line-gold);
+  color: var(--noir-muted);
+  font-size: 0.875rem;
+}

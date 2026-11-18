@@ -38,6 +38,16 @@ Base URL (dev): `http://localhost:3001` (set with `VITE_API_URL` in `client/.env
 
 Differences from the mock (menu path, nested order items, JWT) will be listed here when the backend is built.
 
+## Additions made by the Velora merge (backward compatible)
+- `categories[].description` (string, optional, may be empty): short line shown on the Home category cards and above a category on the Menu page. Only "Desserts" has text (taken from Velora). The backend (`server/schema.sql`, `models`, `schemas`) does not have this column yet: add it as a nullable text column, or ignore it (the website works without it).
+- `categories[].image` (string, optional): photo for the Home category card (a URL or `/images/...` path). Only Velora's categories have one.
+- `menuItems[].imageSquare` (string, optional): a second, square photo used by the Home showcase and the dish page; when missing the website uses `image`. Dishes that have it are the ones the Home showcase rotates through.
+- **Velora's 13 original dishes were added to `menuItems`** (ids 117-129, in Velora's order) with their original names, descriptions, vegetarian flags and Unsplash photo URLs, plus 7 categories (ids 13-19: Starters, Salads, Pizza, Pasta, Burgers, Main Courses, Drinks). Velora's "Desserts" dish went into the existing Desserts category (id 9). Extras per category are Velora's original ones. `nameAr` and `descriptionAr` are empty strings (no translation was invented).
+- **TODO (team): the 13 base prices are Velora's dollar numbers (6 to 34) kept as plain numbers; the rest of the menu is in EGP.** Set real EGP prices (and extras prices, currently 1 to 2) in `db.json`.
+- `settings.restaurantName` is now `"VELORA"`.
+- No field was renamed or removed. The website uses `categoryId`, `basePrice`, `availableSizes`, `extras`, `isVegetarian`, `isAvailable`, `image` of each menu item.
+- The contact form does not use this API: it posts to Web3forms (`sendContactMessage` in `services/api.js`, key from `VITE_WEB3FORMS_KEY`).
+
 ## Data rules
 - Size multipliers: small = 0.7, medium = 1, large = 1.2 (`settings.sizeMultipliers`)
 - Unit price = `basePrice × size multiplier + selected extras`

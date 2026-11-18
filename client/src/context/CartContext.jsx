@@ -5,40 +5,54 @@
  *
  * CART LINE SHAPE:
  *   { lineId, menuItemId, name, image, size, extras: [{ name, price }], quantity, unitPrice }
- *   - lineId must be unique per (menuItemId + size + sorted extras): the same dish with a
- *     different size or different extras is a SEPARATE line.
+ *   - lineId is unique per (menuItemId + size + sorted extra names): the same dish with a
+ *     different size or different extras is a SEPARATE line. Use makeLineId() (utils/cart.js) to build it.
  *   - unitPrice = calcUnitPrice(basePrice, size, extras)   (utils/formatPrice.js)
  *
- * TODO (Shorouk):
- *   1. addItem(line)            - add a line, or increase quantity if the same lineId exists
- *   2. updateQuantity(lineId,n) - n <= 0 removes the line
- *   3. removeItem(lineId), clearCart()
- *   4. Persist items in localStorage (use loadJSON/saveJSON from utils/storage.js)
- *   5. Keep total and itemCount COMPUTED from items (never store them)
- *
- * NOTE: the functions below are stubs so the rest of the app can already import useCart().
+ * STATUS  : IMPLEMENTED during the Velora merge (it was a stub) because the Velora dish
+ *           page needs a working cart. Shorouk: review it, then build Cart, Checkout, Orders.
+ *           Items are saved in localStorage ("cart_items"); total and itemCount are
+ *           computed from items, never stored.
  */
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+import { loadJSON, saveJSON } from "../utils/storage.js";
 
 const CartContext = createContext(null);
+const STORAGE_KEY = "cart_items";
 
 export function CartProvider({ children }) {
-  const [items, setItems] = useState([]); // TODO: initialise from localStorage
+  const [items, setItems] = useState(() => loadJSON(STORAGE_KEY, []));
 
-  // ---- PLACEHOLDER (replace with real logic) ----------------------------
-  const addItem = (line) => {
-    console.warn("addItem not implemented yet", line);
-  };
-  const updateQuantity = (lineId, quantity) => {
-    console.warn("updateQuantity not implemented yet", lineId, quantity);
-  };
-  const removeItem = (lineId) => {
-    console.warn("removeItem not implemented yet", lineId);
-  };
+  useEffect(() => {
+    saveJSON(STORAGE_KEY, items);
+  }, [items]);
+
+  // Add a line, or increase the quantity when the same lineId already exists.
+  const addItem = (line) =>
+    setItems((prev) => {
+      const found = prev.find((l) => l.lineId === line.lineId);
+      if (!found) return [...prev, line];
+      return prev.map((l) =>
+        l.lineId === line.lineId
+          ? { ...l, quantity: l.quantity + line.quantity }
+          : l,
+      );
+    });
+
+  // quantity <= 0 removes the line.
+  const updateQuantity = (lineId, quantity) =>
+    setItems((prev) =>
+      quantity <= 0
+        ? prev.filter((l) => l.lineId !== lineId)
+        : prev.map((l) => (l.lineId === lineId ? { ...l, quantity } : l)),
+    );
+
+  const removeItem = (lineId) =>
+    setItems((prev) => prev.filter((l) => l.lineId !== lineId));
+
   const clearCart = () => setItems([]);
-  // ------------------------------------------------------------------------
 
-  // Computed values (keep these computed, never stored)
+  // Computed values (never stored)
   const itemCount = items.reduce((sum, line) => sum + line.quantity, 0);
   const total = items.reduce(
     (sum, line) => sum + line.unitPrice * line.quantity,

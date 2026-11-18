@@ -1,0 +1,259 @@
+/* Menu page */
+.page-head {
+  padding: 9.5rem 0 4rem;
+  text-align: center;
+  background:
+    linear-gradient(180deg, rgba(11, 11, 10, 0.7), rgba(11, 11, 10, 0.92)),
+    var(--photo, none) center/cover,
+    var(--black);
+}
+
+.page-head h1 {
+  font-size: clamp(2.6rem, 6vw, 4.4rem);
+  font-weight: 400;
+}
+
+.page-head .lead {
+  max-width: 520px;
+  margin: 1rem auto 0;
+  color: var(--mute);
+}
+
+.toolbar {
+  position: sticky;
+  top: 68px;
+  z-index: 30;
+  padding: 1.1rem 0;
+  background: color-mix(in srgb, var(--black) 95%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+
+@media (max-width: 991px) {
+  .toolbar {
+    position: static;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
+.tabs {
+  display: flex;
+  gap: 0.25rem 2rem;
+  margin-bottom: 1rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.tab {
+  position: relative;
+  flex: none;
+  padding: 0.55rem 0;
+  background: none;
+  border: 0;
+  font:
+    500 0.7rem/1 Sora,
+    sans-serif;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mute);
+  transition: color 0.3s;
+}
+
+.tab::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--cream);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.tab:hover,
+.tab.on {
+  color: var(--cream);
+}
+
+.tab:hover::after,
+.tab.on::after {
+  transform: none;
+}
+
+.tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+.search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 1 1 260px;
+}
+
+.search > svg {
+  position: absolute;
+  left: 0.9rem;
+  color: var(--mute);
+}
+
+.search .form-control {
+  padding: 0 2.5rem;
+}
+
+.search .icon-btn {
+  position: absolute;
+  right: 0;
+  width: 42px;
+  height: 42px;
+}
+
+.dd {
+  position: relative;
+}
+
+.tools .dd {
+  flex: 0 0 180px;
+}
+
+.form-control {
+  min-height: 46px;
+  border-radius: var(--radius);
+  border-color: var(--line);
+  background-color: transparent;
+  color: var(--cream);
+}
+
+.form-control:focus {
+  border-color: var(--cream);
+  background-color: transparent;
+  color: var(--cream);
+  box-shadow: none;
+}
+
+.form-check-input:checked {
+  background-color: var(--cream);
+  border-color: var(--cream);
+}
+
+.form-switch .form-check-input:checked {
+  --bs-form-switch-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%230b0b0a'/%3e%3c/svg%3e");
+}
+
+.menu-wrap {
+  padding-top: 3rem;
+  padding-bottom: 5rem;
+}
+
+.menu-group {
+  margin-bottom: 4rem;
+}
+
+.group-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 1.5rem;
+  margin-bottom: 1.75rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.group-head h2 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.group-head p {
+  margin: 0;
+  font:
+    italic 1rem Lora,
+    serif;
+}
+
+.state {
+  padding: 4rem 1rem;
+  text-align: center;
+  color: var(--mute);
+}
+
+.dd-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  width: 100%;
+  min-height: 46px;
+  padding: 0.375rem 0.75rem;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--cream);
+  font: inherit;
+  text-align: left;
+  transition: border-color 0.3s;
+}
+
+.dd-btn:hover,
+.dd-btn[aria-expanded="true"] {
+  border-color: var(--cream);
+}
+
+.dd-btn svg {
+  flex: none;
+  transition: transform 0.3s;
+}
+
+.dd-btn[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+.dd-list {
+  position: absolute;
+  inset: 100% 0 auto;
+  z-index: 40;
+  margin: 0.4rem 0 0;
+  padding: 0;
+  overflow: hidden;
+  list-style: none;
+  background: var(--black);
+  border: 1px solid var(--cream);
+  border-radius: var(--radius);
+  box-shadow: 0 24px 40px -18px rgba(0, 0, 0, 0.9);
+}
+
+.dd-list button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.7rem 0.75rem;
+  background: transparent;
+  border: 0;
+  color: var(--cream);
+  font: inherit;
+  text-align: left;
+}
+
+.dd-list button[aria-selected="true"] {
+  background: color-mix(in srgb, var(--cream) 14%, transparent);
+}
+
+.dd-list button:hover,
+.dd-list button:focus-visible {
+  background: var(--cream);
+  color: var(--black);
+  outline: 0;
+}
+

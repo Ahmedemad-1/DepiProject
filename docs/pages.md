@@ -13,14 +13,15 @@ All paths are inside `client/src/`.
 ## Public pages
 | Route | File | Suggested owner |
 |---|---|---|
-| `/` | `pages/Home.jsx` (**built**: hero, facts band, featured dishes, reservation band) | Ahmed Taher |
-| `/menu` | `pages/Menu.jsx` (starter: grid of DishCard; add tabs, search, filters) | Ahmed Taher |
-| `/menu/:id` | `pages/DishDetails.jsx` | Ahmed Taher |
+| `/` | `pages/Home.jsx` (**built**: Velora hero, dish showcase, categories, about, booking band; data from the API) | Ahmed Taher |
+| `/menu` | `pages/Menu.jsx` (**built**: tabs, search, price band in EGP, vegetarian switch) | Ahmed Taher |
+| `/menu/:id` | `pages/DishDetails.jsx` (**built**: size, extras, quantity, Add to Cart) | Ahmed Taher |
 | `/cart` | `pages/Cart.jsx` | Shorouk |
-| `/about` | `pages/About.jsx` | Ahmed Taher |
+| `/about` | `pages/About.jsx` (**built**, Velora page) | Ahmed Taher |
+| `/contact` | `pages/Contact.jsx` (**built**, Velora page; EXTRA route that Nocturne did not have) | Ahmed Taher / Heba Talaat |
 | `/login` | `pages/Login.jsx` | Heba Talaat |
 | `/register` | `pages/Register.jsx` | Heba Talaat |
-| `*` (404) | `pages/NotFound.jsx` | Ahmed Taher |
+| `*` (404) | `pages/NotFound.jsx` (**built**) | Ahmed Taher |
 
 ## Customer pages (login required)
 | Route | File | Suggested owner |
@@ -42,33 +43,38 @@ All paths are inside `client/src/`.
 ## Components (`components/`)
 | File | Used by | Suggested owner |
 |---|---|---|
-| `Layout.jsx`, `Navbar.jsx`, `Footer.jsx`, `Logo.jsx` | every page (**built**: Nocturne look, mobile menu) | Shared (Ahmed Taher) |
-| `ProtectedRoute.jsx` | route guard (**`BYPASS_AUTH = true` for now**) | Heba Talaat |
+| `Layout.jsx`, `Navbar.jsx`, `Footer.jsx`, `Logo.jsx`, `BrandLink.jsx`, `AddressLink.jsx`, `Email.jsx` | every page (**built**: Velora look, links by role, cart count, mobile menu) | Shared (Ahmed Taher) |
+| `Img.jsx`, `Dropdown.jsx`, `HeroBackdrop.jsx`, `MenuShowcase.jsx`, `WaitingTable.jsx` | Velora building blocks (**built**) | Ahmed Taher |
+| `ProtectedRoute.jsx` | route guard (**`BYPASS_AUTH = true` in development only**; always enforced in a production build) | Heba Talaat |
 | `DishCard.jsx` | Home, Menu (**built**) | Ahmed Taher |
-| `CategoryTabs.jsx`, `SearchBar.jsx`, `FilterBar.jsx` | Menu | Ahmed Taher |
-| `SizeSelector.jsx`, `ExtrasSelector.jsx` | DishDetails | Ahmed Taher |
+| `CategoryTabs.jsx`, `SearchBar.jsx`, `FilterBar.jsx` | Menu (placeholders: Velora's Menu page already does this inline) | Ahmed Taher |
+| `SizeSelector.jsx`, `ExtrasSelector.jsx` | DishDetails (placeholders: done inline in the Velora page) | Ahmed Taher |
 | `QuantitySelector.jsx` | DishDetails, CartItem | Shared |
 | `CartItem.jsx`, `OrderSummary.jsx` | Cart, Checkout | Shorouk |
 | `OrderCard.jsx`, `StatusStepper.jsx` | Orders, OrderTracking | Shorouk |
 | `StatusBadge.jsx` | Orders, Profile, admin pages | Shared |
 | `FormInput.jsx` | Login, Register, Reservation, Checkout | Heba Talaat |
 | `DishForm.jsx`, `ConfirmModal.jsx` | ManageMenu, Profile | Heba Talaat |
-| `Loader.jsx`, `ErrorMessage.jsx` | any page that loads data (**built**) | Shared |
-| `PagePlaceholder.jsx` | placeholders only (delete when everything is built) | – |
+| `Loader.jsx`, `ErrorMessage.jsx` | any page that loads data (**built**, Velora style) | Shared |
+| `PagePlaceholder.jsx` | placeholders only, Velora-styled (delete when everything is built) | – |
 
 ## Context, services, utils
 | File | What it is |
 |---|---|
 | `context/AuthContext.jsx` | Working base: `useAuth()` gives `{ user, login, logout }` (saved in localStorage). Owner: Heba Talaat |
-| `context/CartContext.jsx` | **Stub with the final shape**: `useCart()` gives `{ items, itemCount, total, addItem, updateQuantity, removeItem, clearCart }`. The functions are TODO. Owner: Shorouk |
+| `context/CartContext.jsx` | **Working** (implemented during the merge): `useCart()` gives `{ items, itemCount, total, addItem, updateQuantity, removeItem, clearCart }`, saved in localStorage. Shorouk: review it and build Cart, Checkout, Orders on top. |
+| `hooks/useMenu.js` | loads dishes + categories once (Home, Menu, showcase, DishDetails) |
 | `services/api.js` | All network calls (already has the functions every page needs) |
 | `utils/formatPrice.js` | `formatPrice()`, `calcUnitPrice()`, `SIZE_MULTIPLIERS` |
+| `utils/cart.js` | `makeLineId()` (same dish + size + extras = same cart line) |
+| `utils/links.js`, `utils/splash.js` | `telHref()`; hides the loading splash (from Velora) |
 | `utils/validators.js` | email / phone / password checks |
 | `utils/constants.js` | order and reservation statuses, labels, `NEXT_ORDER_STATUS` |
 | `utils/storage.js` | safe `loadJSON` / `saveJSON` / `removeKey` for localStorage |
 | `utils/translations.js` | all UI text (English now, Arabic later) |
-| `config/brand.js` | restaurant name, tagline, address, phone (one place). Owner: Ahmed Taher |
-| `styles/theme.css`, `layout.css`, `components.css`, `home.css` | the Nocturne design system (rules: `docs/design/ui-guidelines.md`). Owner: Ahmed Taher |
-| `../public/images/*` and `../public/logo.svg` | placeholder pictures and logo: replace with real files using the same names |
+| `config/brand.js`, `config/photos.js` | restaurant name, tagline, address, phone, hours (one place); site photo paths. Owner: Ahmed Taher |
+| `styles/theme.css`, `layout.css`, `home.css`, `components.css`, `menu.css`, `dish-details.css`, `pages.css`, `fonts.css`, `loader.css` | the Velora design system (rules: `docs/design/ui-guidelines.md`). Do not edit. Owner: Ahmed Taher |
+| `styles/app.css` | the only place for NEW css (new class names). |
+| `../public/images/*`, `../public/fonts/*`, `../public/logo.svg` | Velora site photos, fonts and logo. Dish photos are missing: add them using the names in `db.json` |
 
 Every document the project needs is listed in `docs/DELIVERABLES.md`.

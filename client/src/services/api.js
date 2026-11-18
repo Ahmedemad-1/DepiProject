@@ -74,3 +74,42 @@ export const updateMenuItem = (id, patch) =>
   request(`/menuItems/${id}`, { method: "PATCH", body: JSON.stringify(patch) });
 export const deleteMenuItem = (id) =>
   request(`/menuItems/${id}`, { method: "DELETE" });
+
+// Contact form (Contact page). This is an EXTERNAL service (Web3forms), not the
+// restaurant API. The access key was supplied by the Velora author; set your own in
+// client/.env as VITE_WEB3FORMS_KEY (see .env.example) before going live.
+const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
+const WEB3FORMS_KEY =
+  import.meta.env.VITE_WEB3FORMS_KEY || "f4a51210-dfa6-4a3a-b1b3-cb846073952b";
+const CONTACT_TIMEOUT_MS = 15000;
+
+export async function sendContactMessage({ name, email, phone, topic, message }) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), CONTACT_TIMEOUT_MS);
+  try {
+    const res = await fetch(WEB3FORMS_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({
+        access_key: WEB3FORMS_KEY,
+        subject: `New message from the website: ${topic}`,
+        name,
+        email,
+        phone: phone || "Not given",
+        topic,
+        message,
+      }),
+      signal: controller.signal,
+    });
+    const data = await res.json().catch(() => null);
+    if (!res.ok || !data?.success)
+      throw new Error(
+        data?.message ||
+          data?.body?.message ||
+          `Web3Forms answered with status ${res.status}`,
+      );
+    return data;
+  } finally {
+    clearTimeout(timer);
+  }
+}

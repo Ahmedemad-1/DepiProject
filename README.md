@@ -1,7 +1,7 @@
 # Restaurant Website – DEPI Graduation Project
 
 A restaurant website with online pickup ordering and table reservation, plus an admin dashboard.
-Restaurant name: **Nocturne** (working name, one-line change in `client/src/config/brand.js`). Look: dark and gold, see `docs/design/ui-guidelines.md`.
+Restaurant name: **VELORA** (one-line change in `client/src/config/brand.js`). Look: the Velora design by [FRIEND'S NAME] (dark, warm, cream and serif), see `docs/design/ui-guidelines.md`. Merge details: `docs/MERGE_REPORT.md`.
 
 ## Features
 - Browse the menu by category, search, and filter (price, vegetarian)
@@ -20,7 +20,7 @@ Restaurant name: **Nocturne** (working name, one-line change in `client/src/conf
 | Heba Talaat | Login/Register, Reservation, Admin dashboard (UI) |
 
 ## Tech stack
-- Frontend: React (Vite), Bootstrap (dark theme), React Router, Italiana + Manrope fonts
+- Frontend: React (Vite), Bootstrap (dark theme) + the Velora design system, React Router, Lora + Sora fonts, lucide icons
 - API for development: json-server (fake API from `server/mock/db.json`)
 - Real backend + database: in progress in `server/` (proposed: Python + FastAPI + SQLite)
 - Design: Figma

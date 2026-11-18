@@ -1,22 +1,17 @@
 /**
  * COMPONENT : ErrorMessage
- * OWNER     : Shared
- * PURPOSE   : Error box for failed requests. Say what failed and what to do next.
- * PROPS     : message, onRetry? (shows a "Try again" button when given)
+ * OWNER     : Ahmed Taher (suggested - change if the team reassigns)
+ * PURPOSE   : Error block for failed requests. Say what failed and what to do next.
+ * ORIGIN    : Velora design by [FRIEND'S NAME], wired to the Nocturne data layer.
+ * PROPS     : message, onRetry? (shows a 'Try again' button when given)
+ * STYLE     : the Velora `.state` block used by the Menu page (no new CSS).
  */
 export default function ErrorMessage({ message, onRetry }) {
   return (
-    <div
-      className="alert alert-danger d-flex flex-wrap align-items-center justify-content-between gap-3"
-      role="alert"
-    >
-      <span>{message}</span>
+    <div className="state" role="alert">
+      <p>{message}</p>
       {onRetry && (
-        <button
-          type="button"
-          className="btn btn-outline-primary btn-sm"
-          onClick={onRetry}
-        >
+        <button type="button" className="btn-solid sm" onClick={onRetry}>
           Try again
         </button>
       )}

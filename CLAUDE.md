@@ -29,7 +29,7 @@ Rules for every reply:
 ## 2. Project summary
 
 - **What:** a restaurant website with a full menu (food and drinks), **online ordering for pickup only**, table reservation, order tracking, and an admin dashboard.
-- **Who:** DEPI (Digital Egypt Pioneers Initiative) graduation project. Team of 4. Restaurant name: **Nocturne** (working name, defined once in `client/src/config/brand.js`). Never type the name inside a page: import `BRAND`.
+- **Who:** DEPI (Digital Egypt Pioneers Initiative) graduation project. Team of 4. Restaurant name: **VELORA** (taken from the Velora design, defined once in `client/src/config/brand.js`; the team may still change it). Never type the name inside a page: import `BRAND`.
 - **Deadlines (2026):** design deliverables **6 Nov** · code and deployed link **30 Nov** · testing, user manual, presentation, infographic **4 Dec** (final).
 - **Language of the site:** English first. Arabic (RTL) is an optional extra, so keep all UI text in `client/src/utils/translations.js`.
 - **Users:** Visitor (browse, add to cart), Customer (order, reserve, track), Admin (manage menu, orders, reservations).
@@ -60,8 +60,8 @@ Shared files (Navbar, Footer, `App.jsx` routes, `services/api.js`, `utils/*`) ar
 
 - **React 19** with **Vite**, plain **JavaScript** (`.jsx`), functional components and hooks only (no class components).
 - **react-router-dom 7** for routing (`BrowserRouter` is already in `main.jsx`).
-- **Bootstrap 5.3** in **dark mode** (`data-bs-theme="dark"` in `index.html`), re-colored by `src/styles/theme.css` (the "Nocturne" design system, section 11a). Use Bootstrap classes first, custom CSS only when needed; no jQuery.
-- Fonts: **Italiana** (headings) and **Manrope** (body), installed with npm (`@fontsource/*`). Do not add Google Fonts links.
+- **Bootstrap 5.3** in **dark mode** (`data-bs-theme="dark"` in `index.html`) plus the **Velora design system** (`src/styles/theme.css` and the other Velora CSS files, section 11a). Use Velora's classes and Bootstrap's grid/utilities first; new CSS only in `src/styles/app.css`. In a production build PurgeCSS removes unused Bootstrap CSS (see `vite.config.js`). No jQuery.
+- Fonts: **Lora** (headings) and **Sora** (body), self-hosted woff2 files in `client/public/fonts` (declared in `src/styles/fonts.css`). Do not add Google Fonts links. Icons: `lucide-react`.
 - State: `useState`, `useEffect`, and React **Context** for cart and auth.
 - **json-server `0.17.4`** (pinned on purpose: newer versions behave differently) as the temporary API.
 - Backend (Ahmed Emad): Python + FastAPI + SQLite is the proposal; Node + Express is the alternative. **Not final** – ask Ahmed Emad before assuming.
@@ -83,7 +83,8 @@ restaurant-project/
 │   └── src/
 │       ├── main.jsx         (providers: BrowserRouter, AuthProvider, CartProvider)
 │       ├── App.jsx          (ALL routes are already registered here)
-│       ├── styles/theme.css (brand colors and fonts)
+│       ├── styles/          Velora design system: theme.css (tokens), layout, home, components, menu,
+│       │                    dish-details, pages (+ fonts.css, loader.css) and app.css (the only file for new CSS)
 │       ├── pages/           Home, Menu, DishDetails, Cart, About, Login, Register, NotFound,
 │       │                    Reservation, Checkout, Orders, OrderTracking, Profile
 │       ├── pages/admin/     Dashboard, ManageMenu, ManageOrders, ManageReservations
@@ -92,9 +93,11 @@ restaurant-project/
 │       │                    CartItem, OrderSummary, OrderCard, StatusStepper, StatusBadge,
 │       │                    FormInput, DishForm, ConfirmModal, Loader, ErrorMessage,
 │       │                    PagePlaceholder (temporary)
-│       ├── context/         AuthContext (working base), CartContext (stub with final shape)
+│       ├── context/         AuthContext (working base), CartContext (working: persisted in localStorage)
+│       ├── hooks/           useMenu (loads dishes + categories once, from services/api.js)
+│       ├── config/          brand.js (identity), photos.js (site photo paths)
 │       ├── services/api.js  ALL network calls live here
-│       └── utils/           formatPrice, validators, constants, storage, translations
+│       └── utils/           formatPrice, cart, links, validators, constants, storage, translations, splash
 ├── server/                  ← backend + database (Ahmed Emad). PROPOSED stack: Python + FastAPI + SQLite
 │   ├── mock/db.json         mock database served by json-server
 │   ├── schema.sql           real database schema (SQLite)
@@ -115,8 +118,8 @@ How to work on a file:
 2. Build exactly what it lists. In code files delete the lines between `PLACEHOLDER (delete from here)` and `PLACEHOLDER (to here)`; in documents delete the top comment block when the file is done.
 3. Keep the file name and the default export unchanged (`App.jsx` already imports it).
 4. **Do not create new page files or new routes** unless the team agreed. Fill the existing ones.
-5. `Navbar`, `Footer`, `Layout`, and `AuthContext` already work. `CartContext` is a stub (its functions are TODO).
-6. The files in `client/public/images/` are placeholder pictures: real photos replace them using the same file name.
+5. `Navbar`, `Footer`, `Layout`, `AuthContext` and `CartContext` already work. The pages Home, Menu, DishDetails, About, Contact and NotFound are built (Velora design wired to the API). Every other page is a Velora-styled placeholder.
+6. `client/public/images/` holds the Velora site photos (hero, about, menu header, booking band). There are NO dish photos yet: dishes whose `image` file is missing show the Velora logo placeholder. Add real photos using the file names in `db.json`.
 
 ## 7. How to run
 
@@ -132,7 +135,7 @@ Both terminals must stay open. `npm run mock` and `npm run dev` are start comman
 
 ## 8. Data model and mock data
 
-`server/mock/db.json` contains: `settings` (object: `restaurantName` is "Nocturne"), `categories`, `menuItems`, `users`, `orders`, `orderItems`, `reservations`. Field names are **camelCase** and ids are numbers. Keep these names exactly.
+`server/mock/db.json` contains: `settings` (object: `restaurantName` is "VELORA"), `categories`, `menuItems`, `users`, `orders`, `orderItems`, `reservations`. Field names are **camelCase** and ids are numbers. Keep these names exactly.
 
 - **settings:** `restaurantName`, `currency` ("EGP"), `openingHours {open:"08:00", close:"23:59"}`, `sizeMultipliers {small:0.7, medium:1, large:1.2}`, `reservation {minPartySize:1, maxPartySize:10}`, `orderStatuses`, `reservationStatuses`.
 - **categories (8):** 1 Appetizers, 2 Main Dishes, 3 Grills, 4 Pasta & Pizza, 5 Desserts, 6 Hot Drinks, 7 Cold Drinks, 8 Juices. Fields: `id, name, nameAr`.
@@ -193,22 +196,24 @@ Rules:
 - Comment the non-obvious parts briefly. Remove `console.log` and unused code before a Pull Request.
 - Do not put secrets or real passwords anywhere. Environment values only in `client/.env` (never committed).
 
-## 11a. Design system: "Nocturne" (follow it on every page)
+## 11a. Design system: "Velora" (follow it on every page)
 
-Dark, gold, editorial. Full rules and contrast numbers: `docs/design/ui-guidelines.md`. Reference concept: `docs/design/reference/nocturne-concept.html`.
+Dark and warm: near-black surfaces, cream text, editorial serif headings. Designed by [FRIEND'S NAME] (the Velora project). Full rules and contrast numbers: `docs/design/ui-guidelines.md`.
 
-- **Colors only from the tokens** in `src/styles/theme.css`: black `--noir-black`, surface `--noir-surface`, gold `--noir-gold` (the only accent), cream `--noir-cream` (text), muted `--noir-muted` (secondary text). Never write a new hex value or use Bootstrap's default blue.
-- **Fonts:** headings use Italiana automatically (never `fw-bold` on headings); body is Manrope. Minimum text size 13 px.
-- **Shapes:** sharp corners (no `rounded-*`), 1 px hairline borders (`--noir-line`), no drop shadows.
-- **Buttons:** main action `btn btn-primary` (gold fill); secondary `btn btn-outline-primary`; text action `text-link`. Button text is short and says what happens ("Place order", "Reserve a table"), in sentence case in the code (CSS makes it uppercase).
-- **Page skeleton** (every page except Home): `<h1 className="page-title">Title</h1>` then the content. `Layout` already provides the container and spacing.
-- **Dishes:** always `<DishCard item={...} />` inside `<div className="dish-grid">`.
-- **States:** every data page shows `<Loader />`, `<ErrorMessage />`, and a friendly empty message ("Your cart is empty. Browse the menu.").
-- **Forms:** Bootstrap `form-label`, `form-control`, `form-select`; error text under the field; every input has a label.
-- **Copy:** plain words, active voice, sentence case, no filler. Errors say what happened and how to fix it.
-- **Accessibility:** keep the visible gold focus ring, `alt` text on images, real `<button>` and `<a>` elements.
-- **Motion:** none unless it answers a user action. No hover zooms or fade-in on every section.
-- **Images:** photos live in `client/public/images/` and are referenced as `/images/<name>.jpg`; the current files are placeholders.
+- **Colors only from the tokens** in `src/styles/theme.css`: `--black`, `--ink` / `--ink-2` (cards), `--cream` (text and the only accent), `--cream-hi`, `--cream-lo`, `--mute` and `--line` (secondary text and hairlines). Never write a new hex value or use Bootstrap's default blue. Light bands use the `.light` class on a `.sec` section.
+- **Fonts:** headings are Lora, body is Sora (both set globally). Never add `fw-bold` to headings. Minimum text size 13 px.
+- **Shapes:** small radius (`--radius`), 1 px hairlines (`--line`), shadows only where Velora already has them.
+- **Buttons:** main action `btn-solid`, secondary `btn-ghost`, small variant `sm` (e.g. `btn-solid sm`). Short text that says what happens ("Place order", "Book a Table"); CSS makes it uppercase.
+- **Page skeleton:** every page renders its OWN `<main id="main">`. Inner pages start with `<section className="page-head"><div className="container"><h1>Title</h1></div></section>`; content sits in `.sec` sections with a Bootstrap `.container`. `Layout` adds NO wrapper.
+- **Dishes:** always `<DishCard item={...} category={name} />` inside `<div className="row g-4"><div className="col-sm-6 col-lg-4">...`.
+- **States:** every data page shows `<Loader />`, `<ErrorMessage />`, and a friendly empty message in a `.state` block ("Your cart is empty. Browse the menu.").
+- **Forms:** follow the Contact page: `.field` + `<label>`, `.form-control`, `.field-err` (error under the field), `.form-error`, `.form-foot`.
+- **Copy:** plain words, active voice. Errors say what happened and how to fix it.
+- **Accessibility:** keep the visible focus ring, `alt` text on images, real `<button>` and `<a>`, the skip link, and text contrast of at least 4.5:1.
+- **Motion:** Velora's own animations already respect `prefers-reduced-motion`; do not add new animation without the same media query.
+- **Images:** site photos live in `client/public/images/`; dish photos use the `image` field of each menu item. Use the `<Img>` component (it shows the logo placeholder when a file is missing).
+- **New CSS:** only in `src/styles/app.css`, with NEW class names. Never edit or rename a Velora class (the pages depend on them).
+- **History:** the team first chose a dark-gold "Nocturne" direction; it was replaced by Velora in the merge. Its files are kept in `docs/design/reference/nocturne-archive/`.
 
 ## 12. Backend rules (for Ahmed Emad's work; others should not edit `server/` except `mock/db.json` after coordinating)
 
@@ -259,7 +264,7 @@ Dark, gold, editorial. Full rules and contrast numbers: `docs/design/ui-guidelin
 | Cart empties on refresh                                          | It is not being saved to / loaded from `localStorage` (or JSON parsing failed).                                                                                                                         |
 | json-server behaves differently from docs                        | Only version `0.17.4` is supported here; do not upgrade it.                                                                                                                                             |
 | Login "works" for anyone                                         | Remember the mock login is demo-only. Compare email AND password in `api.js`, and never trust it as real security.                                                                                      |
-| Protected pages open without logging in                          | `BYPASS_AUTH` is `true` in `components/ProtectedRoute.jsx` on purpose until Login/Register work. Set it to `false` when they do.                                                                        |
+| Protected pages open without logging in                          | `BYPASS_AUTH` is `true` in `components/ProtectedRoute.jsx` on purpose until Login/Register work (it only applies to `npm run dev`; a production build always enforces the guard). Set it to `false` when they do.                                                                        |
 | Protected pages always redirect to /login                        | `BYPASS_AUTH` is `false` but Login is not built yet, or the user is not saved. Build Login first, or set `BYPASS_AUTH` back to `true` while testing other pages.                                        |
 | `addItem not implemented yet` in the console                     | `CartContext` is still a stub. Shorouk fills in its functions.                                                                                                                                          |
 | `npm install` fails on Windows with a missing `rolldown` binding | `@rolldown/binding-win32-x64-msvc` is listed in `optionalDependencies` on purpose. If it still fails: delete `node_modules` and `package-lock.json`, then run `npm install` again, and tell Ahmed Emad. |

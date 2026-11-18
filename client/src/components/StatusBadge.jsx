@@ -5,8 +5,8 @@
  * PROPS     : status (string)
  * NOTES     : Use Bootstrap badge colors; labels come from ORDER_STATUS_LABELS in utils/constants.js.
  *
- * STYLE     : dark Nocturne theme. Bootstrap classes + src/styles/theme.css helpers; add component
- *             styles to src/styles/components.css. Rules: docs/design/ui-guidelines.md
+ * STYLE     : Velora design (rules: docs/design/ui-guidelines.md). Reuse Velora's classes from
+ *             src/styles; new CSS goes in src/styles/app.css with NEW class names.
  *
  * HOW TO FINISH: paste your code below and delete the PLACEHOLDER lines.
  * Keep the default export and the file name.
