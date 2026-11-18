@@ -21,11 +21,11 @@
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^9.1.0",
-    "@vitejs/plugin-react": "^6.2.1",
+    "@vitejs/plugin-react": "^5.2.0",
     "json-server": "0.17.4",
     "oxlint": "^1.89.0",
     "prettier": "^3.6.2",
-    "vite": "^8.3.5"
+    "vite": "^6.2.7"
   },
   "optionalDependencies": {
     "@rolldown/binding-win32-x64-msvc": "^1.2.16"
