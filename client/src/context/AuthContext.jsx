@@ -14,8 +14,9 @@ const AuthContext = createContext(null);
 const STORAGE_KEY = "auth_user";
 
 export function AuthProvider({ children }) {
-  const [user, setUser] = useState(() => loadJSON(STORAGE_KEY, null));
-
+  // 1
+  const [user, setUser] = useState(() => loadJSON(STORAGE_KEY, null)); 
+  // 2
   function login(userData) {
     // eslint-disable-next-line no-unused-vars
     const { password, ...safeUser } = userData;
