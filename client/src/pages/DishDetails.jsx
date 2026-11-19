@@ -5,7 +5,7 @@
  * PURPOSE : One dish: photo, size, extras, quantity, live total, Add to Cart.
  * ORIGIN  : Velora design by [FRIEND'S NAME]; pricing and cart from the Nocturne system.
  * API     : getMenuItem(id) (services/api.js); cart through useCart().addItem(line).
- * RULES   : unit price = round(basePrice x size multiplier + extras) via calcUnitPrice();
+ * RULES   : unit price = basePrice x size multiplier + extras, rounded to cents, via calcUnitPrice();
  *           the default size is medium (= base price); the size block is hidden for dishes
  *           with a single size and the extras block for dishes without extras; an
  *           unavailable dish cannot be added. The same dish with another size or other
@@ -63,7 +63,7 @@ export default function DishDetails() {
   // Options come from the dish itself (db.json): availableSizes and extras [{ name, nameAr, price }].
   const options = dish.extras || [];
   const selectedExtras = options.filter(e => pickedNames.includes(e.name));
-  // Pricing rule: unit price = round(base price x size multiplier + extras).
+  // Pricing rule: unit price = base price x size multiplier + extras (rounded to cents).
   const unitPrice = calcUnitPrice(dish.basePrice, sizeName, selectedExtras);
   const totalPrice = unitPrice * quantity;
   const toggle = extraName => setPickedNames(p => (p.includes(extraName) ? p.filter(x => x !== extraName) : [...p, extraName]));

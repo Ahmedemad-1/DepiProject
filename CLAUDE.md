@@ -137,7 +137,7 @@ Both terminals must stay open. `npm run mock` and `npm run dev` are start comman
 
 `server/mock/db.json` contains: `settings` (object: `restaurantName` is "VELORA"), `categories`, `menuItems`, `users`, `orders`, `orderItems`, `reservations`. Field names are **camelCase** and ids are numbers. Keep these names exactly.
 
-- **settings:** `restaurantName`, `currency` ("EGP"), `openingHours {open:"08:00", close:"23:59"}`, `sizeMultipliers {small:0.7, medium:1, large:1.2}`, `reservation {minPartySize:1, maxPartySize:10}`, `orderStatuses`, `reservationStatuses`.
+- **settings:** `restaurantName`, `currency` ("USD"), `openingHours {open:"08:00", close:"23:59"}`, `sizeMultipliers {small:0.7, medium:1, large:1.2}`, `reservation {minPartySize:1, maxPartySize:10}`, `orderStatuses`, `reservationStatuses`.
 - **categories (8):** 1 Appetizers, 2 Main Dishes, 3 Grills, 4 Pasta & Pizza, 5 Desserts, 6 Hot Drinks, 7 Cold Drinks, 8 Juices. Fields: `id, name, nameAr`.
 - **menuItems (32):** `id, name, nameAr, description, basePrice, image, categoryId, isVegetarian, isAvailable, extras[]` where each extra is `{name, nameAr, price}`. One dish (Lamb Chops) has `isAvailable: false` on purpose.
 - **users:** `id, name, email, password, phone, role` (`"customer"` or `"admin"`). Demo accounts: `admin@restaurant.test / Admin@123`, `customer1@example.test / Test@123`.
@@ -173,7 +173,7 @@ Rules:
 
 ## 10. Business rules (implement exactly)
 
-- **Price:** `unitPrice = round(basePrice × sizeMultiplier + sum(selected extras))`. Use `calcUnitPrice` from `utils/formatPrice.js`. Line total = `unitPrice × quantity`. Cart total is **computed**, never stored.
+- **Price:** `unitPrice = basePrice × sizeMultiplier + sum(selected extras)`, rounded to cents (prices are US dollars). Use `calcUnitPrice` from `utils/formatPrice.js`. Line total = `unitPrice × quantity`. Cart total is **computed**, never stored.
 - **Cart:** the same dish with a different size or different extras is a **separate line**. Default size is medium. Persist the cart in `localStorage` (wrap `JSON.parse` in try/catch) so a page refresh does not empty it. Unavailable dishes cannot be added.
 - **Order status flow:** `received → preparing → ready → picked_up`. Cancelling (`cancelled`) is allowed only before `preparing`.
 - **Order creation:** requires a logged-in user, a pickup time, and a payment method. Each order item stores the dish `name` and the unit `price` at order time. Order tracking page reloads data on open and every 30 seconds (no websockets).
@@ -191,7 +191,7 @@ Rules:
 - Keep components small. Move repeated logic into `utils/` or a Context.
 - Use Bootstrap grid and utility classes. **Mobile-first**: test at ~375px width and make sure there is no horizontal scrolling.
 - Accessibility basics: `alt` text on images, `<label>` for every input, buttons are real `<button>` elements.
-- Money is shown with `formatPrice` (EGP). All user-facing text goes through `translations.js` where practical.
+- Money is shown with `formatPrice` (US dollars, `$14.00`). All user-facing text goes through `translations.js` where practical.
 - **Format with Prettier before every commit:** `npm run format` (config in `client/.prettierrc`: double quotes, semicolons). Never mix styles, it creates noisy diffs.
 - Comment the non-obvious parts briefly. Remove `console.log` and unused code before a Pull Request.
 - Do not put secrets or real passwords anywhere. Environment values only in `client/.env` (never committed).

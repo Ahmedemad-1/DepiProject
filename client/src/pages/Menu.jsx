@@ -5,7 +5,7 @@
  * PURPOSE : Full menu with category tabs, search, price band, vegetarian switch.
  * ORIGIN  : Velora design by [FRIEND'S NAME]; data and rules from the Nocturne system.
  * DATA    : useMenu() -> getMenuItems + getCategories. Filters run in the browser.
- * RULES   : unavailable dishes are listed but dimmed (DishCard); price bands are in EGP.
+ * RULES   : unavailable dishes are listed but dimmed (DishCard); price bands are in US dollars (Velora's original bands).
  */
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
@@ -17,8 +17,8 @@ import Loader from '../components/Loader.jsx';
 import ErrorMessage from '../components/ErrorMessage.jsx';
 import Dropdown from '../components/Dropdown.jsx';
 
-// Price bands are in EGP (the database prices are in EGP; Velora's bands were in dollars).
-const BANDS = [[0, Infinity, 'Any price'], [0, 50, 'Under 50 EGP'], [50, 100, '50 to 100 EGP'], [100, 200, '100 to 200 EGP'], [200, Infinity, 'Over 200 EGP']];
+// Price bands in US dollars (Velora's original bands).
+const BANDS = [[0, Infinity, 'Any price'], [0, 10, 'Under $10'], [10, 15, '$10 to $15'], [15, 20, '$15 to $20'], [20, Infinity, 'Over $20']];
 
 export default function Menu() {
   const { items: dishes, categories, loading, error, reload, categoryName } = useMenu();

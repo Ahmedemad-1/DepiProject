@@ -29,7 +29,7 @@ Both originals were left untouched; all work was done on copies.
 | State | local `useState`, window event for cart | Auth + Cart context, localStorage | yes (two cart ideas) | Nocturne contexts only; Velora's `velora:add-to-cart` event removed |
 | Data source | hard-coded `data/dishes.js` (13 Italian-style dishes, USD) | `services/api.js` + `db.json` (116 Egyptian dishes, EGP) | yes | API is the only source; Velora data files removed |
 | Images | 8 site photos in `public/images`, dish photos from Unsplash URLs | no photos in the zip (docs mention 32 placeholders that are not there) | partly | site photos copied; Unsplash dish photos NOT used (they show other dishes) |
-| Formatter | `formatPrice` -> "$14.00" | `formatPrice` -> "25 EGP" | yes | Nocturne `formatPrice` only |
+| Formatter | `formatPrice` -> "$14.00" | `formatPrice` -> "25 EGP" (now changed to "$0.50", see D6) | yes | Nocturne `formatPrice` only |
 | Brand data | `data/site.js` | `config/brand.js` (empty) | yes | filled into `brand.js` |
 | Lint / format | none | oxlint + Prettier | no | Nocturne's kept |
 | Deploy files | none | `vercel.json`, `public/_redirects` | no | kept |
@@ -39,7 +39,7 @@ Both originals were left untouched; all work was done on copies.
 | Velora page / path | Nocturne route | Action |
 |---|---|---|
 | Home `/` | `/` Home | Velora page, adapted to data (categories + dishes from the API) |
-| Menu `/menu` | `/menu` Menu | Velora page, adapted to data (category in the URL as `?category=<id>`; EGP price bands) |
+| Menu `/menu` | `/menu` Menu | Velora page, adapted to data (category in the URL as `?category=<id>`; USD price bands) |
 | Dish details `/menu/:id` | `/menu/:id` DishDetails | Velora page, adapted to data, Nocturne pricing and cart line |
 | About `/about` | `/about` About | Velora page as is |
 | Contact `/contact` | none | **NEW extra route** (registered in `App.jsx`, `docs/pages.md`) |
@@ -60,8 +60,8 @@ Result: 18 routes (the 17 Nocturne routes + `/contact`). Velora really has only 
 | D3 | Bootstrap kept (both projects use it). Bootstrap JS bundle removed from `main.jsx` | nothing in the code uses Bootstrap's JavaScript today. **If you build a Bootstrap modal/dropdown (e.g. ManageMenu, ConfirmModal) re-add `import "bootstrap/dist/js/bootstrap.bundle.min.js";` to `main.jsx`**, or build it with React state |
 | D4 | PurgeCSS config from Velora kept in `vite.config.js` | Velora's CSS relies on it; all JSX is under `./src`, so new files are scanned automatically |
 | D5 | **Size multipliers: Nocturne wins** (0.7 / 1 / 1.2). Velora used 1 / 1.3 / 1.6 with default Small | hard rule 3. **Visible change**: Small is now cheaper than the base price, default size is Medium. Prices are different from Velora's |
-| D6 | Currency: "EGP" via Nocturne `formatPrice` instead of "$" | one formatter, data is EGP. **Visible change** |
-| D7 | Price filter bands changed from dollars to EGP: under 50 / 50-100 / 100-200 / over 200 (69 / 29 / 19 / 12 dishes; the 13 Velora dishes all fall under 50 until their prices are set in EGP) | the dollar bands would match nothing useful |
+| D6 | Currency: **US dollars** (`$14.00`, Velora's format). `formatPrice` is the one formatter, `settings.currency` = "USD". The 116 Egyptian dishes, their extras and the 4 sample orders were converted from EGP at a flat 50 EGP = $1 (price / 50, 2 decimals); Velora's 13 dishes keep their dollar prices. `calcUnitPrice` now rounds to cents instead of whole numbers (the menu editor's `price_for` too) | user request. Changes the old "round to whole number" rule; docs updated. Egyptian dishes become cheap ($0.20 to $19) |
+| D7 | Price filter bands are Velora's original dollar bands: under $10 / $10-15 / $15-20 / over $20 (116 / 5 / 5 / 3 dishes) | prices are dollars again |
 | D8 | Dish page options come from the dish (`availableSizes`, `extras`) not from Velora's per-category extras. Size block hidden for single-size dishes, extras block hidden when a dish has none | Nocturne data contract. Velora markup unchanged otherwise |
 | D9 | Menu page shows all 129 dishes in one grid (Velora behavior) and 20 category tabs; Home "From our kitchen" shows Velora's original 13 dishes in the original order (the dishes that have `imageSquare`); fallback: one dish per category | restores the original showcase. **Visible change**: the Menu has 129 dishes and the Home has 19 category cards instead of 8 |
 | D10 | Home category cards: photo = `categories[].image` (Velora's own photos for its 8 categories) or the first dish of the category; text = `categories[].description` (Velora's text for its 8 categories, empty for the Egyptian ones) | no copy invented |
@@ -80,8 +80,8 @@ Result: 18 routes (the 17 Nocturne routes + `/contact`). Velora really has only 
 | D22 | Nocturne files replaced and archived (not deleted) in `docs/design/reference/nocturne-archive/`: old Navbar, Footer, Layout, Logo, Loader, DishCard, ErrorMessage, Home, Menu, About, DishDetails, NotFound, theme/layout/components/home CSS, `index.css`, `main.jsx`, logo, favicon, icons, `index.html` | hard rules 1 and 5 |
 
 ### Visible differences from the original Velora (cannot be confirmed by screenshots, see top)
-1. Prices show "N EGP" instead of "$N.00"; Small/Medium/Large prices differ (D5, D6).
-2. Menu has 129 dishes (116 Egyptian + Velora's 13) and 20 tabs instead of 13 dishes and 9 tabs; price dropdown labels are in EGP; the Velora dish URLs are numeric (D7, D9, D10b).
+1. Prices show in dollars like Velora, but Small/Medium/Large prices differ from Velora's (D5), and the Egyptian dishes cost $0.20 to $19 (D6).
+2. Menu has 129 dishes (116 Egyptian + Velora's 13) and 20 tabs instead of 13 dishes and 9 tabs; price dropdown labels are Velora's dollar bands; the Velora dish URLs are numeric (D7, D9, D10b).
 3. Dish photos: the 13 Velora dishes use their original Unsplash photos; the 116 Egyptian dishes use the logo placeholder until real photos are added (db paths like `/images/ful-medames.jpg` do not exist).
 4. Home "From our kitchen" cycles through at most 8 dishes; category cards have no text line except Desserts (D9, D10).
 5. Logged-in users see two extra nav items (My orders, Admin for admins) and a log-out icon. Visitors see none.
@@ -156,7 +156,7 @@ Not touched: `docs/planning/PROJECT_PLAN.docx`, `server/` except `server/mock/db
 | Public assets referenced by `index.html` and CSS exist | **PASS** |
 | Split CSS equals Velora `main.css` byte for byte | **PASS** (`cmp`) |
 | **Velora data parity test** (Node + a stand-in server that mimics json-server GET routes; json-server itself was not run) | **PASS 159/159**: for each of the 13 dishes the name, description, category, price number, vegetarian flag, card photo URL, square photo URL, extras (names, prices, order) and `getMenuItem(id)` match Velora's original `dishes.js`/`extras.js`; 8 category texts and photos match `categories.js`; the 13 keep Velora's order; unknown id rejects with 404 (the page shows Velora's "That dish is not on our menu."); ids unique numbers. Size prices differ on purpose (D5) |
-| Pure-logic test `client/src/utils` + `db.json` (Node) | **PASS 12/12**: multipliers 0.7/1/1.2; medium = base price; large + extra = round(base x 1.2 + extra); small = round(base x 0.7); price text "N EGP"; other size or extras = other `lineId`; extras order irrelevant; every dish category exists; every dish has sizes and extras; `restaurantName` = VELORA; admin demo user exists |
+| Pure-logic test `client/src/utils` + `db.json` (Node) | **PASS 15/15**: multipliers 0.7/1/1.2; medium = base price; large + extra = round(base x 1.2 + extra); small = round(base x 0.7); price text "N EGP"; other size or extras = other `lineId`; extras order irrelevant; every dish category exists; every dish has sizes and extras; `restaurantName` = VELORA; admin demo user exists |
 | File audit: names in `docs/pages.md` exist | **PASS** (0 missing); every placeholder file has its header comment (26 placeholders with the `PLACEHOLDER` markers) |
 
 Not verifiable here: that `lucide-react`, `bootstrap` and `react-router-dom` resolve, that PurgeCSS keeps every class used (e.g. classes added only at runtime), and that `oxlint` accepts the Velora files.
@@ -166,7 +166,7 @@ Not verifiable here: that `lucide-react`, `bootstrap` and `react-router-dom` res
 2. **Copy vs menu mismatch**: Velora's hero, about and Menu header text describe wood-fired Italian-style cooking and fresh pasta; the database menu is Egyptian (ful, grills, fiteer...). Copy was not changed (hard rule 6). The team must rewrite the texts in `Home.jsx`, `About.jsx`, `Menu.jsx` (and the About values).
 3. **Opening hours** conflict (D20). **Brand details** (address in Maadi, phone, e-mail) come from the Velora project and are unconfirmed.
 4. **Photos**: the 116 Egyptian dishes have no photo file (logo placeholder). Velora's 13 use remote Unsplash URLs, so they need internet.
-4b. **Velora dish prices are dollar numbers** shown as EGP (6 to 34 EGP): fix in `db.json`.
+4b. **Egyptian dish prices are a straight 50 EGP = $1 conversion** (most dishes under $5) while Velora's 13 dishes cost $6 to $34: review the price levels in `db.json`.
 5. `BYPASS_AUTH = true` only in dev; deployed builds enforce login but Login is a placeholder, so a deployed build today cannot open protected pages.
 6. **Home loading**: the splash can wait up to 3 s (plan NFR1: 3 s); the Home page now also needs the API before the dish showcase and categories appear.
 7. Menu/Home depend on `npm run mock` (or the backend) being up; otherwise they show the error block with "Try again".
@@ -189,7 +189,7 @@ Not verifiable here: that `lucide-react`, `bootstrap` and `react-router-dom` res
 | Confirm the final restaurant name; update `brand.js`, `index.html` `<title>`, `db.json`, `logo.svg` | Ahmed Taher |
 | Confirm address, phone, e-mail, ONE opening-hours schedule (also `settings.openingHours`) | Ahmed Taher + Ahmed Emad |
 | Rewrite Home/About/Menu copy to match the Egyptian menu | Ahmed Taher |
-| Dish photos for the 116 Egyptian dishes (names in `db.json` `image`); real EGP prices for Velora's 13 dishes | Ahmed Taher |
+| Dish photos for the 116 Egyptian dishes (names in `db.json` `image`); review the converted dollar prices of all dishes | Ahmed Taher |
 | Own Web3forms key in `client/.env` | Ahmed Emad |
 | Backend: add `categories.description` (optional), real API, deployment | Ahmed Emad |
 | Review `CartContext`, then Cart, Checkout, Orders, OrderTracking, tests | Shorouk |
@@ -217,7 +217,7 @@ Not verifiable here: that `lucide-react`, `bootstrap` and `react-router-dom` res
 | `getDishById(id)` (throws "That dish is not on our menu.") | `getMenuItem(id)`; the dish page shows the same text on a 404 | yes |
 | `getCategories()` (8 names, texts, photos) | `getCategories()` + `description` / `image` fields in `db.json` | yes for the 8 Velora categories (parity test) |
 | `getExtrasFor(category)` | `dish.extras` in `db.json` (same extras, order and prices for the 13) | yes |
-| `formatPrice` ("$14.00") | `formatPrice` ("14 EGP") | **no, on purpose** (D6) |
+| `formatPrice` ("$14.00") | `formatPrice` ("$14.00") | yes (back to dollars) |
 | size prices x1 / x1.3 / x1.6 | x0.7 / x1 / x1.2 | **no, on purpose** (D5) |
 | `handOffToCart` (window event nobody listened to) | `useCart().addItem(line)` | better: it really adds to the cart |
 | `useDishes()` (cache, loading, error, reload) | `useMenu()` (same, also loads categories) | yes by reading the code; **not executed** (no browser/DOM here) |

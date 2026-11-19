@@ -1,7 +1,7 @@
 {
   "settings": {
     "restaurantName": "VELORA",
-    "currency": "EGP",
+    "currency": "USD",
     "openingHours": {
       "open": "08:00",
       "close": "23:59"
@@ -159,7 +159,7 @@
       "nameAr": "فول مدمس",
       "description": "Slow-cooked fava beans with olive oil, cumin and lemon.",
       "descriptionAr": "",
-      "basePrice": 25,
+      "basePrice": 0.5,
       "image": "/images/ful-medames.jpg",
       "categoryId": 1,
       "isVegetarian": true,
@@ -173,12 +173,12 @@
         {
           "name": "Extra Egg",
           "nameAr": "بيض زيادة",
-          "price": 8
+          "price": 0.16
         },
         {
           "name": "Extra Baladi Bread",
           "nameAr": "عيش بلدي زيادة",
-          "price": 5
+          "price": 0.1
         }
       ]
     },
@@ -188,7 +188,7 @@
       "nameAr": "فول إسكندراني",
       "description": "Fava beans cooked with tomato, onion, green pepper and chili.",
       "descriptionAr": "",
-      "basePrice": 35,
+      "basePrice": 0.7,
       "image": "/images/ful-eskandarani.jpg",
       "categoryId": 1,
       "isVegetarian": true,
@@ -202,12 +202,12 @@
         {
           "name": "Extra Baladi Bread",
           "nameAr": "عيش بلدي زيادة",
-          "price": 5
+          "price": 0.1
         },
         {
           "name": "Extra Egg",
           "nameAr": "بيض زيادة",
-          "price": 8
+          "price": 0.16
         }
       ]
     },
@@ -217,7 +217,7 @@
       "nameAr": "طعمية",
       "description": "Crispy Egyptian fava-bean falafel with tahini and salad.",
       "descriptionAr": "",
-      "basePrice": 30,
+      "basePrice": 0.6,
       "image": "/images/taameya.jpg",
       "categoryId": 1,
       "isVegetarian": true,
@@ -231,12 +231,12 @@
         {
           "name": "Extra Baladi Bread",
           "nameAr": "عيش بلدي زيادة",
-          "price": 5
+          "price": 0.1
         },
         {
           "name": "Extra Tahini",
           "nameAr": "طحينة زيادة",
-          "price": 10
+          "price": 0.2
         }
       ]
     },
@@ -246,7 +246,7 @@
       "nameAr": "طعمية محشية",
       "description": "Crispy ta'ameya filled with spicy onion and herb stuffing.",
       "descriptionAr": "",
-      "basePrice": 40,
+      "basePrice": 0.8,
       "image": "/images/stuffed-taameya.jpg",
       "categoryId": 1,
       "isVegetarian": true,
@@ -260,12 +260,12 @@
         {
           "name": "Extra Baladi Bread",
           "nameAr": "عيش بلدي زيادة",
-          "price": 5
+          "price": 0.1
         },
         {
           "name": "Extra Tahini",
           "nameAr": "طحينة زيادة",
-          "price": 10
+          "price": 0.2
         }
       ]
     },
@@ -275,7 +275,7 @@
       "nameAr": "بيض بالبسطرمة",
       "description": "Eggs fried with Egyptian pastrami, served with bread.",
       "descriptionAr": "",
-      "basePrice": 55,
+      "basePrice": 1.1,
       "image": "/images/eggs-pastrami.jpg",
       "categoryId": 1,
       "isVegetarian": false,
@@ -289,7 +289,7 @@
         {
           "name": "Extra Baladi Bread",
           "nameAr": "عيش بلدي زيادة",
-          "price": 5
+          "price": 0.1
         }
       ]
     },
@@ -299,7 +299,7 @@
       "nameAr": "بيض بالطماطم",
       "description": "Eggs cooked in a spiced tomato sauce, served with bread.",
       "descriptionAr": "",
-      "basePrice": 45,
+      "basePrice": 0.9,
       "image": "/images/eggs-tomato.jpg",
       "categoryId": 1,
       "isVegetarian": true,
@@ -313,12 +313,12 @@
         {
           "name": "Extra Baladi Bread",
           "nameAr": "عيش بلدي زيادة",
-          "price": 5
+          "price": 0.1
         },
         {
           "name": "Extra Cheese",
           "nameAr": "جبنة زيادة",
-          "price": 15
+          "price": 0.3
         }
       ]
     },
@@ -328,7 +328,7 @@
       "nameAr": "جبنة مقلية",
       "description": "Golden fried white cheese with tomato slices.",
       "descriptionAr": "",
-      "basePrice": 40,
+      "basePrice": 0.8,
       "image": "/images/fried-cheese.jpg",
       "categoryId": 1,
       "isVegetarian": true,
@@ -342,7 +342,7 @@
         {
           "name": "Extra Baladi Bread",
           "nameAr": "عيش بلدي زيادة",
-          "price": 5
+          "price": 0.1
         }
       ]
     },
@@ -352,7 +352,7 @@
       "nameAr": "شوربة عدس",
       "description": "Hearty Egyptian red lentil soup with cumin and lemon.",
       "descriptionAr": "",
-      "basePrice": 35,
+      "basePrice": 0.7,
       "image": "/images/lentil-soup.jpg",
       "categoryId": 2,
       "isVegetarian": true,
@@ -366,12 +366,12 @@
         {
           "name": "Extra Baladi Bread",
           "nameAr": "عيش بلدي زيادة",
-          "price": 5
+          "price": 0.1
         },
         {
           "name": "Extra Croutons",
           "nameAr": "توست مقرمش زيادة",
-          "price": 5
+          "price": 0.1
         }
       ]
     },
@@ -381,7 +381,7 @@
       "nameAr": "شوربة فراخ بالشعرية",
       "description": "Light chicken broth with vermicelli and vegetables.",
       "descriptionAr": "",
-      "basePrice": 35,
+      "basePrice": 0.7,
       "image": "/images/chicken-soup.jpg",
       "categoryId": 2,
       "isVegetarian": false,
@@ -395,7 +395,7 @@
         {
           "name": "Extra Baladi Bread",
           "nameAr": "عيش بلدي زيادة",
-          "price": 5
+          "price": 0.1
         }
       ]
     },
@@ -405,7 +405,7 @@
       "nameAr": "سلطة بلدي",
       "description": "Diced tomato, cucumber, onion and parsley with lemon and olive oil.",
       "descriptionAr": "",
-      "basePrice": 30,
+      "basePrice": 0.6,
       "image": "/images/baladi-salad.jpg",
       "categoryId": 2,
       "isVegetarian": true,
@@ -423,7 +423,7 @@
       "nameAr": "سلطة جرجير",
       "description": "Fresh rocket with tomato, lemon and olive oil.",
       "descriptionAr": "",
-      "basePrice": 30,
+      "basePrice": 0.6,
       "image": "/images/rocket-salad.jpg",
       "categoryId": 2,
       "isVegetarian": true,
@@ -441,7 +441,7 @@
       "nameAr": "سلطة باذنجان",
       "description": "Fried eggplant with garlic, vinegar and tomato.",
       "descriptionAr": "",
-      "basePrice": 35,
+      "basePrice": 0.7,
       "image": "/images/eggplant-salad.jpg",
       "categoryId": 2,
       "isVegetarian": true,
@@ -455,7 +455,7 @@
         {
           "name": "Extra Baladi Bread",
           "nameAr": "عيش بلدي زيادة",
-          "price": 5
+          "price": 0.1
         }
       ]
     },
@@ -465,7 +465,7 @@
       "nameAr": "سلطة بنجر",
       "description": "Sliced beetroot with garlic, lemon and olive oil.",
       "descriptionAr": "",
-      "basePrice": 30,
+      "basePrice": 0.6,
       "image": "/images/beetroot-salad.jpg",
       "categoryId": 2,
       "isVegetarian": true,
@@ -483,7 +483,7 @@
       "nameAr": "حمص مع عيش بلدي",
       "description": "Creamy chickpea dip with tahini and olive oil, served with warm baladi bread.",
       "descriptionAr": "",
-      "basePrice": 45,
+      "basePrice": 0.9,
       "image": "/images/hummus-baladi.jpg",
       "categoryId": 2,
       "isVegetarian": true,
@@ -497,7 +497,7 @@
         {
           "name": "Extra Baladi Bread",
           "nameAr": "عيش بلدي زيادة",
-          "price": 5
+          "price": 0.1
         }
       ]
     },
@@ -507,7 +507,7 @@
       "nameAr": "بابا غنوج",
       "description": "Smoky grilled eggplant mashed with tahini, garlic and lemon.",
       "descriptionAr": "",
-      "basePrice": 40,
+      "basePrice": 0.8,
       "image": "/images/baba-ghanoush.jpg",
       "categoryId": 2,
       "isVegetarian": true,
@@ -521,7 +521,7 @@
         {
           "name": "Extra Baladi Bread",
           "nameAr": "عيش بلدي زيادة",
-          "price": 5
+          "price": 0.1
         }
       ]
     },
@@ -531,7 +531,7 @@
       "nameAr": "سلطة طحينة",
       "description": "Classic Egyptian tahini dip with lemon and garlic.",
       "descriptionAr": "",
-      "basePrice": 30,
+      "basePrice": 0.6,
       "image": "/images/tahini-salad.jpg",
       "categoryId": 2,
       "isVegetarian": true,
@@ -545,7 +545,7 @@
         {
           "name": "Extra Baladi Bread",
           "nameAr": "عيش بلدي زيادة",
-          "price": 5
+          "price": 0.1
         }
       ]
     },
@@ -555,7 +555,7 @@
       "nameAr": "ورق عنب",
       "description": "Vine leaves stuffed with herbed rice, slow-cooked in lemon and olive oil.",
       "descriptionAr": "",
-      "basePrice": 70,
+      "basePrice": 1.4,
       "image": "/images/warak-enab.jpg",
       "categoryId": 2,
       "isVegetarian": true,
@@ -573,7 +573,7 @@
       "nameAr": "سمبوسك بالجبنة",
       "description": "Crispy golden pastries filled with white cheese.",
       "descriptionAr": "",
-      "basePrice": 50,
+      "basePrice": 1.0,
       "image": "/images/sambousek.jpg",
       "categoryId": 2,
       "isVegetarian": true,
@@ -587,7 +587,7 @@
         {
           "name": "Extra Piece",
           "nameAr": "قطعة زيادة",
-          "price": 10
+          "price": 0.2
         }
       ]
     },
@@ -597,7 +597,7 @@
       "nameAr": "قرنبيط مقلي",
       "description": "Crispy fried cauliflower served with tahini.",
       "descriptionAr": "",
-      "basePrice": 45,
+      "basePrice": 0.9,
       "image": "/images/fried-cauliflower.jpg",
       "categoryId": 2,
       "isVegetarian": true,
@@ -611,7 +611,7 @@
         {
           "name": "Extra Tahini",
           "nameAr": "طحينة زيادة",
-          "price": 10
+          "price": 0.2
         }
       ]
     },
@@ -621,7 +621,7 @@
       "nameAr": "مخللات",
       "description": "Assorted Egyptian pickles: cucumber, turnip, carrot and lemon.",
       "descriptionAr": "",
-      "basePrice": 20,
+      "basePrice": 0.4,
       "image": "/images/mixed-pickles.jpg",
       "categoryId": 2,
       "isVegetarian": true,
@@ -639,7 +639,7 @@
       "nameAr": "كشري",
       "description": "Rice, macaroni, lentils and chickpeas with spiced tomato sauce, garlic vinegar and crispy fried onions.",
       "descriptionAr": "",
-      "basePrice": 60,
+      "basePrice": 1.2,
       "image": "/images/koshary.jpg",
       "categoryId": 3,
       "isVegetarian": true,
@@ -653,17 +653,17 @@
         {
           "name": "Extra Fried Onions",
           "nameAr": "بصل مقلي زيادة",
-          "price": 5
+          "price": 0.1
         },
         {
           "name": "Extra Dakka",
           "nameAr": "دقة زيادة",
-          "price": 5
+          "price": 0.1
         },
         {
           "name": "Extra Shatta",
           "nameAr": "شطة زيادة",
-          "price": 3
+          "price": 0.06
         }
       ]
     },
@@ -673,7 +673,7 @@
       "nameAr": "ملوخية بالفراخ",
       "description": "Garlicky jute-leaf stew served with rice and roasted chicken.",
       "descriptionAr": "",
-      "basePrice": 110,
+      "basePrice": 2.2,
       "image": "/images/molokhia-chicken.jpg",
       "categoryId": 3,
       "isVegetarian": false,
@@ -687,12 +687,12 @@
         {
           "name": "Extra Rice",
           "nameAr": "أرز زيادة",
-          "price": 15
+          "price": 0.3
         },
         {
           "name": "Extra Chicken Piece",
           "nameAr": "قطعة فراخ زيادة",
-          "price": 35
+          "price": 0.7
         }
       ]
     },
@@ -702,7 +702,7 @@
       "nameAr": "محشي مشكل",
       "description": "Zucchini, peppers, eggplant and cabbage stuffed with herbed rice.",
       "descriptionAr": "",
-      "basePrice": 100,
+      "basePrice": 2.0,
       "image": "/images/mahshi.jpg",
       "categoryId": 3,
       "isVegetarian": true,
@@ -720,7 +720,7 @@
       "nameAr": "بامية باللحمة",
       "description": "Okra simmered in tomato sauce with beef chunks, served with rice.",
       "descriptionAr": "",
-      "basePrice": 140,
+      "basePrice": 2.8,
       "image": "/images/bamia.jpg",
       "categoryId": 3,
       "isVegetarian": false,
@@ -734,7 +734,7 @@
         {
           "name": "Extra Rice",
           "nameAr": "أرز زيادة",
-          "price": 15
+          "price": 0.3
         }
       ]
     },
@@ -744,7 +744,7 @@
       "nameAr": "مكرونة بالبشاميل",
       "description": "Baked pasta layered with spiced minced beef and creamy béchamel.",
       "descriptionAr": "",
-      "basePrice": 95,
+      "basePrice": 1.9,
       "image": "/images/macarona-bechamel.jpg",
       "categoryId": 3,
       "isVegetarian": false,
@@ -758,7 +758,7 @@
         {
           "name": "Extra Cheese",
           "nameAr": "جبنة زيادة",
-          "price": 15
+          "price": 0.3
         }
       ]
     },
@@ -768,7 +768,7 @@
       "nameAr": "بانيه فراخ",
       "description": "Crispy breaded chicken breast served with fries and salad.",
       "descriptionAr": "",
-      "basePrice": 90,
+      "basePrice": 1.8,
       "image": "/images/chicken-pane.jpg",
       "categoryId": 3,
       "isVegetarian": false,
@@ -782,12 +782,12 @@
         {
           "name": "Extra Cheese",
           "nameAr": "جبنة زيادة",
-          "price": 15
+          "price": 0.3
         },
         {
           "name": "Extra Garlic Sauce",
           "nameAr": "صوص ثوم زيادة",
-          "price": 8
+          "price": 0.16
         }
       ]
     },
@@ -797,7 +797,7 @@
       "nameAr": "فتة بالفراخ",
       "description": "Rice and crispy bread soaked in garlic-vinegar sauce, topped with roasted chicken.",
       "descriptionAr": "",
-      "basePrice": 130,
+      "basePrice": 2.6,
       "image": "/images/chicken-fattah.jpg",
       "categoryId": 3,
       "isVegetarian": false,
@@ -811,7 +811,7 @@
         {
           "name": "Extra Chicken Piece",
           "nameAr": "قطعة فراخ زيادة",
-          "price": 35
+          "price": 0.7
         }
       ]
     },
@@ -821,7 +821,7 @@
       "nameAr": "رز معمر",
       "description": "Creamy baked rice with milk and butter, a classic Egyptian side or main.",
       "descriptionAr": "",
-      "basePrice": 70,
+      "basePrice": 1.4,
       "image": "/images/roz-muammar.jpg",
       "categoryId": 3,
       "isVegetarian": false,
@@ -835,7 +835,7 @@
         {
           "name": "Extra Chicken Piece",
           "nameAr": "قطعة فراخ زيادة",
-          "price": 35
+          "price": 0.7
         }
       ]
     },
@@ -845,7 +845,7 @@
       "nameAr": "طاجن كفتة بالصلصة",
       "description": "Kofta balls baked in tomato sauce in a clay pot.",
       "descriptionAr": "",
-      "basePrice": 130,
+      "basePrice": 2.6,
       "image": "/images/kofta-tagine.jpg",
       "categoryId": 3,
       "isVegetarian": false,
@@ -859,12 +859,12 @@
         {
           "name": "Extra Rice",
           "nameAr": "أرز زيادة",
-          "price": 15
+          "price": 0.3
         },
         {
           "name": "Extra Cheese",
           "nameAr": "جبنة زيادة",
-          "price": 15
+          "price": 0.3
         }
       ]
     },
@@ -874,7 +874,7 @@
       "nameAr": "طاجن بطاطس باللحمة",
       "description": "Beef and potatoes baked in tomato sauce in a clay pot.",
       "descriptionAr": "",
-      "basePrice": 150,
+      "basePrice": 3.0,
       "image": "/images/potato-tagine.jpg",
       "categoryId": 3,
       "isVegetarian": false,
@@ -888,12 +888,12 @@
         {
           "name": "Extra Rice",
           "nameAr": "أرز زيادة",
-          "price": 15
+          "price": 0.3
         },
         {
           "name": "Extra Cheese",
           "nameAr": "جبنة زيادة",
-          "price": 15
+          "price": 0.3
         }
       ]
     },
@@ -903,7 +903,7 @@
       "nameAr": "فريك بالفراخ",
       "description": "Smoky green wheat freekeh cooked with roasted chicken.",
       "descriptionAr": "",
-      "basePrice": 120,
+      "basePrice": 2.4,
       "image": "/images/chicken-freekeh.jpg",
       "categoryId": 3,
       "isVegetarian": false,
@@ -917,7 +917,7 @@
         {
           "name": "Extra Chicken Piece",
           "nameAr": "قطعة فراخ زيادة",
-          "price": 35
+          "price": 0.7
         }
       ]
     },
@@ -927,7 +927,7 @@
       "nameAr": "روستو",
       "description": "Slow-roasted beef in gravy with potatoes and rice.",
       "descriptionAr": "",
-      "basePrice": 170,
+      "basePrice": 3.4,
       "image": "/images/rosto.jpg",
       "categoryId": 3,
       "isVegetarian": false,
@@ -941,7 +941,7 @@
         {
           "name": "Extra Rice",
           "nameAr": "أرز زيادة",
-          "price": 15
+          "price": 0.3
         }
       ]
     },
@@ -951,7 +951,7 @@
       "nameAr": "فتة باللحم الضاني",
       "description": "Rice and crispy bread soaked in garlic-vinegar sauce, topped with tender lamb.",
       "descriptionAr": "",
-      "basePrice": 190,
+      "basePrice": 3.8,
       "image": "/images/lamb-fattah.jpg",
       "categoryId": 3,
       "isVegetarian": false,
@@ -965,7 +965,7 @@
         {
           "name": "Extra Meat",
           "nameAr": "لحم زيادة",
-          "price": 50
+          "price": 1.0
         }
       ]
     },
@@ -975,7 +975,7 @@
       "nameAr": "حمام محشي",
       "description": "Pigeon stuffed with spiced freekeh, grilled until golden.",
       "descriptionAr": "",
-      "basePrice": 220,
+      "basePrice": 4.4,
       "image": "/images/hamam-mahshi.jpg",
       "categoryId": 3,
       "isVegetarian": false,
@@ -987,7 +987,7 @@
         {
           "name": "Extra Pigeon",
           "nameAr": "حمامة زيادة",
-          "price": 110
+          "price": 2.2
         }
       ]
     },
@@ -997,7 +997,7 @@
       "nameAr": "طاجن موزة ضاني",
       "description": "Slow-cooked lamb shank baked in a clay pot with onions and herbs.",
       "descriptionAr": "",
-      "basePrice": 280,
+      "basePrice": 5.6,
       "image": "/images/lamb-shank-tagine.jpg",
       "categoryId": 3,
       "isVegetarian": false,
@@ -1009,7 +1009,7 @@
         {
           "name": "Extra Rice",
           "nameAr": "أرز زيادة",
-          "price": 15
+          "price": 0.3
         }
       ]
     },
@@ -1019,7 +1019,7 @@
       "nameAr": "بط محشي فريك",
       "description": "Roasted duck stuffed with spiced freekeh.",
       "descriptionAr": "",
-      "basePrice": 260,
+      "basePrice": 5.2,
       "image": "/images/stuffed-duck.jpg",
       "categoryId": 3,
       "isVegetarian": false,
@@ -1035,7 +1035,7 @@
       "nameAr": "نصف فرخة مشوية",
       "description": "Charcoal-grilled half chicken with garlic sauce and bread.",
       "descriptionAr": "",
-      "basePrice": 140,
+      "basePrice": 2.8,
       "image": "/images/half-chicken.jpg",
       "categoryId": 4,
       "isVegetarian": false,
@@ -1047,12 +1047,12 @@
         {
           "name": "Extra Garlic Sauce",
           "nameAr": "صوص ثوم زيادة",
-          "price": 8
+          "price": 0.16
         },
         {
           "name": "Extra Rice",
           "nameAr": "أرز زيادة",
-          "price": 15
+          "price": 0.3
         }
       ]
     },
@@ -1062,7 +1062,7 @@
       "nameAr": "طاووق دجاج",
       "description": "Marinated chicken cubes grilled with garlic sauce.",
       "descriptionAr": "",
-      "basePrice": 135,
+      "basePrice": 2.7,
       "image": "/images/shish-tawook.jpg",
       "categoryId": 4,
       "isVegetarian": false,
@@ -1076,12 +1076,12 @@
         {
           "name": "Extra Garlic Sauce",
           "nameAr": "صوص ثوم زيادة",
-          "price": 8
+          "price": 0.16
         },
         {
           "name": "Extra Rice",
           "nameAr": "أرز زيادة",
-          "price": 15
+          "price": 0.3
         }
       ]
     },
@@ -1091,7 +1091,7 @@
       "nameAr": "كفتة دجاج",
       "description": "Grilled minced chicken skewers with herbs.",
       "descriptionAr": "",
-      "basePrice": 120,
+      "basePrice": 2.4,
       "image": "/images/chicken-kofta.jpg",
       "categoryId": 4,
       "isVegetarian": false,
@@ -1105,12 +1105,12 @@
         {
           "name": "Extra Garlic Sauce",
           "nameAr": "صوص ثوم زيادة",
-          "price": 8
+          "price": 0.16
         },
         {
           "name": "Extra Baladi Bread",
           "nameAr": "عيش بلدي زيادة",
-          "price": 5
+          "price": 0.1
         }
       ]
     },
@@ -1120,7 +1120,7 @@
       "nameAr": "أسياخ كفتة",
       "description": "Grilled minced beef skewers with tahini and baladi bread.",
       "descriptionAr": "",
-      "basePrice": 150,
+      "basePrice": 3.0,
       "image": "/images/kofta-skewers.jpg",
       "categoryId": 4,
       "isVegetarian": false,
@@ -1134,12 +1134,12 @@
         {
           "name": "Extra Tahini",
           "nameAr": "طحينة زيادة",
-          "price": 10
+          "price": 0.2
         },
         {
           "name": "Extra Baladi Bread",
           "nameAr": "عيش بلدي زيادة",
-          "price": 5
+          "price": 0.1
         }
       ]
     },
@@ -1149,7 +1149,7 @@
       "nameAr": "كباب مشوي",
       "description": "Charcoal-grilled beef kebab with grilled tomato and onions.",
       "descriptionAr": "",
-      "basePrice": 190,
+      "basePrice": 3.8,
       "image": "/images/kebab.jpg",
       "categoryId": 4,
       "isVegetarian": false,
@@ -1163,12 +1163,12 @@
         {
           "name": "Extra Tahini",
           "nameAr": "طحينة زيادة",
-          "price": 10
+          "price": 0.2
         },
         {
           "name": "Extra Baladi Bread",
           "nameAr": "عيش بلدي زيادة",
-          "price": 5
+          "price": 0.1
         }
       ]
     },
@@ -1178,7 +1178,7 @@
       "nameAr": "سمان مشوي",
       "description": "Two charcoal-grilled quails with herbs and rice.",
       "descriptionAr": "",
-      "basePrice": 150,
+      "basePrice": 3.0,
       "image": "/images/grilled-quail.jpg",
       "categoryId": 4,
       "isVegetarian": false,
@@ -1190,7 +1190,7 @@
         {
           "name": "Extra Rice",
           "nameAr": "أرز زيادة",
-          "price": 15
+          "price": 0.3
         }
       ]
     },
@@ -1200,7 +1200,7 @@
       "nameAr": "كباب ضاني",
       "description": "Charcoal-grilled lamb kebab with grilled tomato and onions.",
       "descriptionAr": "",
-      "basePrice": 230,
+      "basePrice": 4.6,
       "image": "/images/lamb-kebab.jpg",
       "categoryId": 4,
       "isVegetarian": false,
@@ -1212,12 +1212,12 @@
         {
           "name": "Extra Tahini",
           "nameAr": "طحينة زيادة",
-          "price": 10
+          "price": 0.2
         },
         {
           "name": "Extra Baladi Bread",
           "nameAr": "عيش بلدي زيادة",
-          "price": 5
+          "price": 0.1
         }
       ]
     },
@@ -1227,7 +1227,7 @@
       "nameAr": "مشويات مشكلة",
       "description": "Kofta, kebab and chicken tawook with rice and salad.",
       "descriptionAr": "",
-      "basePrice": 260,
+      "basePrice": 5.2,
       "image": "/images/mixed-grill.jpg",
       "categoryId": 4,
       "isVegetarian": false,
@@ -1245,7 +1245,7 @@
       "nameAr": "ريش ضاني",
       "description": "Charcoal-grilled lamb chops with herbs.",
       "descriptionAr": "",
-      "basePrice": 320,
+      "basePrice": 6.4,
       "image": "/images/lamb-chops.jpg",
       "categoryId": 4,
       "isVegetarian": false,
@@ -1261,7 +1261,7 @@
       "nameAr": "سمك بوري مقلي",
       "description": "Crispy fried mullet with lemon, tahini and salad.",
       "descriptionAr": "",
-      "basePrice": 160,
+      "basePrice": 3.2,
       "image": "/images/fried-bouri.jpg",
       "categoryId": 5,
       "isVegetarian": false,
@@ -1275,12 +1275,12 @@
         {
           "name": "Extra Tahini",
           "nameAr": "طحينة زيادة",
-          "price": 10
+          "price": 0.2
         },
         {
           "name": "Extra Rice",
           "nameAr": "أرز زيادة",
-          "price": 15
+          "price": 0.3
         }
       ]
     },
@@ -1290,7 +1290,7 @@
       "nameAr": "كاليماري مقلي",
       "description": "Crispy fried calamari rings with tartar sauce.",
       "descriptionAr": "",
-      "basePrice": 190,
+      "basePrice": 3.8,
       "image": "/images/fried-calamari.jpg",
       "categoryId": 5,
       "isVegetarian": false,
@@ -1304,7 +1304,7 @@
         {
           "name": "Extra Tartar Sauce",
           "nameAr": "صوص تارتار زيادة",
-          "price": 8
+          "price": 0.16
         }
       ]
     },
@@ -1314,7 +1314,7 @@
       "nameAr": "صيادية سمك",
       "description": "Fried fish fillet on caramelized-onion rice with tahini sauce.",
       "descriptionAr": "",
-      "basePrice": 180,
+      "basePrice": 3.6,
       "image": "/images/sayadeya.jpg",
       "categoryId": 5,
       "isVegetarian": false,
@@ -1328,12 +1328,12 @@
         {
           "name": "Extra Tahini",
           "nameAr": "طحينة زيادة",
-          "price": 10
+          "price": 0.2
         },
         {
           "name": "Extra Rice",
           "nameAr": "أرز زيادة",
-          "price": 15
+          "price": 0.3
         }
       ]
     },
@@ -1343,7 +1343,7 @@
       "nameAr": "دنيس مشوي",
       "description": "Whole grilled sea bass with lemon, served with rice and salad.",
       "descriptionAr": "",
-      "basePrice": 210,
+      "basePrice": 4.2,
       "image": "/images/sea-bass.jpg",
       "categoryId": 5,
       "isVegetarian": false,
@@ -1355,12 +1355,12 @@
         {
           "name": "Extra Rice",
           "nameAr": "أرز زيادة",
-          "price": 15
+          "price": 0.3
         },
         {
           "name": "Extra Tahini",
           "nameAr": "طحينة زيادة",
-          "price": 10
+          "price": 0.2
         }
       ]
     },
@@ -1370,7 +1370,7 @@
       "nameAr": "جمبري مقلي",
       "description": "Crispy fried shrimp with lemon and tartar sauce.",
       "descriptionAr": "",
-      "basePrice": 240,
+      "basePrice": 4.8,
       "image": "/images/fried-shrimp.jpg",
       "categoryId": 5,
       "isVegetarian": false,
@@ -1382,7 +1382,7 @@
         {
           "name": "Extra Tartar Sauce",
           "nameAr": "صوص تارتار زيادة",
-          "price": 8
+          "price": 0.16
         }
       ]
     },
@@ -1392,7 +1392,7 @@
       "nameAr": "طاجن جمبري",
       "description": "Shrimp baked in tomato and garlic sauce in a clay pot.",
       "descriptionAr": "",
-      "basePrice": 260,
+      "basePrice": 5.2,
       "image": "/images/shrimp-tagine.jpg",
       "categoryId": 5,
       "isVegetarian": false,
@@ -1404,12 +1404,12 @@
         {
           "name": "Extra Rice",
           "nameAr": "أرز زيادة",
-          "price": 15
+          "price": 0.3
         },
         {
           "name": "Extra Cheese",
           "nameAr": "جبنة زيادة",
-          "price": 15
+          "price": 0.3
         }
       ]
     },
@@ -1419,7 +1419,7 @@
       "nameAr": "طبق مأكولات بحرية مشكلة",
       "description": "Grilled fish, shrimp and calamari with rice, salad and tahini (serves 2).",
       "descriptionAr": "",
-      "basePrice": 380,
+      "basePrice": 7.6,
       "image": "/images/seafood-platter.jpg",
       "categoryId": 5,
       "isVegetarian": false,
@@ -1431,7 +1431,7 @@
         {
           "name": "Extra Rice",
           "nameAr": "أرز زيادة",
-          "price": 15
+          "price": 0.3
         }
       ]
     },
@@ -1441,7 +1441,7 @@
       "nameAr": "حواوشي",
       "description": "Baladi bread stuffed with spiced minced beef and baked until crisp.",
       "descriptionAr": "",
-      "basePrice": 75,
+      "basePrice": 1.5,
       "image": "/images/hawawshi.jpg",
       "categoryId": 6,
       "isVegetarian": false,
@@ -1455,7 +1455,7 @@
         {
           "name": "Extra Cheese",
           "nameAr": "جبنة زيادة",
-          "price": 15
+          "price": 0.3
         }
       ]
     },
@@ -1465,7 +1465,7 @@
       "nameAr": "ممبار",
       "description": "Intestine casing stuffed with seasoned rice, fried or grilled.",
       "descriptionAr": "",
-      "basePrice": 70,
+      "basePrice": 1.4,
       "image": "/images/mombar.jpg",
       "categoryId": 6,
       "isVegetarian": false,
@@ -1479,7 +1479,7 @@
         {
           "name": "Extra Baladi Bread",
           "nameAr": "عيش بلدي زيادة",
-          "price": 5
+          "price": 0.1
         }
       ]
     },
@@ -1489,7 +1489,7 @@
       "nameAr": "كبدة إسكندراني",
       "description": "Spicy sautéed beef liver with peppers, garlic and cumin.",
       "descriptionAr": "",
-      "basePrice": 70,
+      "basePrice": 1.4,
       "image": "/images/kebda-eskandarani.jpg",
       "categoryId": 6,
       "isVegetarian": false,
@@ -1503,7 +1503,7 @@
         {
           "name": "Extra Baladi Bread",
           "nameAr": "عيش بلدي زيادة",
-          "price": 5
+          "price": 0.1
         }
       ]
     },
@@ -1513,7 +1513,7 @@
       "nameAr": "ساندوتش سجق",
       "description": "Spiced Egyptian sausage with peppers and tomato in baladi bread.",
       "descriptionAr": "",
-      "basePrice": 55,
+      "basePrice": 1.1,
       "image": "/images/sausage-sandwich.jpg",
       "categoryId": 6,
       "isVegetarian": false,
@@ -1527,7 +1527,7 @@
         {
           "name": "Extra Cheese",
           "nameAr": "جبنة زيادة",
-          "price": 15
+          "price": 0.3
         }
       ]
     },
@@ -1537,7 +1537,7 @@
       "nameAr": "ساندوتش كبدة",
       "description": "Spiced sautéed liver with peppers in baladi bread.",
       "descriptionAr": "",
-      "basePrice": 55,
+      "basePrice": 1.1,
       "image": "/images/liver-sandwich.jpg",
       "categoryId": 6,
       "isVegetarian": false,
@@ -1551,7 +1551,7 @@
         {
           "name": "Extra Cheese",
           "nameAr": "جبنة زيادة",
-          "price": 15
+          "price": 0.3
         }
       ]
     },
@@ -1561,7 +1561,7 @@
       "nameAr": "ساندوتش طعمية",
       "description": "Crispy ta'ameya with tahini, tomato and salad in baladi bread.",
       "descriptionAr": "",
-      "basePrice": 20,
+      "basePrice": 0.4,
       "image": "/images/taameya-sandwich.jpg",
       "categoryId": 6,
       "isVegetarian": true,
@@ -1575,12 +1575,12 @@
         {
           "name": "Extra Ta'ameya",
           "nameAr": "طعمية زيادة",
-          "price": 5
+          "price": 0.1
         },
         {
           "name": "Extra Tahini",
           "nameAr": "طحينة زيادة",
-          "price": 10
+          "price": 0.2
         }
       ]
     },
@@ -1590,7 +1590,7 @@
       "nameAr": "ساندوتش كفتة",
       "description": "Grilled kofta in baladi bread with tahini and salad.",
       "descriptionAr": "",
-      "basePrice": 60,
+      "basePrice": 1.2,
       "image": "/images/kofta-sandwich.jpg",
       "categoryId": 6,
       "isVegetarian": false,
@@ -1604,7 +1604,7 @@
         {
           "name": "Extra Cheese",
           "nameAr": "جبنة زيادة",
-          "price": 15
+          "price": 0.3
         }
       ]
     },
@@ -1614,7 +1614,7 @@
       "nameAr": "ساندوتش شاورما دجاج",
       "description": "Sliced marinated chicken with garlic sauce and pickles.",
       "descriptionAr": "",
-      "basePrice": 70,
+      "basePrice": 1.4,
       "image": "/images/chicken-shawarma.jpg",
       "categoryId": 6,
       "isVegetarian": false,
@@ -1628,12 +1628,12 @@
         {
           "name": "Extra Garlic Sauce",
           "nameAr": "صوص ثوم زيادة",
-          "price": 8
+          "price": 0.16
         },
         {
           "name": "Extra Cheese",
           "nameAr": "جبنة زيادة",
-          "price": 15
+          "price": 0.3
         }
       ]
     },
@@ -1643,7 +1643,7 @@
       "nameAr": "فطير مشلتت بالعسل",
       "description": "Flaky layered pastry served with golden honey.",
       "descriptionAr": "",
-      "basePrice": 55,
+      "basePrice": 1.1,
       "image": "/images/feteer-honey.jpg",
       "categoryId": 6,
       "isVegetarian": true,
@@ -1661,7 +1661,7 @@
       "nameAr": "فطير مشلتت بالجبنة",
       "description": "Flaky layered pastry filled with white cheese.",
       "descriptionAr": "",
-      "basePrice": 65,
+      "basePrice": 1.3,
       "image": "/images/feteer-cheese.jpg",
       "categoryId": 6,
       "isVegetarian": true,
@@ -1679,7 +1679,7 @@
       "nameAr": "فطير بالقشطة والسكر",
       "description": "Sweet feteer with cream, sugar and a drizzle of honey.",
       "descriptionAr": "",
-      "basePrice": 65,
+      "basePrice": 1.3,
       "image": "/images/feteer-cream.jpg",
       "categoryId": 6,
       "isVegetarian": true,
@@ -1693,7 +1693,7 @@
         {
           "name": "Extra Nuts",
           "nameAr": "مكسرات زيادة",
-          "price": 10
+          "price": 0.2
         }
       ]
     },
@@ -1703,7 +1703,7 @@
       "nameAr": "فطير بسطرمة",
       "description": "Flaky feteer filled with pastrami and melted cheese.",
       "descriptionAr": "",
-      "basePrice": 85,
+      "basePrice": 1.7,
       "image": "/images/feteer-pastrami.jpg",
       "categoryId": 6,
       "isVegetarian": false,
@@ -1717,7 +1717,7 @@
         {
           "name": "Extra Cheese",
           "nameAr": "جبنة زيادة",
-          "price": 15
+          "price": 0.3
         }
       ]
     },
@@ -1727,7 +1727,7 @@
       "nameAr": "فطير مشكل",
       "description": "Savory feteer with cheese, beef, sausage, olives and peppers.",
       "descriptionAr": "",
-      "basePrice": 110,
+      "basePrice": 2.2,
       "image": "/images/mixed-feteer.jpg",
       "categoryId": 6,
       "isVegetarian": false,
@@ -1741,7 +1741,7 @@
         {
           "name": "Extra Cheese",
           "nameAr": "جبنة زيادة",
-          "price": 15
+          "price": 0.3
         }
       ]
     },
@@ -1751,7 +1751,7 @@
       "nameAr": "رز أبيض",
       "description": "Steamed white rice.",
       "descriptionAr": "",
-      "basePrice": 25,
+      "basePrice": 0.5,
       "image": "/images/white-rice.jpg",
       "categoryId": 7,
       "isVegetarian": true,
@@ -1769,7 +1769,7 @@
       "nameAr": "رز بالشعرية",
       "description": "Fluffy Egyptian rice cooked with toasted vermicelli.",
       "descriptionAr": "",
-      "basePrice": 35,
+      "basePrice": 0.7,
       "image": "/images/vermicelli-rice.jpg",
       "categoryId": 7,
       "isVegetarian": true,
@@ -1787,7 +1787,7 @@
       "nameAr": "بطاطس محمرة",
       "description": "Crispy golden fries.",
       "descriptionAr": "",
-      "basePrice": 35,
+      "basePrice": 0.7,
       "image": "/images/french-fries.jpg",
       "categoryId": 7,
       "isVegetarian": true,
@@ -1801,7 +1801,7 @@
         {
           "name": "Extra Cheese",
           "nameAr": "جبنة زيادة",
-          "price": 15
+          "price": 0.3
         }
       ]
     },
@@ -1811,7 +1811,7 @@
       "nameAr": "خضار مشوية",
       "description": "Grilled zucchini, peppers, eggplant and tomato.",
       "descriptionAr": "",
-      "basePrice": 45,
+      "basePrice": 0.9,
       "image": "/images/grilled-vegetables.jpg",
       "categoryId": 7,
       "isVegetarian": true,
@@ -1829,7 +1829,7 @@
       "nameAr": "عيش بلدي",
       "description": "Fresh baked baladi bread.",
       "descriptionAr": "",
-      "basePrice": 10,
+      "basePrice": 0.2,
       "image": "/images/baladi-bread.jpg",
       "categoryId": 7,
       "isVegetarian": true,
@@ -1845,7 +1845,7 @@
       "nameAr": "صوص ثوم",
       "description": "Creamy garlic sauce.",
       "descriptionAr": "",
-      "basePrice": 10,
+      "basePrice": 0.2,
       "image": "/images/garlic-sauce.jpg",
       "categoryId": 7,
       "isVegetarian": true,
@@ -1861,7 +1861,7 @@
       "nameAr": "وجبة أطفال",
       "description": "Breaded chicken pieces, fries and a small juice.",
       "descriptionAr": "",
-      "basePrice": 90,
+      "basePrice": 1.8,
       "image": "/images/kids-meal.jpg",
       "categoryId": 8,
       "isVegetarian": false,
@@ -1877,7 +1877,7 @@
       "nameAr": "وجبة مصرية لشخصين",
       "description": "Molokhia with chicken, rice, mixed mahshi, ta'ameya, salad and bread.",
       "descriptionAr": "",
-      "basePrice": 380,
+      "basePrice": 7.6,
       "image": "/images/feast-for-two.jpg",
       "categoryId": 8,
       "isVegetarian": false,
@@ -1889,7 +1889,7 @@
         {
           "name": "Extra Rice",
           "nameAr": "أرز زيادة",
-          "price": 15
+          "price": 0.3
         }
       ]
     },
@@ -1899,7 +1899,7 @@
       "nameAr": "مشويات عائلية (4 أشخاص)",
       "description": "Kofta, kebab, tawook, lamb chops and chicken with rice, salads and bread.",
       "descriptionAr": "",
-      "basePrice": 950,
+      "basePrice": 19.0,
       "image": "/images/family-mixed-grill.jpg",
       "categoryId": 8,
       "isVegetarian": false,
@@ -1911,12 +1911,12 @@
         {
           "name": "Extra Rice",
           "nameAr": "أرز زيادة",
-          "price": 15
+          "price": 0.3
         },
         {
           "name": "Extra Tahini",
           "nameAr": "طحينة زيادة",
-          "price": 10
+          "price": 0.2
         }
       ]
     },
@@ -1926,7 +1926,7 @@
       "nameAr": "أم علي",
       "description": "Warm puff pastry baked with milk, nuts and raisins.",
       "descriptionAr": "",
-      "basePrice": 55,
+      "basePrice": 1.1,
       "image": "/images/om-ali.jpg",
       "categoryId": 9,
       "isVegetarian": true,
@@ -1944,7 +1944,7 @@
       "nameAr": "كنافة بالقشطة",
       "description": "Crispy shredded pastry filled with cream and drenched in syrup.",
       "descriptionAr": "",
-      "basePrice": 65,
+      "basePrice": 1.3,
       "image": "/images/konafa.jpg",
       "categoryId": 9,
       "isVegetarian": true,
@@ -1958,7 +1958,7 @@
         {
           "name": "Extra Nuts",
           "nameAr": "مكسرات زيادة",
-          "price": 10
+          "price": 0.2
         }
       ]
     },
@@ -1968,7 +1968,7 @@
       "nameAr": "بسبوسة",
       "description": "Semolina cake soaked in sweet syrup.",
       "descriptionAr": "",
-      "basePrice": 40,
+      "basePrice": 0.8,
       "image": "/images/basbousa.jpg",
       "categoryId": 9,
       "isVegetarian": true,
@@ -1982,7 +1982,7 @@
         {
           "name": "Extra Cream (Eshta)",
           "nameAr": "قشطة زيادة",
-          "price": 10
+          "price": 0.2
         }
       ]
     },
@@ -1992,7 +1992,7 @@
       "nameAr": "قطايف",
       "description": "Stuffed pancakes with cream and nuts, fried and soaked in syrup.",
       "descriptionAr": "",
-      "basePrice": 55,
+      "basePrice": 1.1,
       "image": "/images/qatayef.jpg",
       "categoryId": 9,
       "isVegetarian": true,
@@ -2006,7 +2006,7 @@
         {
           "name": "Extra Nuts",
           "nameAr": "مكسرات زيادة",
-          "price": 10
+          "price": 0.2
         }
       ]
     },
@@ -2016,7 +2016,7 @@
       "nameAr": "عيش السرايا",
       "description": "Sweet toasted bread layered with cream and syrup.",
       "descriptionAr": "",
-      "basePrice": 55,
+      "basePrice": 1.1,
       "image": "/images/esh-el-saraya.jpg",
       "categoryId": 9,
       "isVegetarian": true,
@@ -2030,7 +2030,7 @@
         {
           "name": "Extra Nuts",
           "nameAr": "مكسرات زيادة",
-          "price": 10
+          "price": 0.2
         }
       ]
     },
@@ -2040,7 +2040,7 @@
       "nameAr": "لقمة القاضي",
       "description": "Crispy fried dough balls drizzled with syrup.",
       "descriptionAr": "",
-      "basePrice": 45,
+      "basePrice": 0.9,
       "image": "/images/luqmat-el-qadi.jpg",
       "categoryId": 9,
       "isVegetarian": true,
@@ -2058,7 +2058,7 @@
       "nameAr": "بقلاوة",
       "description": "Layered pastry with nuts and syrup.",
       "descriptionAr": "",
-      "basePrice": 60,
+      "basePrice": 1.2,
       "image": "/images/baklava.jpg",
       "categoryId": 9,
       "isVegetarian": true,
@@ -2076,7 +2076,7 @@
       "nameAr": "غريبة",
       "description": "Melt-in-the-mouth butter cookies.",
       "descriptionAr": "",
-      "basePrice": 40,
+      "basePrice": 0.8,
       "image": "/images/ghorayeba.jpg",
       "categoryId": 9,
       "isVegetarian": true,
@@ -2094,7 +2094,7 @@
       "nameAr": "رز بلبن",
       "description": "Creamy Egyptian rice pudding with a touch of vanilla.",
       "descriptionAr": "",
-      "basePrice": 35,
+      "basePrice": 0.7,
       "image": "/images/rice-pudding.jpg",
       "categoryId": 9,
       "isVegetarian": true,
@@ -2108,7 +2108,7 @@
         {
           "name": "Extra Nuts",
           "nameAr": "مكسرات زيادة",
-          "price": 10
+          "price": 0.2
         }
       ]
     },
@@ -2118,7 +2118,7 @@
       "nameAr": "مهلبية",
       "description": "Milk pudding flavored with rose water and topped with pistachio.",
       "descriptionAr": "",
-      "basePrice": 35,
+      "basePrice": 0.7,
       "image": "/images/muhallabia.jpg",
       "categoryId": 9,
       "isVegetarian": true,
@@ -2136,7 +2136,7 @@
       "nameAr": "فروت سلاط بالآيس كريم",
       "description": "Seasonal fruit with a scoop of ice cream.",
       "descriptionAr": "",
-      "basePrice": 55,
+      "basePrice": 1.1,
       "image": "/images/fruit-salad.jpg",
       "categoryId": 9,
       "isVegetarian": true,
@@ -2154,7 +2154,7 @@
       "nameAr": "قهوة تركي",
       "description": "Traditional coffee brewed in a cezve.",
       "descriptionAr": "",
-      "basePrice": 40,
+      "basePrice": 0.8,
       "image": "/images/turkish-coffee.jpg",
       "categoryId": 10,
       "isVegetarian": true,
@@ -2170,7 +2170,7 @@
       "nameAr": "شاي",
       "description": "Classic Egyptian black tea.",
       "descriptionAr": "",
-      "basePrice": 20,
+      "basePrice": 0.4,
       "image": "/images/black-tea.jpg",
       "categoryId": 10,
       "isVegetarian": true,
@@ -2186,7 +2186,7 @@
       "nameAr": "شاي بالنعناع",
       "description": "Egyptian black tea with fresh mint.",
       "descriptionAr": "",
-      "basePrice": 25,
+      "basePrice": 0.5,
       "image": "/images/mint-tea.jpg",
       "categoryId": 10,
       "isVegetarian": true,
@@ -2202,7 +2202,7 @@
       "nameAr": "شاي بالزنجبيل",
       "description": "Hot tea with fresh ginger.",
       "descriptionAr": "",
-      "basePrice": 30,
+      "basePrice": 0.6,
       "image": "/images/ginger-tea.jpg",
       "categoryId": 10,
       "isVegetarian": true,
@@ -2218,7 +2218,7 @@
       "nameAr": "سحلب",
       "description": "Hot creamy sahlab topped with nuts, coconut and cinnamon.",
       "descriptionAr": "",
-      "basePrice": 45,
+      "basePrice": 0.9,
       "image": "/images/sahlab.jpg",
       "categoryId": 10,
       "isVegetarian": true,
@@ -2230,7 +2230,7 @@
         {
           "name": "Extra Nuts",
           "nameAr": "مكسرات زيادة",
-          "price": 10
+          "price": 0.2
         }
       ]
     },
@@ -2240,7 +2240,7 @@
       "nameAr": "ينسون",
       "description": "Warm anise herbal drink.",
       "descriptionAr": "",
-      "basePrice": 25,
+      "basePrice": 0.5,
       "image": "/images/yansoon.jpg",
       "categoryId": 10,
       "isVegetarian": true,
@@ -2256,7 +2256,7 @@
       "nameAr": "حلبة",
       "description": "Warm fenugreek drink, traditional Egyptian.",
       "descriptionAr": "",
-      "basePrice": 25,
+      "basePrice": 0.5,
       "image": "/images/helba.jpg",
       "categoryId": 10,
       "isVegetarian": true,
@@ -2272,7 +2272,7 @@
       "nameAr": "قرفة بالحليب",
       "description": "Warm milk with cinnamon and nuts.",
       "descriptionAr": "",
-      "basePrice": 30,
+      "basePrice": 0.6,
       "image": "/images/cinnamon-milk.jpg",
       "categoryId": 10,
       "isVegetarian": true,
@@ -2288,7 +2288,7 @@
       "nameAr": "هوت شوكليت",
       "description": "Rich hot chocolate.",
       "descriptionAr": "",
-      "basePrice": 45,
+      "basePrice": 0.9,
       "image": "/images/hot-chocolate.jpg",
       "categoryId": 10,
       "isVegetarian": true,
@@ -2304,7 +2304,7 @@
       "nameAr": "كركديه",
       "description": "Chilled hibiscus drink.",
       "descriptionAr": "",
-      "basePrice": 30,
+      "basePrice": 0.6,
       "image": "/images/karkadeh.jpg",
       "categoryId": 11,
       "isVegetarian": true,
@@ -2322,7 +2322,7 @@
       "nameAr": "تمر هندي",
       "description": "Sweet-sour chilled tamarind drink.",
       "descriptionAr": "",
-      "basePrice": 30,
+      "basePrice": 0.6,
       "image": "/images/tamr-hindi.jpg",
       "categoryId": 11,
       "isVegetarian": true,
@@ -2340,7 +2340,7 @@
       "nameAr": "سوبيا",
       "description": "Traditional coconut and milk drink.",
       "descriptionAr": "",
-      "basePrice": 30,
+      "basePrice": 0.6,
       "image": "/images/sobia.jpg",
       "categoryId": 11,
       "isVegetarian": true,
@@ -2358,7 +2358,7 @@
       "nameAr": "عرق سوس",
       "description": "Chilled licorice root drink.",
       "descriptionAr": "",
-      "basePrice": 30,
+      "basePrice": 0.6,
       "image": "/images/erk-sous.jpg",
       "categoryId": 11,
       "isVegetarian": true,
@@ -2376,7 +2376,7 @@
       "nameAr": "قمر الدين",
       "description": "Chilled apricot drink.",
       "descriptionAr": "",
-      "basePrice": 35,
+      "basePrice": 0.7,
       "image": "/images/qamar-el-din.jpg",
       "categoryId": 11,
       "isVegetarian": true,
@@ -2394,7 +2394,7 @@
       "nameAr": "آيس تي",
       "description": "Chilled lemon iced tea.",
       "descriptionAr": "",
-      "basePrice": 35,
+      "basePrice": 0.7,
       "image": "/images/iced-tea.jpg",
       "categoryId": 11,
       "isVegetarian": true,
@@ -2412,7 +2412,7 @@
       "nameAr": "كولا",
       "description": "Chilled cola.",
       "descriptionAr": "",
-      "basePrice": 25,
+      "basePrice": 0.5,
       "image": "/images/cola.jpg",
       "categoryId": 11,
       "isVegetarian": true,
@@ -2428,7 +2428,7 @@
       "nameAr": "مشروب ليمون غازي",
       "description": "Chilled lemon-lime soda.",
       "descriptionAr": "",
-      "basePrice": 25,
+      "basePrice": 0.5,
       "image": "/images/lemon-lime-soda.jpg",
       "categoryId": 11,
       "isVegetarian": true,
@@ -2444,7 +2444,7 @@
       "nameAr": "مشروب برتقال غازي",
       "description": "Chilled orange soda.",
       "descriptionAr": "",
-      "basePrice": 25,
+      "basePrice": 0.5,
       "image": "/images/orange-soda.jpg",
       "categoryId": 11,
       "isVegetarian": true,
@@ -2460,7 +2460,7 @@
       "nameAr": "مياه معدنية",
       "description": "Bottled mineral water.",
       "descriptionAr": "",
-      "basePrice": 15,
+      "basePrice": 0.3,
       "image": "/images/mineral-water.jpg",
       "categoryId": 11,
       "isVegetarian": true,
@@ -2476,7 +2476,7 @@
       "nameAr": "عصير قصب",
       "description": "Freshly pressed Egyptian sugarcane juice.",
       "descriptionAr": "",
-      "basePrice": 35,
+      "basePrice": 0.7,
       "image": "/images/sugarcane.jpg",
       "categoryId": 12,
       "isVegetarian": true,
@@ -2494,7 +2494,7 @@
       "nameAr": "عصير مانجو",
       "description": "Thick Egyptian mango juice.",
       "descriptionAr": "",
-      "basePrice": 50,
+      "basePrice": 1.0,
       "image": "/images/mango-juice.jpg",
       "categoryId": 12,
       "isVegetarian": true,
@@ -2512,7 +2512,7 @@
       "nameAr": "عصير جوافة",
       "description": "Fresh guava juice.",
       "descriptionAr": "",
-      "basePrice": 45,
+      "basePrice": 0.9,
       "image": "/images/guava-juice.jpg",
       "categoryId": 12,
       "isVegetarian": true,
@@ -2530,7 +2530,7 @@
       "nameAr": "عصير برتقال",
       "description": "Freshly squeezed orange juice.",
       "descriptionAr": "",
-      "basePrice": 45,
+      "basePrice": 0.9,
       "image": "/images/orange-juice.jpg",
       "categoryId": 12,
       "isVegetarian": true,
@@ -2548,7 +2548,7 @@
       "nameAr": "عصير فراولة",
       "description": "Fresh strawberry juice.",
       "descriptionAr": "",
-      "basePrice": 50,
+      "basePrice": 1.0,
       "image": "/images/strawberry-juice.jpg",
       "categoryId": 12,
       "isVegetarian": true,
@@ -2566,7 +2566,7 @@
       "nameAr": "موز بالحليب",
       "description": "Banana blended with cold milk.",
       "descriptionAr": "",
-      "basePrice": 45,
+      "basePrice": 0.9,
       "image": "/images/banana-milk.jpg",
       "categoryId": 12,
       "isVegetarian": true,
@@ -2584,7 +2584,7 @@
       "nameAr": "عصير كانتالوب",
       "description": "Fresh cantaloupe juice.",
       "descriptionAr": "",
-      "basePrice": 45,
+      "basePrice": 0.9,
       "image": "/images/cantaloupe-juice.jpg",
       "categoryId": 12,
       "isVegetarian": true,
@@ -2602,7 +2602,7 @@
       "nameAr": "كوكتيل فواكه",
       "description": "Blend of seasonal fruits with a layer of cream.",
       "descriptionAr": "",
-      "basePrice": 55,
+      "basePrice": 1.1,
       "image": "/images/fruit-cocktail.jpg",
       "categoryId": 12,
       "isVegetarian": true,
@@ -2620,7 +2620,7 @@
       "nameAr": "عصير رمان",
       "description": "Fresh pomegranate juice.",
       "descriptionAr": "",
-      "basePrice": 60,
+      "basePrice": 1.2,
       "image": "/images/pomegranate-juice.jpg",
       "categoryId": 12,
       "isVegetarian": true,
@@ -2638,7 +2638,7 @@
       "nameAr": "عصير بطيخ",
       "description": "Fresh watermelon juice.",
       "descriptionAr": "",
-      "basePrice": 40,
+      "basePrice": 0.8,
       "image": "/images/watermelon-juice.jpg",
       "categoryId": 12,
       "isVegetarian": true,
@@ -2656,7 +2656,7 @@
       "nameAr": "ليمون بالنعناع",
       "description": "Fresh lemon juice blended with mint.",
       "descriptionAr": "",
-      "basePrice": 40,
+      "basePrice": 0.8,
       "image": "/images/lemon-mint.jpg",
       "categoryId": 12,
       "isVegetarian": true,
@@ -2674,7 +2674,7 @@
       "nameAr": "توست",
       "description": "Crispy Toast.",
       "descriptionAr": "",
-      "basePrice": 10,
+      "basePrice": 0.2,
       "image": "",
       "categoryId": 7,
       "isVegetarian": false,
@@ -3165,8 +3165,8 @@
       "userId": 2,
       "pickupTime": "2026-11-10T19:30",
       "paymentMethod": "cash",
-      "subtotal": 230,
-      "total": 230,
+      "subtotal": 4.6,
+      "total": 4.6,
       "status": "picked_up",
       "createdAt": "2026-11-10T18:50:00"
     },
@@ -3175,8 +3175,8 @@
       "userId": 2,
       "pickupTime": "2026-11-12T20:15",
       "paymentMethod": "card_demo",
-      "subtotal": 112,
-      "total": 112,
+      "subtotal": 2.24,
+      "total": 2.24,
       "status": "preparing",
       "createdAt": "2026-11-12T19:40:00"
     },
@@ -3185,8 +3185,8 @@
       "userId": 3,
       "pickupTime": "2026-11-12T21:00",
       "paymentMethod": "cash",
-      "subtotal": 220,
-      "total": 220,
+      "subtotal": 4.4,
+      "total": 4.4,
       "status": "received",
       "createdAt": "2026-11-12T20:10:00"
     },
@@ -3195,8 +3195,8 @@
       "userId": 4,
       "pickupTime": "2026-11-13T14:00",
       "paymentMethod": "cash",
-      "subtotal": 312,
-      "total": 312,
+      "subtotal": 6.24,
+      "total": 6.24,
       "status": "ready",
       "createdAt": "2026-11-13T13:20:00"
     }
@@ -3212,7 +3212,7 @@
       "extras": [
         "Extra Cheese"
       ],
-      "price": 90
+      "price": 1.8
     },
     {
       "id": 2,
@@ -3222,7 +3222,7 @@
       "quantity": 2,
       "size": "medium",
       "extras": [],
-      "price": 25
+      "price": 0.5
     },
     {
       "id": 3,
@@ -3234,7 +3234,7 @@
       "extras": [
         "Extra Fried Onions"
       ],
-      "price": 77
+      "price": 1.54
     },
     {
       "id": 4,
@@ -3244,7 +3244,7 @@
       "quantity": 1,
       "size": "small",
       "extras": [],
-      "price": 35
+      "price": 0.7
     },
     {
       "id": 5,
@@ -3254,7 +3254,7 @@
       "quantity": 1,
       "size": "medium",
       "extras": [],
-      "price": 110
+      "price": 2.2
     },
     {
       "id": 6,
@@ -3264,7 +3264,7 @@
       "quantity": 1,
       "size": "medium",
       "extras": [],
-      "price": 55
+      "price": 1.1
     },
     {
       "id": 7,
@@ -3276,7 +3276,7 @@
       "extras": [
         "Extra Nuts"
       ],
-      "price": 55
+      "price": 1.1
     },
     {
       "id": 8,
@@ -3286,7 +3286,7 @@
       "quantity": 1,
       "size": "large",
       "extras": [],
-      "price": 312
+      "price": 6.24
     }
   ],
   "reservations": [

@@ -95,9 +95,9 @@ def fmt_num(value: float) -> str:
     return str(int(f)) if f.is_integer() else f"{f:.2f}".rstrip("0").rstrip(".")
 
 
-def price_for(base: float, mult: float) -> int:
-    """Rounded-to-nearest-integer price (half rounds up, unlike Python's banker's round)."""
-    return int(math.floor(base * mult + 0.5))
+def price_for(base: float, mult: float) -> float:
+    """Price rounded to whole cents (half rounds up, unlike Python's banker's round)."""
+    return math.floor(base * mult * 100 + 0.5) / 100
 
 
 def arabic_font(size: int = 10) -> QFont:
@@ -403,7 +403,7 @@ class Storage:
 
     @property
     def currency(self) -> str:
-        return str(self.settings.get("currency") or "EGP")
+        return str(self.settings.get("currency") or "USD")
 
     def item_by_id(self, item_id: Any) -> Optional[dict[str, Any]]:
         return next((i for i in self.items if i.get("id") == item_id), None)
@@ -1547,7 +1547,7 @@ class DishForm(QWidget):
         for s in SIZES:
             if self.size_checks[s].isChecked():
                 self.size_labels[s].setText(
-                    f"{price_for(self.price.value(), mult[s])} {self.storage.currency}   (x{mult[s]:g})")
+                    f"{price_for(self.price.value(), mult[s]):.2f} {self.storage.currency}   (x{mult[s]:g})")
             else:
                 self.size_labels[s].setText("-")
 

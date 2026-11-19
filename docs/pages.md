@@ -14,7 +14,7 @@ All paths are inside `client/src/`.
 | Route | File | Suggested owner |
 |---|---|---|
 | `/` | `pages/Home.jsx` (**built**: Velora hero, dish showcase, categories, about, booking band; data from the API) | Ahmed Taher |
-| `/menu` | `pages/Menu.jsx` (**built**: tabs, search, price band in EGP, vegetarian switch) | Ahmed Taher |
+| `/menu` | `pages/Menu.jsx` (**built**: tabs, search, price band in USD, vegetarian switch) | Ahmed Taher |
 | `/menu/:id` | `pages/DishDetails.jsx` (**built**: size, extras, quantity, Add to Cart) | Ahmed Taher |
 | `/cart` | `pages/Cart.jsx` | Shorouk |
 | `/about` | `pages/About.jsx` (**built**, Velora page) | Ahmed Taher |

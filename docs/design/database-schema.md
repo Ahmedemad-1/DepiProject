@@ -75,7 +75,7 @@ The physical schema is `server/schema.sql` (SQLite). The diagram is `docs/design
 | status | text | `pending`, `confirmed`, `cancelled` |
 
 ## Price rule
-Unit price = `round(base_price x size multiplier + selected extras)`, with multipliers small 0.7, medium 1, large 1.2 (from `settings`, which is a fixed object in the API and not a table). The server must recompute the price and ignore the total sent by the browser.
+Unit price = `base_price x size multiplier + selected extras`, rounded to cents (US dollars), with multipliers small 0.7, medium 1, large 1.2 (from `settings`, which is a fixed object in the API and not a table). The server must recompute the price and ignore the total sent by the browser.
 
 ## Normalization notes
 - **Extras have their own table.** A dish can have zero, one, or many extras, so putting them in a column would repeat groups of data. This follows first normal form.
