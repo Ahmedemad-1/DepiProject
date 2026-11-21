@@ -5,7 +5,12 @@ import { sitePhoto } from "../config/photos.js";
 
 const MAX_WAIT_MS = 3000;
 const FADE_MS = 700;
-const FACES = ["400 1em Lora", "italic 400 1em Lora", "400 1em Sora", "500 1em Sora"];
+const FACES = [
+  "400 1em Lora",
+  "italic 400 1em Lora",
+  "400 1em Sora",
+  "500 1em Sora",
+];
 
 const imageReady = (src) =>
   new Promise((done) => {

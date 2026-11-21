@@ -14,7 +14,7 @@ so the frontend only changes `VITE_API_URL` (and the few paths listed as differe
 ## Files (each one starts with a comment that says what to do)
 ```
 server/
-├── mock/db.json            mock database for json-server (32 dishes, demo users, sample orders)
+├── mock/db.json            mock database for json-server (82 dishes, demo users, sample orders)
 ├── schema.sql              relational schema (SQLite)
 ├── seed.py                 loads mock/db.json into the real database (hash the passwords!)
 ├── requirements.txt        Python packages (proposed)

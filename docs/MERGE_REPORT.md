@@ -27,7 +27,7 @@ Both originals were left untouched; all work was done on copies.
 | Icons | `lucide-react` ^1.68 | none | no | added `lucide-react` |
 | Animation | pure CSS + small JS timers | none | no | kept as is |
 | State | local `useState`, window event for cart | Auth + Cart context, localStorage | yes (two cart ideas) | Nocturne contexts only; Velora's `velora:add-to-cart` event removed |
-| Data source | hard-coded `data/dishes.js` (13 Italian-style dishes, USD) | `services/api.js` + `db.json` (116 Egyptian dishes, EGP) | yes | API is the only source; Velora data files removed |
+| Data source | hard-coded `data/dishes.js` (13 Italian-style dishes, USD) | `services/api.js` + `db.json` (69 Egyptian dishes after trimming + Velora's 13, USD) | yes | API is the only source; Velora data files removed |
 | Images | 8 site photos in `public/images`, dish photos from Unsplash URLs | no photos in the zip (docs mention 32 placeholders that are not there) | partly | site photos copied; Unsplash dish photos NOT used (they show other dishes) |
 | Formatter | `formatPrice` -> "$14.00" | `formatPrice` -> "25 EGP" (now changed to "$0.50", see D6) | yes | Nocturne `formatPrice` only |
 | Brand data | `data/site.js` | `config/brand.js` (empty) | yes | filled into `brand.js` |
@@ -60,10 +60,10 @@ Result: 18 routes (the 17 Nocturne routes + `/contact`). Velora really has only 
 | D3 | Bootstrap kept (both projects use it). Bootstrap JS bundle removed from `main.jsx` | nothing in the code uses Bootstrap's JavaScript today. **If you build a Bootstrap modal/dropdown (e.g. ManageMenu, ConfirmModal) re-add `import "bootstrap/dist/js/bootstrap.bundle.min.js";` to `main.jsx`**, or build it with React state |
 | D4 | PurgeCSS config from Velora kept in `vite.config.js` | Velora's CSS relies on it; all JSX is under `./src`, so new files are scanned automatically |
 | D5 | **Size multipliers: Nocturne wins** (0.7 / 1 / 1.2). Velora used 1 / 1.3 / 1.6 with default Small | hard rule 3. **Visible change**: Small is now cheaper than the base price, default size is Medium. Prices are different from Velora's |
-| D6 | Currency: **US dollars** (`$14.00`, Velora's format). `formatPrice` is the one formatter, `settings.currency` = "USD". The 116 Egyptian dishes, their extras and the 4 sample orders were converted from EGP at a flat 50 EGP = $1 (price / 50, 2 decimals); Velora's 13 dishes keep their dollar prices. `calcUnitPrice` now rounds to cents instead of whole numbers (the menu editor's `price_for` too) | user request. Changes the old "round to whole number" rule; docs updated. Egyptian dishes become cheap ($0.20 to $19) |
-| D7 | Price filter bands are Velora's original dollar bands: under $10 / $10-15 / $15-20 / over $20 (116 / 5 / 5 / 3 dishes) | prices are dollars again |
+| D6 | Currency: **US dollars** (`$14.00`, Velora's format). `formatPrice` is the one formatter, `settings.currency` = "USD". The Egyptian dishes, their extras and the 4 sample orders were converted from EGP at a flat 50 EGP = $1 (price / 50, 2 decimals); Velora's 13 dishes keep their dollar prices. `calcUnitPrice` now rounds to cents instead of whole numbers (the menu editor's `price_for` too) | user request. Changes the old "round to whole number" rule; docs updated. Egyptian dishes become cheap ($0.20 to $19) |
+| D7 | Price filter bands are Velora's original dollar bands: under $10 / $10-15 / $15-20 / over $20 (69 / 5 / 5 / 3 dishes) | prices are dollars again |
 | D8 | Dish page options come from the dish (`availableSizes`, `extras`) not from Velora's per-category extras. Size block hidden for single-size dishes, extras block hidden when a dish has none | Nocturne data contract. Velora markup unchanged otherwise |
-| D9 | Menu page shows all 129 dishes in one grid (Velora behavior) and 20 category tabs; Home "From our kitchen" shows Velora's original 13 dishes in the original order (the dishes that have `imageSquare`); fallback: one dish per category | restores the original showcase. **Visible change**: the Menu has 129 dishes and the Home has 19 category cards instead of 8 |
+| D9 | Menu page shows all 82 dishes in one grid (Velora behavior) and 20 category tabs; Home "From our kitchen" shows Velora's original 13 dishes in the original order (the dishes that have `imageSquare`); fallback: one dish per category | restores the original showcase. **Visible change**: the Menu has 129 dishes and the Home has 19 category cards instead of 8 |
 | D10 | Home category cards: photo = `categories[].image` (Velora's own photos for its 8 categories) or the first dish of the category; text = `categories[].description` (Velora's text for its 8 categories, empty for the Egyptian ones) | no copy invented |
 | D10b | **Velora's 13 dishes restored** in `db.json` (ids 117-129) with the original names, descriptions, categories, vegetarian flags, photo URLs (card and square), and extras; 7 Velora categories added (ids 13-19). Velora's string slugs (`/menu/margherita`) became numeric ids (`/menu/117`) because the contract says ids are numbers. Prices kept as Velora's numbers (**they were dollars**, the rest of the menu is EGP): set real EGP prices | user request; verified by a 159-check parity test (section 6) |
 | D11 | Unavailable dishes: shown dimmed with an "Unavailable" tag and cannot be added (`app.css`) | needed by the Nocturne `isAvailable` rule, Velora had no such case |
@@ -81,8 +81,8 @@ Result: 18 routes (the 17 Nocturne routes + `/contact`). Velora really has only 
 
 ### Visible differences from the original Velora (cannot be confirmed by screenshots, see top)
 1. Prices show in dollars like Velora, but Small/Medium/Large prices differ from Velora's (D5), and the Egyptian dishes cost $0.20 to $19 (D6).
-2. Menu has 129 dishes (116 Egyptian + Velora's 13) and 20 tabs instead of 13 dishes and 9 tabs; price dropdown labels are Velora's dollar bands; the Velora dish URLs are numeric (D7, D9, D10b).
-3. Dish photos: the 13 Velora dishes use their original Unsplash photos; the 116 Egyptian dishes use the logo placeholder until real photos are added (db paths like `/images/ful-medames.jpg` do not exist).
+2. Menu has 82 dishes (69 Egyptian + Velora's 13) and 20 tabs instead of 13 dishes and 9 tabs; price dropdown labels are Velora's dollar bands; the Velora dish URLs are numeric (D7, D9, D10b).
+3. Dish photos: the 13 Velora dishes use their original Unsplash photos; the 69 Egyptian dishes use the logo placeholder until real photos are added (db paths like `/images/ful-medames.jpg` do not exist).
 4. Home "From our kitchen" cycles through at most 8 dishes; category cards have no text line except Desserts (D9, D10).
 5. Logged-in users see two extra nav items (My orders, Admin for admins) and a log-out icon. Visitors see none.
 6. The splash/loader is unchanged. Home copy still talks about pasta and wood-fired cooking (see risks).
@@ -165,7 +165,7 @@ Not verifiable here: that `lucide-react`, `bootstrap` and `react-router-dom` res
 1. **Unverified build** (see top). Expect small fixes on first `npm run build` / `npm run lint`.
 2. **Copy vs menu mismatch**: Velora's hero, about and Menu header text describe wood-fired Italian-style cooking and fresh pasta; the database menu is Egyptian (ful, grills, fiteer...). Copy was not changed (hard rule 6). The team must rewrite the texts in `Home.jsx`, `About.jsx`, `Menu.jsx` (and the About values).
 3. **Opening hours** conflict (D20). **Brand details** (address in Maadi, phone, e-mail) come from the Velora project and are unconfirmed.
-4. **Photos**: the 116 Egyptian dishes have no photo file (logo placeholder). Velora's 13 use remote Unsplash URLs, so they need internet.
+4. **Photos**: the 69 Egyptian dishes have no photo file (logo placeholder). Velora's 13 use remote Unsplash URLs, so they need internet.
 4b. **Egyptian dish prices are a straight 50 EGP = $1 conversion** (most dishes under $5) while Velora's 13 dishes cost $6 to $34: review the price levels in `db.json`.
 5. `BYPASS_AUTH = true` only in dev; deployed builds enforce login but Login is a placeholder, so a deployed build today cannot open protected pages.
 6. **Home loading**: the splash can wait up to 3 s (plan NFR1: 3 s); the Home page now also needs the API before the dish showcase and categories appear.
@@ -189,7 +189,7 @@ Not verifiable here: that `lucide-react`, `bootstrap` and `react-router-dom` res
 | Confirm the final restaurant name; update `brand.js`, `index.html` `<title>`, `db.json`, `logo.svg` | Ahmed Taher |
 | Confirm address, phone, e-mail, ONE opening-hours schedule (also `settings.openingHours`) | Ahmed Taher + Ahmed Emad |
 | Rewrite Home/About/Menu copy to match the Egyptian menu | Ahmed Taher |
-| Dish photos for the 116 Egyptian dishes (names in `db.json` `image`); review the converted dollar prices of all dishes | Ahmed Taher |
+| Dish photos for the 69 Egyptian dishes (checklist: `docs/dish-photos-checklist.md`, check with `npm run check:images`); review the converted dollar prices of all dishes | Ahmed Taher |
 | Own Web3forms key in `client/.env` | Ahmed Emad |
 | Backend: add `categories.description` (optional), real API, deployment | Ahmed Emad |
 | Review `CartContext`, then Cart, Checkout, Orders, OrderTracking, tests | Shorouk |
@@ -221,3 +221,56 @@ Not verifiable here: that `lucide-react`, `bootstrap` and `react-router-dom` res
 | size prices x1 / x1.3 / x1.6 | x0.7 / x1 / x1.2 | **no, on purpose** (D5) |
 | `handOffToCart` (window event nobody listened to) | `useCart().addItem(line)` | better: it really adds to the cart |
 | `useDishes()` (cache, loading, error, reload) | `useMenu()` (same, also loads categories) | yes by reading the code; **not executed** (no browser/DOM here) |
+
+## 10. Menu trimmed (82 dishes)
+Requested: fewer dishes. 47 repeated or minor Egyptian dishes were removed from `db.json` (116 -> 69 Egyptian; Velora's 13 untouched; total 82). No category is empty, the 8 dishes used by sample orders were kept, ids were not renumbered. Removed (id, name, reason):
+
+- 2: Ful Eskandarani (near-duplicate of Ful Medames)
+- 4: Stuffed Ta'ameya (near-duplicate of Ta'ameya Platter)
+- 11: Rocket Salad (similar to Baladi Salad)
+- 12: Eggplant Salad (similar to Baba Ghanoush)
+- 13: Beetroot Salad (minor salad)
+- 16: Tahini Salad (similar dip/salad)
+- 19: Fried Cauliflower (minor starter)
+- 20: Mixed Pickles (side condiment)
+- 29: Kofta Tagine (similar to the other tagines)
+- 31: Chicken with Freekeh (similar to chicken fattah)
+- 33: Lamb Fattah (duplicate of fattah)
+- 34: Stuffed Pigeon (rare dish)
+- 36: Stuffed Duck with Freekeh (rare dish)
+- 39: Chicken Kofta (duplicate of Kofta Skewers)
+- 41: Beef Kebab (duplicate of Lamb Kebab)
+- 42: Grilled Quail (rare dish)
+- 46: Fried Mullet (Bouri) (similar to the other fried fish)
+- 48: Sayadeya Fish (similar to the other fish dishes)
+- 51: Shrimp Tagine (similar to Fried Shrimp)
+- 57: Liver Sandwich (duplicate of Alexandrian Liver)
+- 58: Ta'ameya Sandwich (duplicate of Ta'ameya)
+- 59: Kofta Sandwich (duplicate of Kofta)
+- 63: Feteer with Cream & Sugar (extra feteer flavor)
+- 64: Feteer with Pastrami (extra feteer flavor)
+- 69: Grilled Vegetables (minor side)
+- 71: Garlic Sauce (sauce)
+- 116: Toast (minor side)
+- 78: Qatayef (seasonal)
+- 79: Esh El Saraya (similar to Om Ali)
+- 80: Luqmat El Qadi (minor dessert)
+- 81: Baklava (similar to Konafa)
+- 82: Ghorayeba (minor dessert)
+- 84: Muhallabia (similar to Rice Pudding)
+- 85: Fruit Salad with Ice Cream (minor dessert)
+- 89: Ginger Tea (minor herbal tea)
+- 91: Anise (Yansoon) (minor herbal tea)
+- 92: Helba (Fenugreek) (minor herbal tea)
+- 93: Cinnamon with Milk (minor drink)
+- 97: Sobia (seasonal drink)
+- 98: Erk Sous (seasonal drink)
+- 99: Qamar El Din (seasonal drink)
+- 102: Lemon-Lime Soda (duplicate soda)
+- 103: Orange Soda (duplicate soda)
+- 107: Guava Juice (similar juice)
+- 110: Banana with Milk (similar to the milk shakes)
+- 111: Cantaloupe Juice (similar juice)
+- 112: Fruit Cocktail (similar juice)
+
+Photos: no real dish photos could be added in this environment (no internet access to download files, and the image search tool only displays pictures in the chat, it does not give files or links). Hot-linking unverified web photos was avoided on purpose. Instead: `docs/dish-photos-checklist.md` lists the 69 exact file names, and `npm run check:images` shows which are still missing.

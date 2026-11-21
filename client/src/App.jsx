@@ -25,7 +25,9 @@ const Profile = lazy(() => import("./pages/Profile.jsx"));
 const Dashboard = lazy(() => import("./pages/admin/Dashboard.jsx"));
 const ManageMenu = lazy(() => import("./pages/admin/ManageMenu.jsx"));
 const ManageOrders = lazy(() => import("./pages/admin/ManageOrders.jsx"));
-const ManageReservations = lazy(() => import("./pages/admin/ManageReservations.jsx"));
+const ManageReservations = lazy(
+  () => import("./pages/admin/ManageReservations.jsx"),
+);
 
 // Every route of the website is registered here (see docs/pages.md).
 // Pages (except Home) load lazily; <Layout /> shows the Velora loader while they load.

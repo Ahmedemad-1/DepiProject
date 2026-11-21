@@ -25,7 +25,12 @@ export function useMenu() {
         setState({ items, categories, loading: false, error: null });
       })
       .catch((e) =>
-        setState({ items: [], categories: [], loading: false, error: e.message }),
+        setState({
+          items: [],
+          categories: [],
+          loading: false,
+          error: e.message,
+        }),
       );
   }, []);
 

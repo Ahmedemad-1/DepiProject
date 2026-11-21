@@ -83,13 +83,22 @@ const WEB3FORMS_KEY =
   import.meta.env.VITE_WEB3FORMS_KEY || "f4a51210-dfa6-4a3a-b1b3-cb846073952b";
 const CONTACT_TIMEOUT_MS = 15000;
 
-export async function sendContactMessage({ name, email, phone, topic, message }) {
+export async function sendContactMessage({
+  name,
+  email,
+  phone,
+  topic,
+  message,
+}) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), CONTACT_TIMEOUT_MS);
   try {
     const res = await fetch(WEB3FORMS_ENDPOINT, {
       method: "POST",
-      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
       body: JSON.stringify({
         access_key: WEB3FORMS_KEY,
         subject: `New message from the website: ${topic}`,
