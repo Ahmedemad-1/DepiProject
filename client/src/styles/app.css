@@ -46,124 +46,747 @@
   color: var(--cream-lo);
 }
 
-.cart-layout {
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: 1fr;
+.status-badge {
+  display: inline-block;
+  padding: 0.3rem 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--ink-2);
+  color: var(--cream);
+  font-size: 0.72rem;
+  line-height: 1.3;
 }
 
-@media (min-width: 900px) {
-  .cart-layout {
-    grid-template-columns: 2fr 1fr;
-    align-items: start;
+.modal-backdrop-custom {
+  position: fixed;
+  z-index: 1080;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: color-mix(in srgb, var(--black) 82%, transparent);
+}
+
+.confirm-dialog {
+  width: min(100%, 32rem);
+}
+
+.admin-dish-thumb {
+  width: 3.5rem;
+  height: 3.5rem;
+  object-fit: cover;
+}
+
+.admin-head {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  text-align: left;
+  background:
+    radial-gradient(
+      ellipse at 82% 14%,
+      color-mix(in srgb, var(--cream) 20%, transparent),
+      transparent 30rem
+    ),
+    linear-gradient(
+      120deg,
+      color-mix(in srgb, var(--ink) 60%, var(--black)),
+      var(--black)
+    );
+}
+
+.admin-head::after {
+  position: absolute;
+  z-index: -1;
+  top: -15rem;
+  right: -5rem;
+  width: 34rem;
+  aspect-ratio: 1;
+  border: 1px solid color-mix(in srgb, var(--cream) 18%, transparent);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 2.5rem color-mix(in srgb, var(--cream) 4%, transparent),
+    0 0 0 5rem color-mix(in srgb, var(--cream) 3%, transparent);
+  content: "";
+  pointer-events: none;
+}
+
+.admin-head-content {
+  position: relative;
+  z-index: 1;
+}
+
+.admin-head .lead {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.admin-dashboard {
+  background:
+    radial-gradient(
+      ellipse at 8% 8%,
+      color-mix(in srgb, var(--cream) 5%, transparent),
+      transparent 34rem
+    ),
+    var(--black);
+}
+
+.admin-section-intro {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: 0.75rem 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.admin-section-intro .tag,
+.admin-orders-heading .tag {
+  margin-bottom: 0.5rem;
+}
+
+.admin-section-intro h2,
+.admin-orders-heading h2 {
+  margin-bottom: 0;
+}
+
+.admin-stats {
+  margin-bottom: clamp(2rem, 4vw, 3rem) !important;
+}
+
+.admin-stat {
+  position: relative;
+  overflow: hidden;
+  min-height: 10rem;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: linear-gradient(145deg, var(--ink-2), var(--ink));
+}
+
+.admin-stat::after {
+  position: absolute;
+  right: -2.5rem;
+  bottom: -3rem;
+  width: 8rem;
+  aspect-ratio: 1;
+  border: 1px solid color-mix(in srgb, var(--cream) 12%, transparent);
+  border-radius: 50%;
+  box-shadow: 0 0 0 1rem color-mix(in srgb, var(--cream) 3%, transparent);
+  content: "";
+  pointer-events: none;
+}
+
+.admin-stat-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.9rem;
+}
+
+.admin-stat-icon,
+.admin-action-icon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 2.6rem;
+  aspect-ratio: 1;
+  border: 1px solid color-mix(in srgb, var(--cream) 35%, transparent);
+  border-radius: 50%;
+  color: var(--cream);
+}
+
+.admin-stat-note {
+  color: var(--cream-lo);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.admin-stat-label {
+  margin-bottom: 0.2rem;
+  color: var(--mute);
+  font-size: 0.82rem;
+}
+
+.admin-stat-value {
+  margin: 0;
+  font:
+    400 clamp(2.2rem, 4vw, 3rem)/1.1 Lora,
+    serif;
+  color: var(--cream-hi);
+}
+
+.admin-stat-detail {
+  margin: 0.55rem 0 0;
+  color: var(--mute);
+  font-size: 0.72rem;
+}
+
+.admin-action {
+  display: flex;
+  min-height: 5rem;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--ink) 75%, transparent);
+}
+
+.admin-action:hover {
+  border-color: color-mix(in srgb, var(--cream) 48%, transparent);
+  background: var(--ink-2);
+}
+
+.admin-action-copy {
+  display: grid;
+  flex: 1;
+  gap: 0.25rem;
+}
+
+.admin-action-copy strong {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.admin-action-copy small {
+  color: var(--mute);
+  font-size: 0.72rem;
+}
+
+.admin-action-arrow {
+  flex: none;
+  color: var(--cream-lo);
+}
+
+.admin-orders-panel {
+  padding: clamp(1rem, 3vw, 2rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--ink);
+}
+
+.admin-orders-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.admin-orders-panel .table {
+  margin-bottom: 0;
+}
+
+.login-head {
+  text-align: left;
+}
+
+.login-head .lead {
+  margin-left: 0;
+}
+
+.login-section {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      ellipse at 78% 45%,
+      color-mix(in srgb, var(--cream) 9%, transparent),
+      transparent 32rem
+    ),
+    var(--black);
+}
+
+.login-aside {
+  position: relative;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem 2.5rem 2rem 0;
+  border-right: 1px solid var(--line);
+}
+
+.login-aside-mark {
+  display: grid;
+  width: 3.25rem;
+  aspect-ratio: 1;
+  place-items: center;
+  margin-bottom: 2rem;
+  border: 1px solid color-mix(in srgb, var(--cream) 40%, transparent);
+  border-radius: 50%;
+  color: var(--cream);
+  font-size: 1.5rem;
+}
+
+.login-aside .tag {
+  margin-bottom: 0.75rem;
+}
+
+.login-aside h2 {
+  max-width: 22rem;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+}
+
+.login-aside > p:last-child {
+  max-width: 22rem;
+}
+
+.login-card {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 1.5rem 4rem color-mix(in srgb, var(--black) 45%, transparent);
+}
+
+.login-card::before {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--cream), transparent);
+  content: "";
+}
+
+.login-card-kicker {
+  margin-bottom: 0.35rem;
+  color: var(--cream-lo);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 575.98px) {
+  .admin-head::after {
+    top: -10rem;
+    right: -17rem;
+  }
+
+  .admin-stat {
+    min-height: 9rem;
   }
 }
 
-.cart-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  gap: 1rem;
-}
-
-.cart-item {
-  display: grid;
-  grid-template-columns: 84px 1fr auto;
-  gap: 1rem;
-  align-items: start;
-  padding: 1rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.cart-item-img {
-  width: 84px;
-  height: 84px;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-.cart-item-name {
-  font-size: 1.1rem;
-  margin: 0 0 0.25rem;
-}
-
-.cart-item-meta {
-  margin: 0;
-  opacity: 0.75;
-  font-size: 0.9rem;
-}
-
-.cart-qty {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-top: 0.75rem;
-}
-
-.cart-qty-btn,
-.cart-remove {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-  background: transparent;
-  color: inherit;
-  cursor: pointer;
-}
-
-.cart-qty-btn:focus-visible,
-.cart-remove:focus-visible {
-  outline: 2px solid currentColor;
-  outline-offset: 2px;
-}
-
-.cart-qty-value {
-  min-width: 1.5rem;
-  text-align: center;
-}
-
-.cart-item-side {
+.admin-head-actions {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  flex-wrap: wrap;
   gap: 0.75rem;
+  margin-top: 1.5rem;
 }
 
-.cart-item-total {
-  margin: 0;
-  font-weight: 600;
+.admin-management-page {
+  min-height: 0;
+  padding: clamp(2.5rem, 5vw, 4rem) 0;
 }
 
-.cart-summary {
-  display: grid;
-  gap: 1rem;
-  padding: 1.25rem;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 12px;
+.admin-head.admin-management-head {
+  padding: 7.25rem 0 2.25rem;
 }
 
-.cart-summary h2 {
-  margin: 0;
-  font-size: 1.2rem;
+.admin-feedback,
+.admin-success {
+  margin-bottom: 1.25rem;
+  padding: 0.9rem 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--ink);
 }
 
-.cart-summary-row {
+.admin-success {
+  color: var(--cream-hi);
+}
+
+.admin-summary-row {
   display: flex;
+  flex-wrap: wrap;
+  align-items: end;
   justify-content: space-between;
+  gap: 1rem 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.admin-summary-row .tag {
+  margin-bottom: 0.5rem;
+}
+
+.admin-summary-row h2 {
+  font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+}
+
+.admin-summary-stats,
+.admin-order-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1.25rem;
+  color: var(--mute);
+  font-size: 0.78rem;
+}
+
+.admin-summary-stats span,
+.admin-order-summary span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.admin-dot {
+  display: inline-block;
+  width: 0.48rem;
+  height: 0.48rem;
+  border-radius: 50%;
+  background: var(--cream-lo);
+}
+
+.admin-dot.is-available {
+  background: var(--cream-hi);
+}
+
+.admin-dot.is-unavailable {
+  background: var(--mute);
+}
+
+.admin-toolbar {
+  display: grid;
+  grid-template-columns: minmax(14rem, 1fr) minmax(12rem, 15rem) auto;
+  align-items: end;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--ink) 88%, transparent);
+}
+
+.admin-toolbar .field {
   margin: 0;
 }
 
-.cart-empty {
-  display: grid;
-  gap: 1rem;
-  justify-items: center;
-  text-align: center;
-  padding: 3rem 1rem;
+.admin-search-input {
+  position: relative;
+  display: flex;
+  align-items: center;
 }
+
+.admin-search-input > svg {
+  position: absolute;
+  left: 0.9rem;
+  z-index: 1;
+  color: var(--mute);
+  pointer-events: none;
+}
+
+.admin-search-input .form-control {
+  padding-left: 2.6rem;
+}
+
+.admin-result-count {
+  padding: 0.7rem 0;
+  color: var(--mute);
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+.admin-dish-grid {
+  align-items: stretch;
+}
+
+.admin-dish-card {
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: linear-gradient(155deg, var(--ink-2), var(--ink));
+}
+
+.admin-dish-card.is-off .admin-dish-photo {
+  filter: grayscale(1) brightness(0.72);
+}
+
+.admin-dish-media {
+  position: relative;
+  height: 9.5rem;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      color-mix(in srgb, var(--cream) 12%, transparent),
+      transparent 10rem
+    ),
+    var(--ink-2);
+}
+
+.admin-dish-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.admin-availability {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: 99px;
+  background: color-mix(in srgb, var(--black) 85%, transparent);
+  color: var(--cream-hi);
+  font-size: 0.68rem;
+  backdrop-filter: blur(10px);
+}
+
+.admin-availability.is-unavailable {
+  color: var(--cream-lo);
+}
+
+.admin-availability .admin-dot {
+  width: 0.4rem;
+  height: 0.4rem;
+}
+
+.admin-dish-body {
+  padding: 0.85rem 1rem;
+}
+
+.admin-dish-category,
+.admin-record-kicker {
+  margin: 0 0 0.4rem;
+  color: var(--cream-lo);
+  font-size: 0.66rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.admin-dish-body h3 {
+  min-height: 2rem;
+  margin: 0 0 0.65rem;
+  font-size: 1.25rem;
+}
+
+.admin-dish-price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.55rem 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  font-size: 0.8rem;
+}
+
+.admin-dish-price-row strong {
+  color: var(--cream-hi);
+  font-size: 1rem;
+}
+
+.admin-dish-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  padding-top: 0.65rem;
+}
+
+.admin-icon-action {
+  display: inline-grid;
+  width: 2.55rem;
+  height: 2.55rem;
+  place-items: center;
+  margin-left: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--mute);
+}
+
+.admin-icon-action:hover {
+  border-color: var(--cream);
+  color: var(--cream);
+}
+
+.admin-filter-strip {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  padding: 0.25rem 0 0.5rem;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.admin-filter-chip {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: 99px;
+  background: var(--ink);
+  color: var(--mute);
+  font-size: 0.72rem;
+  white-space: nowrap;
+}
+
+.admin-filter-chip span {
+  display: inline-grid;
+  min-width: 1.35rem;
+  height: 1.35rem;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--ink-2);
+  color: var(--cream-lo);
+  font-size: 0.65rem;
+}
+
+.admin-filter-chip.is-active {
+  border-color: color-mix(in srgb, var(--cream) 55%, transparent);
+  background: color-mix(in srgb, var(--cream) 9%, var(--ink));
+  color: var(--cream-hi);
+}
+
+.admin-filter-chip.is-active span {
+  background: var(--cream);
+  color: var(--black);
+}
+
+.admin-record-list {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.admin-record-card,
+.admin-reservation-card {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: linear-gradient(145deg, var(--ink-2), var(--ink));
+}
+
+.admin-record-card.is-expanded {
+  border-color: color-mix(in srgb, var(--cream) 34%, transparent);
+}
+
+.admin-record-main {
+  padding: 0.9rem clamp(1rem, 2vw, 1.25rem);
+}
+
+.admin-record-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.7rem;
+}
+
+.admin-record-heading h2 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.admin-record-details {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  padding: 0.65rem 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.admin-record-details > div {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--mute);
+  font-size: 0.78rem;
+}
+
+.admin-record-details svg,
+.admin-reservation-meta svg {
+  flex: none;
+  color: var(--cream-lo);
+}
+
+.admin-record-details .admin-record-total {
+  display: grid;
+  justify-items: end;
+  gap: 0.15rem;
+}
+
+.admin-record-total small {
+  color: var(--mute);
+  font-size: 0.65rem;
+}
+
+.admin-record-total strong {
+  color: var(--cream-hi);
+  font-size: 1rem;
+}
+
+.admin-record-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  padding-top: 0.65rem;
+}
+
+.admin-record-expanded {
+  padding: 0.7rem clamp(1rem, 2vw, 1.25rem) 0.9rem;
+  border-top: 1px solid var(--line);
+  background: color-mix(in srgb, var(--black) 35%, var(--ink));
+}
+
+.admin-record-expanded > .tag {
+  margin-bottom: 0.35rem;
+}
+
+.admin-order-items {
+  display: grid;
+}
+
+.admin-order-item {
+  display: grid;
+  grid-template-columns: 2.25rem 1fr auto;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.45rem 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.8rem;
+}
+
+.admin-order-item:last-child {
+  border-bottom: 0;
+}
+
+.admin-order-item > div {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.admin-order-item small {
+  color: var(--mute);
+}
+
+.admin-order-quantity {
+  color: var(--cream-lo);
+  font-size: 0.72rem;
+}
+
+.admin-empty-state {
+  display: grid;
+  justify-items: center;
+  padding: clamp(1.75rem, 4vw, 3rem) 1.5rem;
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+  text-align: center;
+}
+
 .cart-layout {
   max-width: 1100px;
   margin: 0 auto;
@@ -433,4 +1056,172 @@
   margin: 0;
   font-size: 0.9rem;
   color: #ff8a80;
+}
+
+.admin-empty-icon {
+  display: grid;
+  width: 3.5rem;
+  aspect-ratio: 1;
+  place-items: center;
+  margin-bottom: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--cream-lo);
+}
+
+.admin-empty-state h2 {
+  margin-bottom: 0.5rem;
+  font-size: 1.45rem;
+}
+
+.admin-empty-state p {
+  margin: 0;
+  color: var(--mute);
+  font-size: 0.85rem;
+}
+
+.admin-reservation-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: 0 1.5rem;
+}
+
+.admin-reservation-toolbar .admin-filter-strip {
+  flex: 1 1 28rem;
+  margin-bottom: 0.7rem;
+}
+
+.admin-date-filter {
+  width: min(100%, 15rem);
+  margin-bottom: 1.45rem;
+}
+
+.admin-reservation-card {
+  display: grid;
+  grid-template-columns: minmax(11rem, 0.75fr) minmax(0, 2fr);
+}
+
+.admin-reservation-date {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 1.1rem;
+  border-right: 1px solid var(--line);
+  background: color-mix(in srgb, var(--cream) 5%, var(--ink));
+  color: var(--cream-lo);
+}
+
+.admin-reservation-date strong {
+  color: var(--cream-hi);
+  font:
+    400 1.5rem/1.2 Lora,
+    serif;
+}
+
+.admin-reservation-date span,
+.admin-reservation-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--mute);
+  font-size: 0.78rem;
+}
+
+.admin-reservation-main {
+  min-width: 0;
+  padding: 0.9rem clamp(1rem, 2vw, 1.25rem);
+}
+
+.admin-reservation-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+}
+
+.admin-reservation-note {
+  margin: 0.65rem 0 0;
+  padding: 0.55rem 0.75rem;
+  border-left: 2px solid color-mix(in srgb, var(--cream) 55%, transparent);
+  background: color-mix(in srgb, var(--cream) 4%, transparent);
+  color: var(--mute);
+  font:
+    italic 0.9rem/1.6 Lora,
+    serif;
+}
+
+@media (max-width: 767.98px) {
+  .admin-toolbar {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .admin-search {
+    grid-column: 1 / -1;
+  }
+
+  .admin-result-count {
+    justify-self: end;
+  }
+
+  .admin-record-details {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .admin-record-details .admin-record-total {
+    justify-items: start;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .admin-toolbar {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-search {
+    grid-column: auto;
+  }
+
+  .admin-result-count {
+    justify-self: start;
+  }
+
+  .admin-reservation-card {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-reservation-date {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 0.4rem 0.75rem;
+    padding: 1rem;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .admin-reservation-date strong {
+    font-size: 1.2rem;
+  }
+
+  .admin-reservation-date span {
+    grid-column: 2;
+  }
+
+  .admin-record-details {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-record-details .admin-record-total {
+    grid-template-columns: auto 1fr;
+    align-items: baseline;
+    justify-items: start;
+    gap: 0.75rem;
+  }
+
+  .admin-record-actions > button {
+    flex: 1 1 100%;
+  }
 }

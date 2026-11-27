@@ -257,7 +257,7 @@ section[id] {
 .feature {
   display: flex;
   align-items: center;
-  padding: 3rem 0 ;
+  padding: 3rem 0;
 }
 
 .feature > .container {
@@ -463,8 +463,8 @@ section[id] {
 
   .cat-card::after {
     background:
-      linear-gradient(90deg, transparent, var(--cream), transparent) top center/0
-        2px no-repeat,
+      linear-gradient(90deg, transparent, var(--cream), transparent) top
+        center/0 2px no-repeat,
       linear-gradient(
         0deg,
         rgba(11, 11, 10, 0.94),
@@ -632,4 +632,3 @@ section[id] {
     background: var(--ink-2);
   }
 }
-

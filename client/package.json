@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "mock": "json-server --watch ../server/mock/db.json --port 3001",
     "format": "prettier --write src",
-    "format:check": "prettier --check src"
+    "format:check": "prettier --check src",
+    "check:images": "node scripts/check-images.mjs"
   },
   "dependencies": {
     "bootstrap": "^5.3.8",

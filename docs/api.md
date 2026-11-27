@@ -43,10 +43,12 @@ Differences from the mock (menu path, nested order items, JWT) will be listed he
 - `categories[].image` (string, optional): photo for the Home category card (a URL or `/images/...` path). Only Velora's categories have one.
 - `menuItems[].imageSquare` (string, optional): a second, square photo used by the Home showcase and the dish page; when missing the website uses `image`. Dishes that have it are the ones the Home showcase rotates through.
 - **Velora's 13 original dishes were added to `menuItems`** (ids 117-129, in Velora's order) with their original names, descriptions, vegetarian flags and Unsplash photo URLs, plus 7 categories (ids 13-19: Starters, Salads, Pizza, Pasta, Burgers, Main Courses, Drinks). Velora's "Desserts" dish went into the existing Desserts category (id 9). Extras per category are Velora's original ones. `nameAr` and `descriptionAr` are empty strings (no translation was invented).
-- **Currency is now US dollars.** `settings.currency` = "USD". Velora's 13 dishes keep their original dollar prices. The 116 original dishes, their extras and the 4 sample orders were converted from EGP at a flat **50 EGP = $1** (`price / 50`, 2 decimals), so most Egyptian dishes cost under $5 (range $0.20 to $19). Edit any price in `db.json` or with the menu editor. Prices may have cents; unit price is rounded to cents.
+- **Currency is now US dollars.** `settings.currency` = "USD". Velora's 13 dishes keep their original dollar prices. The original dishes, their extras and the 4 sample orders were converted from EGP at a flat **50 EGP = $1** (`price / 50`, 2 decimals), so most Egyptian dishes cost under $5 (range $0.20 to $19). Edit any price in `db.json` or with the menu editor. Prices may have cents; unit price is rounded to cents.
 - `settings.restaurantName` is now `"VELORA"`.
 - No field was renamed or removed. The website uses `categoryId`, `basePrice`, `availableSizes`, `extras`, `isVegetarian`, `isAvailable`, `image` of each menu item.
 - The contact form does not use this API: it posts to Web3forms (`sendContactMessage` in `services/api.js`, key from `VITE_WEB3FORMS_KEY`).
+
+- **Menu trimmed:** 47 duplicate or minor Egyptian dishes were removed (116 -> 69; with Velora's 13 the menu has 82). Ids are NOT renumbered, so `menuItems` ids have gaps (never assume ids are 1..N). Dishes used by the sample orders were kept. The list of removed dishes is in `docs/MERGE_REPORT.md` section 10.
 
 ## Data rules
 - Size multipliers: small = 0.7, medium = 1, large = 1.2 (`settings.sizeMultipliers`)

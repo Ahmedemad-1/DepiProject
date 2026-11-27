@@ -1,20 +1,10 @@
-/**
- * COMPONENT : StatusBadge
- * OWNER     : Shared (first version: Ahmed Taher) (suggested - change if the team reassigns)
- * PURPOSE   : Small colored badge for order and reservation statuses.
- * PROPS     : status (string)
- * NOTES     : Use Bootstrap badge colors; labels come from ORDER_STATUS_LABELS in utils/constants.js.
- *
- * STYLE     : Velora design (rules: docs/design/ui-guidelines.md). Reuse Velora's classes from
- *             src/styles; new CSS goes in src/styles/app.css with NEW class names.
- *
- * HOW TO FINISH: paste your code below and delete the PLACEHOLDER lines.
- * Keep the default export and the file name.
- */
-import { ComponentPlaceholder } from "./PagePlaceholder.jsx";
+import {
+  ORDER_STATUS_LABELS,
+  RESERVATION_STATUS_LABELS,
+} from "../utils/constants.js";
 
-// ---- PLACEHOLDER (delete from here) -----------------------------------
-export default function StatusBadge(props) {
-  return <ComponentPlaceholder name="StatusBadge" props={props} />;
+export default function StatusBadge({ status }) {
+  const label =
+    ORDER_STATUS_LABELS[status] || RESERVATION_STATUS_LABELS[status] || status;
+  return <span className="status-badge">{label}</span>;
 }
-// ---- PLACEHOLDER (to here) ---------------------------------------------

@@ -9,5 +9,7 @@ export function formatPrice(amount) {
 // `extras` is the list of selected extra objects: [{ name, price }]
 export function calcUnitPrice(basePrice, size = "medium", extras = []) {
   const extrasTotal = extras.reduce((sum, e) => sum + e.price, 0);
-  return Math.round((basePrice * SIZE_MULTIPLIERS[size] + extrasTotal) * 100) / 100;
+  return (
+    Math.round((basePrice * SIZE_MULTIPLIERS[size] + extrasTotal) * 100) / 100
+  );
 }
