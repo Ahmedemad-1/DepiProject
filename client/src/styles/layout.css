@@ -164,7 +164,7 @@
   border-color: color-mix(in srgb, var(--black) 40%, transparent);
 }
 
-.light .btn-ghost::before {
+.light .btn-ghost::before { 
   background: var(--dark-fill);
 }
 
