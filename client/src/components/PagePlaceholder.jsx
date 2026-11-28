@@ -16,8 +16,8 @@ export default function PagePlaceholder({ title, route }) {
           <h1>{title}</h1>
           <p className="lead">
             Route: <code>{route}</code>. Open this page&apos;s file in{" "}
-            <code>src/pages/</code>, read the comment at the top, then paste your
-            code and delete the placeholder lines.
+            <code>src/pages/</code>, read the comment at the top, then paste
+            your code and delete the placeholder lines.
           </p>
           <Link to="/" className="btn-ghost sm mt-3">
             Back to home

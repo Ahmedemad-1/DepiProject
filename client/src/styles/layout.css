@@ -164,7 +164,7 @@
   border-color: color-mix(in srgb, var(--black) 40%, transparent);
 }
 
-.light .btn-ghost::before {
+.light .btn-ghost::before { 
   background: var(--dark-fill);
 }
 
@@ -298,7 +298,8 @@
   z-index: -1;
   display: flex;
   flex-direction: column;
-  padding: calc(var(--nav-h) + 0.75rem) var(--gutter) max(2rem, env(safe-area-inset-bottom));
+  padding: calc(var(--nav-h) + 0.75rem) var(--gutter)
+    max(2rem, env(safe-area-inset-bottom));
   overflow-y: auto;
   overscroll-behavior: contain;
   background: var(--black);
@@ -495,4 +496,3 @@ html.nav-locked body {
     margin-right: 1rem;
   }
 }
-

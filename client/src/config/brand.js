@@ -21,8 +21,7 @@ export const BRAND = {
   descriptor: "Restaurant", // small text under the name in the logo
   fullName: "VELORA RESTAURANT", // tab title, aria-labels, footer copyright
   tagline: "Good Food Great Mood",
-  blurb:
-    "Seasonal cooking, warm service and an evening worth lingering over.",
+  blurb: "Seasonal cooking, warm service and an evening worth lingering over.",
   address: "El Nasr Street, Maadi, Cairo, Egypt",
   phone: "+20 1556145996",
   email: "VeloraRestaurant.info@gmail.com",

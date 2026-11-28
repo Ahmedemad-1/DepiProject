@@ -1,20 +1,53 @@
 /**
  * COMPONENT : FormInput
- * OWNER     : Heba Talaat (suggested - change if the team reassigns)
- * PURPOSE   : Reusable labeled input with an error message.
- * PROPS     : label, name, type, value, onChange, error?, placeholder?
- * NOTES     : Every input must have a <label>; show the error under the field.
- *
- * STYLE     : Velora design (rules: docs/design/ui-guidelines.md). Reuse Velora's classes from
- *             src/styles; new CSS goes in src/styles/app.css with NEW class names.
- *
- * HOW TO FINISH: paste your code below and delete the PLACEHOLDER lines.
- * Keep the default export and the file name.
+ * PURPOSE   : Reusable labeled input with an optional field-level error.
  */
-import { ComponentPlaceholder } from "./PagePlaceholder.jsx";
+export default function FormInput({
+  id,
+  label,
+  name,
+  type = "text",
+  value,
+  onChange,
+  onBlur,
+  error,
+  placeholder,
+  autoComplete,
+  inputMode,
+  minLength,
+  min,
+  required = true,
+  disabled = false,
+}) {
+  const inputId = id || name;
+  const errorId = `${inputId}-error`;
 
-// ---- PLACEHOLDER (delete from here) -----------------------------------
-export default function FormInput(props) {
-  return <ComponentPlaceholder name="FormInput" props={props} />;
+  return (
+    <div className="field">
+      <label htmlFor={inputId}>{label}</label>
+      <input
+        id={inputId}
+        name={name}
+        type={type}
+        className="form-control"
+        value={value}
+        onChange={onChange}
+        onBlur={onBlur}
+        placeholder={placeholder}
+        autoComplete={autoComplete}
+        inputMode={inputMode}
+        minLength={minLength}
+        min={min}
+        required={required}
+        disabled={disabled}
+        aria-invalid={error ? "true" : undefined}
+        aria-describedby={error ? errorId : undefined}
+      />
+      {error && (
+        <p className="field-err" id={errorId}>
+          {error}
+        </p>
+      )}
+    </div>
+  );
 }
-// ---- PLACEHOLDER (to here) ---------------------------------------------

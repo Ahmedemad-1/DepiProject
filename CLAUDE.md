@@ -79,7 +79,7 @@ restaurant-project/
 │   ├── .env.example         (VITE_API_URL=http://localhost:3001)
 │   ├── .prettierrc          (team formatting: double quotes, semicolons)
 │   ├── vercel.json, public/_redirects   (SPA fallback for hosting)
-│   ├── public/              logo.svg, images/ (32 dish photos + hero, about, placeholder: all PLACEHOLDERS)
+│   ├── public/              logo.svg, images/ (site photos; dish photos still missing, see docs/dish-photos-checklist.md)
 │   └── src/
 │       ├── main.jsx         (providers: BrowserRouter, AuthProvider, CartProvider)
 │       ├── App.jsx          (ALL routes are already registered here)

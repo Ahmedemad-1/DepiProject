@@ -1,38 +1,167 @@
 /**
  * PAGE   : Login
  * ROUTE  : /login
- * ACCESS : Public
- * OWNER  : Heba Talaat (suggested - change if the team reassigns)
- *
- * WHAT TO BUILD
- *  - Form: email and password with validation (valid email, password >= 6 characters)
- *  - On submit call login(email, password) from api.js, then useAuth().login(user)
- *  - Redirect to the page the user came from (location.state.from) or to / ; admins may go to /admin
- *  - Link to /register, and a clear 'Invalid email or password' error
- *
- * DATA / API  (functions live in src/services/api.js)
- *  - login(email, password) from api.js
- *  - useAuth().login(user)
- *
- * RULES  (full list: CLAUDE.md section 10)
- *  - Mock login is for demo only (plain-text passwords in db.json)
- *  - Demo accounts: admin@restaurant.test / Admin@123, customer1@example.test / Test@123
- *
- * VELORA  : Velora has no page for this route, so this is a Velora-styled placeholder.
- * STYLE  : Velora design (rules: docs/design/ui-guidelines.md). Reuse Velora's classes from
- *           src/styles (theme.css tokens, .page-head, .sec, .btn-solid / .btn-ghost,
- *           .form-control, .state). New CSS goes in src/styles/app.css with NEW class names.
- *           Every page renders its own <main id="main">.
- *
- * HOW TO FINISH
- *  1. Paste your code below and delete the PLACEHOLDER lines.
- *  2. Keep the default export and the file name (App.jsx already imports it).
- *  3. Run the project, test it on a phone-sized screen, then open a Pull Request.
+ * PURPOSE: Sign in with the demo API and return the user to a protected page.
  */
-import PagePlaceholder from "../components/PagePlaceholder.jsx";
+import { useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import FormInput from "../components/FormInput.jsx";
+import { useAuth } from "../context/AuthContext.jsx";
+import { login as loginRequest } from "../services/api.js";
+import { isValidEmail, isValidPassword } from "../utils/validators.js";
+import { sitePhoto } from "../config/photos.js";
 
-// ---- PLACEHOLDER (delete from here) -----------------------------------
 export default function Login() {
-  return <PagePlaceholder title="Login" route="/login" />;
+  const [values, setValues] = useState({ email: "", password: "" });
+  const [errors, setErrors] = useState({});
+  const [formError, setFormError] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const { login } = useAuth();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  function validate() {
+    const nextErrors = {};
+    const email = values.email.trim();
+
+    if (!email) nextErrors.email = "Enter your email address.";
+    else if (!isValidEmail(email))
+      nextErrors.email = "Enter a valid email address.";
+
+    if (!values.password) nextErrors.password = "Enter your password.";
+    else if (!isValidPassword(values.password))
+      nextErrors.password = "Your password must be at least 6 characters.";
+
+    return nextErrors;
+  }
+
+  function changeValue(event) {
+    const { name, value } = event.target;
+    setValues((current) => ({ ...current, [name]: value }));
+    setErrors((current) => ({ ...current, [name]: undefined }));
+    setFormError("");
+  }
+
+  async function submit(event) {
+    event.preventDefault();
+    if (submitting) return;
+
+    const nextErrors = validate();
+    setErrors(nextErrors);
+    setFormError("");
+    const firstInvalid = Object.keys(nextErrors)[0];
+    if (firstInvalid) {
+      document.getElementById(`login-${firstInvalid}`)?.focus();
+      return;
+    }
+
+    setSubmitting(true);
+    try {
+      const user = await loginRequest(
+        values.email.trim().toLowerCase(),
+        values.password,
+      );
+      login(user);
+
+      const from = location.state?.from;
+      if (from?.pathname) {
+        navigate(
+          { pathname: from.pathname, search: from.search, hash: from.hash },
+          { replace: true },
+        );
+      } else {
+        navigate(user.role === "admin" ? "/admin" : "/", { replace: true });
+      }
+    } catch (error) {
+      setFormError(
+        error.message === "Invalid email or password"
+          ? "Invalid email or password. Check both fields and try again."
+          : "We couldn’t sign you in. Check your connection and try again.",
+      );
+    } finally {
+      setSubmitting(false);
+    }
+  }
+
+  return (
+    <main id="main">
+      <section
+        className="page-head login-head"
+        style={{ "--photo": `url(${sitePhoto.hero[3]})` }}
+      >
+        <div className="container">
+          <p className="tag">A place at the table</p>
+          <h1>Welcome back</h1>
+          <p className="lead">Sign in to pick up where you left off.</p>
+        </div>
+      </section>
+      <section className="sec login-section">
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-lg-5 d-none d-lg-flex">
+              <aside className="login-aside">
+                <span className="login-aside-mark" aria-hidden="true">
+                  ✳
+                </span>
+                <p className="tag">Good food, good company</p>
+                <h2>Make room for something memorable.</h2>
+                <p className="muted">
+                  Sign in to manage your orders and plan your next visit.
+                </p>
+              </aside>
+            </div>
+            <div className="col-md-8 col-lg-5">
+              <div className="form-card login-card">
+                <p className="login-card-kicker">Your account</p>
+                <h2 className="sm mb-4">Sign in</h2>
+                <form onSubmit={submit} noValidate>
+                  <div className="d-grid gap-3">
+                    <FormInput
+                      id="login-email"
+                      label="Email"
+                      name="email"
+                      type="email"
+                      value={values.email}
+                      onChange={changeValue}
+                      error={errors.email}
+                      autoComplete="email"
+                      inputMode="email"
+                    />
+                    <FormInput
+                      id="login-password"
+                      label="Password"
+                      name="password"
+                      type="password"
+                      value={values.password}
+                      onChange={changeValue}
+                      error={errors.password}
+                      autoComplete="current-password"
+                      minLength={6}
+                    />
+                  </div>
+                  <div className="form-foot">
+                    <button
+                      type="submit"
+                      className="btn-solid"
+                      disabled={submitting}
+                    >
+                      {submitting ? "Signing in…" : "Sign In"}
+                    </button>
+                    <p className="mb-0">
+                      New here? <Link to="/register">Create an account</Link>
+                    </p>
+                  </div>
+                  {formError && (
+                    <p className="form-error" role="alert">
+                      {formError}
+                    </p>
+                  )}
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
 }
-// ---- PLACEHOLDER (to here) ---------------------------------------------
